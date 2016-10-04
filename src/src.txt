@@ -1,0 +1,48 @@
+src.txt 0.0.0                        UTF-8                    dh:2016-10-04
+
+                 <https://github.com/orcmid/Adv10>/src/src.txt
+
+                          ADV10 COMMON SOURCE CODE
+                          ========================
+
+    This is the common source for ShowDefs.  These files are used across
+    multiple compile and test cases.
+
+MANIFEST
+
+    src.txt
+        This description file on the construction and organization of
+        the material.
+
+    adv10.c
+        The main source-code file for Adv10.
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                       Copyright 2016 Dennis E. Hamilton
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+TODO
+
+ * Provide more history and tie into the nfoWare materials.
+ 
+ * Move material that does not have to be in adv10.c here, especially 
+   general TODO material and other narratives.  There will still be 
+   considerable narrative in the source code.
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ 0.0.0 2016-10-04-13:35 Initial Placeholder as part of folder setup.
+
+                           *** end of src.txt ***
