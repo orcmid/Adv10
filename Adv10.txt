@@ -1,4 +1,4 @@
-Adv10.txt 0.02                        UTF-8                     dh:2014-02-28
+Adv10.txt 0.0.3                        UTF-8                    dh:2016-10-04
 
                               ADVENTURE VERSION 1.0
                               =====================
@@ -15,12 +15,14 @@ Adv10.txt 0.02                        UTF-8                     dh:2014-02-28
        line to 3D animated versions.
 
 TODO:
+  * Update .gitignore to handle more cases.
   * Add deployment-oriented organization that will be used in releasing beta
     and later versions of the Adv10 transposition.
-  * Confirm compile VS 2013 Express solution works from the repro without
-    fussing about much.  Will structure later.
+  * Confirm compile VS 2015 Community from the repro without fussing about
+    much.  Will structure later.
   * Provide access to the web folios for Adv10 and the Cavern project.
   * Add material on license and notices.
+  * Add GitHub Readme when I am ready.
   * Add further attribution information about derivation of this project's
     code from advent.w, explaining the value of that for study and also
     how this code relates to but is no substitute for advent.w.
@@ -42,6 +44,9 @@ TODO:
   * Explain the licensing approach and handling of open-source code and any
     contributions to it.
 
+0.0.3 2016-10-04-11:14 Revive on GitHub as orcmid/Adv10
+      Switching to semantic versioning along with revival of this project
+      on GitHub.  Touch up to reflect the new location.
 0.02 2014-02-28-12:41 Further TODO Items
      I have received provisional approval from Don Knuth and Don Woods and
      will be proceding on that basis when producing the null implementation
