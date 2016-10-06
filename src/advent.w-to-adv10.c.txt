@@ -1,5 +1,7 @@
 % Copyright 1998 by Donald R Woods and Donald E Knuth
-% Don't change this file without the authors' permission!
+% Updated by Dennis E. Hamilton to reflect all Errata published at
+% <http://www-cs-faculty.stanford.edu/~knuth/fg.html> as of November 2013.
+% This is the file from which adv10.c is extracted.
 
 % If you have an old CWEB (version 3.42 or earlier), you will have to
 % change "longest_name" from 1000 to 10000 in both ctangle.w and cweave.w
@@ -21,7 +23,7 @@
 \def\kludge.05em{\aftergroup\kluj}
 \def\kluj\)\.#1{\.{\fxnl#1}}
 \def\newln{n\egroup\discretionary{\hbox{\tentex\BS}}{}{}\hbox\bgroup\ttmode}
-\def\ttmode{\tentex \let\\=\BS \let\{=\LB \let\}=\RB \let\~=\TL \let\ =\SP 
+\def\ttmode{\tentex \let\\=\BS \let\{=\LB \let\}=\RB \let\~=\TL \let\ =\SP
   \let\_=\UL \let\&=\AM \let\^=\CF \let\\=\fixnewline}
 \def\.#1{\leavevmode\hbox{\ttmode#1\kern.05em}}
 \def\){{\tentex\kern-.05em}}
@@ -522,7 +524,7 @@ is not particularly rewarding.  Anyway,\n\
 nothing exciting happens.";
 new_word("throw",TOSS);@+
 new_word("toss",TOSS);
-default_msg[TOSS]="Peculiar.  Nothing unexpected happens.";
+default_msg[TOSS]=default_msg[drop]; /* 2012-08-14 */
 new_word("wake",WAKE);@+
 new_word("distu",WAKE);
 default_msg[WAKE]=default_msg[EAT];
@@ -956,7 +958,7 @@ leads into the depression.",@/
 make_inst(WOODS,0,forest);@+ditto(E);@+ditto(W);@+ditto(S);
 make_inst(HOUSE,0,road);
 make_inst(UPSTREAM,0,slit);@+ditto(GULLY);@+ditto(N);
-make_inst(ENTER,not(GRATE,0),inside);@+ditto(ENTER);@+ditto(IN);@+ditto(D);
+make_inst(ENTER,not(GRATE,0),inside);@+ditto(IN);@+ditto(D); /* 2011-03-13 */
 remark("You can't go through a locked steel grate!");
 grate_rmk=sayit;
 make_inst(ENTER,0,sayit);
@@ -969,7 +971,7 @@ make_loc(inside,@/  @q9@>
 "You are in a small chamber beneath a 3x3 steel grate to the surface.\n\
 A low crawl over cobbles leads inwards to the west.",@/
 "You're below the grate.",lighted);
-make_inst(OUT,not(GRATE,0),outside);@+ditto(OUT);@+ditto(U);
+make_inst(OUT,not(GRATE,0),outside);@+ditto(U); /* 2011-02-13 */
 make_inst(OUT,0,grate_rmk);
 make_inst(CRAWL,0,cobbles);@+ditto(COBBLES);@+ditto(IN);@+ditto(W);
 make_inst(PIT,0,spit);
@@ -2071,7 +2073,7 @@ make_loc(climb,@/  @q26@>
 "You clamber up the plant and scurry through the hole at the top.",0,0);
 make_inst(FORCE,0,narrow);
 @#
-make_loc(check,"",0,0);  @q31@>
+make_loc(check,0,0,0); /* 2012-08-14 */ @q31@>
 make_inst(FORCE,not(PLANT,2),upnout);
 make_inst(FORCE,0,didit);
 @#
@@ -2162,7 +2164,7 @@ location place[max_obj+1]; /* each object's current location */
 char *name[max_obj+1]; /* name of object for inventory listing */
 char *note[100]; /* descriptions of object properties */
 int offset[max_obj+1]; /* where notes for each object start */
-int holding; /* how many objects have |prop[t]<0|? */
+int holding; /* how many objects have |place[t]<0|? [2011-03-09] */
 int note_ptr=0; /* how many notes have we stored? */
 
 @ Here then is a simple subroutine to place an object at a given
@@ -2227,7 +2229,7 @@ boolean is_at_loc(t)
   base[t]=b;
   offset[t]=note_ptr;
   prop[t]=(is_treasure(t)? -1: 0);
-  drop(t,l);  
+  drop(t,l);
 }
 
 @d new_note(n) note[note_ptr++]=n
@@ -2346,7 +2348,8 @@ new_obj(GEYSER,0,GEYSER,view);
 new_note(0);
 new_obj(MESSAGE,0,MESSAGE,limbo);
 new_note("There is a message scrawled in the dust in a flowery script, reading:\n\
-\"This is not the maze where the pirate hides his treasure chest.\"");
+\"This is not the maze where the pirate leaves his treasure chest.\""); \
+\* 2012-08-14 *\
 new_obj(BEAR,0,BEAR,barr);
 new_note("There is a ferocious cave bear eying you from the far end of the room!");
 new_note("There is a gentle cave bear sitting placidly in one corner.");
@@ -2534,7 +2537,8 @@ of the program will exit in one of four ways:
 \item{$\bullet$} |goto try_move| with |mot| set to a desired motion.
 
 \item{$\bullet$} |goto transitive| with |verb| set to a desired action
-and |obj| set to the object of that motion.
+and |obj| set to the object of that action.
+% 2011-03-09
 
 \item{$\bullet$} |goto intransitive| with |verb| set to a desired action
 and |obj=NOTHING|; no object has been specified.
@@ -2575,7 +2579,7 @@ object obj; /* currently specified object, if any */
 object oldobj; /* former value of |obj| */
 wordtype command_type; /* type of word found in hash table */
 int turns; /* how many times we've read your commands */
-  
+
 @ The |try_motion| macro is often used to end a major cycle.
 
 @d try_motion(m) @+{@+mot=m;@+goto try_move;@+}
@@ -2700,7 +2704,7 @@ if (dark && !forced_move(loc)) {
     p=long_desc[loc];
 else p=short_desc[loc];
 if (toting(BEAR)) printf("You are being followed by a very large, tame bear.\n");
-printf("\n%s\n",p);
+if (p) printf("\n%s\n",p); /* 2012-08-14 */
 if (forced_move(loc)) goto try_move;
 @<Give optional \.{plugh} hint@>;
 if (!dark) @<Describe the objects at this location@>;
@@ -2770,7 +2774,7 @@ if (!toting(obj) && !is_at_loc(obj)) switch(obj) {
 word regardless of the verb.
 For example, you can get to the grate by
 saying `\.{wave}~\.{grate}' from the |road| or the |valley| (but curiously
-not from the |slit|). 
+not from the |slit|).
 
 @<If |GRATE| is actually a motion word, move to it@>=
 if (loc<min_lower_loc) switch(loc) {
@@ -2778,7 +2782,7 @@ if (loc<min_lower_loc) switch(loc) {
   case cobbles: case debris: case awk: case bird: case spit:
     try_motion(ENTRANCE);
   default: break;
-}  
+}
 
 @* Simple verbs. Let's get experience implementing the actions by
 dispensing with the easy cases first.
@@ -2844,7 +2848,7 @@ out of a possible %d.\n",score()-4,max_score);
  if (!yes("Do you indeed wish to quit now?",ok,ok)) continue;
  goto give_up;
 @#
-case QUIT:@+ if (!yes("Do you really wish to quit now?",ok,ok))
+case QUIT:@+ if (!yes("Do you really want to quit now?",ok,ok)) /* 2012-08-14 */
    continue;
 give_up: gave_up=true;@+goto quit;
 
@@ -2875,7 +2879,7 @@ case EAT:@+ switch (obj) {
    report("I think I just lost my appetite.");
   default: goto report_default;
 }
- 
+
 @ Waving to the shadowy figure has no effect; but you might
 wave a rod at the fissure. Blasting has no effect unless you've
 got dynamite, which is a neat trick! Rubbing yields only snide remarks.
@@ -2895,7 +2899,7 @@ case BLAST:@+ if (closed && prop[ROD2]>=0) {
  } else goto report_default;
 @#
 case RUB:@+ if (obj==LAMP) goto report_default;
- default_to(TOSS);
+ report("Peculiar.  Nothing unexpected happens."); /* 2012-08-14 */
 
 @ If asked to find an object that isn't visible, we give a caveat.
 
@@ -2914,10 +2918,10 @@ mirrors and hate being awakened.
 
 @<Handle cases of transitive...@>=
 case BREAK:@+ if (obj==VASE && prop[VASE]==0) {
-   if (toting(VASE)) drop(VASE,loc); /* crash */
    printf("You have taken the vase and hurled it delicately to the ground.\n");
-smash: prop[VASE]=2;@+ base[VASE]=VASE; /* it's no longer movable */
-   continue;
+smash: if (toting(VASE)) drop(VASE,loc); /* crash */
+   prop[VASE]=2;@+ base[VASE]=VASE;    continue;
+   /* it's no longer movable 2012-09-03 */
  } else if (obj!=MIRROR) goto report_default;
  if (closed) {
    printf("You strike the mirror a resounding blow, whereupon \
@@ -3016,8 +3020,8 @@ switch (obj) {
    report("The hinges are quite thoroughly rusted now and won't budge.");
   case OIL: prop[DOOR]=1;
    report("The oil has freed up the hinges so that the door will now open.");
- }    
-   
+ }
+
 @ You can fill the bottle only when it's empty and liquid is available.
 You can't fill the lamp with oil.
 
@@ -3300,7 +3304,7 @@ have no bird seed.");
    report("The snake has now devoured your bird.");
   case BEAR:@+ if (!here(FOOD)) {
      if (prop[BEAR]==0) break;
-     if (prop[BEAR]==3) change_to(EAT);
+     if (prop[BEAR]==3) verb=EAT;
      goto report_default;
    }
    destroy(FOOD);@+prop[BEAR]=1;
@@ -3320,8 +3324,7 @@ down considerably and even becomes rather friendly.");
 @<Handle cases of trans...@>=
 case OPEN: case CLOSE:@+
  switch(obj) {
-   case OYSTER: k=1;
-   case CLAM: @<Open/close clam/oyster@>;
+   case OYSTER: /* k=1; 2012-08-15 */ case CLAM: @<Open/close clam/oyster@>;
    case GRATE: case CHAIN:@+ if (!here(KEYS)) report("You have no keys!");
      @<Open/close grate/chain@>;
    case KEYS: report("You can't lock or unlock the keys.");
@@ -3508,7 +3511,7 @@ found: mot=q->mot;
 
 @ @<Additional local registers@>=
 register location l,ll;
-  
+
 @ @<Apologize for inability to backtrack@>=
 {
   printf("Sorry, but I no longer seem to remember how you got here.\n");
@@ -3889,7 +3892,7 @@ to the troll.
       if (here(i)) k=1;
     }
     if (k<0) @<Take booty and hide it in the chest@>@;
-    else if (tally==lost_treasures+1 && k==0 && pirate_not_spotted && 
+    else if (tally==lost_treasures+1 && k==0 && pirate_not_spotted &&
          prop[LAMP] && here(LAMP)) @<Let the pirate be spotted@>@;
     else if (odloc[0]!=dloc[0] && pct(20))
       printf("There are faint rustling noises from the darkness behind you.\n");
@@ -3913,7 +3916,7 @@ the gloom.\n");
  move_chest: move(CHEST,chest_loc);@+ move(MESSAGE,message_loc);
    }
   dloc[0]=odloc[0]=chest_loc;@+ dseen[0]=false;
-}  
+}
 
 @ @<Snatch all treasures that are snatchable here@>=
 for (i=min_treasure;i<=max_obj;i++) if (!too_easy(i)) {
@@ -4018,7 +4021,7 @@ closing soon.  All adventurers exit immediately through main office.\"\n");
 @ If you try to get out while the cave is closing, we assume that you panic;
 we give you a few additional turns to get frantic before we close.
 
-@<Panic at closing time@>=  
+@<Panic at closing time@>=
 {
   if (!panic) clock2=15,panic=true;
   printf("A mysterious recorded voice groans into life and announces:\n\
@@ -4078,7 +4081,7 @@ smoke). . . .    Then your eyes refocus; you look around and find...\n");
   bonus=10;
   stay_put;
 }
-  
+
 @ Once the cave has closed, we look for objects being toted with |prop<0|;
 their property value is changed to |-1-prop|. This means they won't be
 described until they've been picked up and put down, separate from their
@@ -4094,7 +4097,7 @@ if (closed) {
 @* Death and resurrection. Only the most persistent adventurers get to
 see the closing of the cave, because their lamp gives out first.
 For example, if you have lost the ability to find any treasures,
-|tally| will never go to zero. 
+|tally| will never go to zero.
 
 @<Zap the lamp if the remaining treasures are too elusive@>=
 if (tally==lost_treasures && tally>0 && limit>35) limit=35;
@@ -4139,7 +4142,7 @@ the batteries.\n");
   limit=2500; @q old program had limit+=2500; this seems more realistic @>
 }
 
-@ @<Extinguish the lamp@>=  
+@ @<Extinguish the lamp@>=
 {
   limit=-1;@+prop[LAMP]=0;
   if (here(LAMP)) printf("Your lamp has run out of power.");
@@ -4283,7 +4286,7 @@ void offer(j)
     hinted[j]=yes("Do you want the hint?",hint[j],ok);
   }@+else hinted[j]=yes(hint_prompt[j],hint[j],ok);
   if (hinted[j] && limit>30) limit+=30*hint_cost[j];
-}  
+}
 
 @ @<Check if a hint applies, and give it if requested@>=
 for (j=2,k=cave_hint;j<=7;j++,k+=k) if (!hinted[j]) {
