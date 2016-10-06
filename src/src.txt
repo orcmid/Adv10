@@ -1,11 +1,11 @@
-src.txt 0.0.0                        UTF-8                    dh:2016-10-04
+src.txt 0.0.1                        UTF-8                    dh:2016-10-06
 
                  <https://github.com/orcmid/Adv10>/src/src.txt
 
                           ADV10 COMMON SOURCE CODE
                           ========================
 
-    This is the common source for ShowDefs.  These files are used across
+    This is the common source for Adv10.  These files are used across
     multiple compile and test cases.
 
 MANIFEST
@@ -15,7 +15,14 @@ MANIFEST
         the material.
 
     adv10.c
-        The main source-code file for Adv10.
+        The main source-code file for Adv10, initially a single C Language
+        program derived by manually tangling advent.w with annotations.
+        
+    advent.w-to-adv10.c.txt
+        This is a version of advent.w that is progressively scavenged to
+        make expanded versions of adv10.c until there is a full working,
+        compilable Clean C version.  As scavenging occurs, this file
+        shrinks accordingly.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -37,12 +44,25 @@ TODO
 
  * Provide more history and tie into the nfoWare materials.
  
- * Move material that does not have to be in adv10.c here, especially 
-   general TODO material and other narratives.  There will still be 
-   considerable narrative in the source code.
+ * Move material that does not have to be in adv10.c here instead of
+   in-line in the adv10.c source.  Include general TDDO materials and
+   other narratives.  There will still be  considerable narrative in the source code.
+   
+ * Annotate advent.w-to-adv10.c.txt to show the actual section titles in
+   "Selected Papers on Fun & Games" Chapter 27, Adventure.
+   
+ * Annotate advent.w-to-adv10.c.txt to show the headings used in adv10.c
+   when the corresponding content is transposed there from advent.w.
+   
+ * Change refeerences to portions of "Selected Papers on Fun & Games" to be
+   [fd27.n].  Since we need a way to cross-reference back to the code, we
+   need something that is easily searcheable and/or found by navigation.  
+   Figure something out.
+   
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.1 2016-10-06-13:43 Reflect introduction of advent.w-to-adv10.c.txt
  0.0.0 2016-10-04-13:35 Initial Placeholder as part of folder setup.
 
                            *** end of src.txt ***
