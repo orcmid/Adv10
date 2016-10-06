@@ -1,3 +1,5 @@
+% NOT A COMPLETE FILE.  THIS FILE IS BEING GUTTED FOR ITS C CODE.
+% I SHOULD GET THIS UNDER VSS SO I CAN RECOVER FROM SCREW-UPS
 % Copyright 1998 by Donald R Woods and Donald E Knuth
 % Updated by Dennis E. Hamilton to reflect all Errata published at
 % <http://www-cs-faculty.stanford.edu/~knuth/fg.html> as of November 2013.
@@ -87,50 +89,11 @@ read any other programs that simulate multistate systems.)
 
 \smallskip\rightline{--- Don Knuth, September 1998}
 
-@c@=/* Copyright (C) 1998 by Don Woods and Don Knuth; all rights reserved */@>
+% 2. To run the program ... REMIXED
 
-@ To run the program with, say, a {\mc UNIX} shell, just type `\.{advent}'
-and follow instructions. (Many {\mc UNIX} systems come with an
-almost identical program called `\.{adventure}' already built in;
-you might want to try it too, for comparison.)
+% 3. Macros for subroutine ... REMIXED
 
-@p
-#include <stdio.h> /* basic input/output routines: |fgets|, |printf| */
-#include <ctype.h> /* |isspace|, |tolower|, and |toupper| routines */
-#include <string.h> /* |strncmp| and |strcpy| to compare and copy strings */
-#include <time.h> /* current |time|, used as random number seed */
-#include <stdlib.h> /* |exit| */
-@<Macros for subroutine prototypes@>@;
-@#
-typedef enum{@!false,@!true}boolean;
-@<Type definitions@>@;
-@<Global variables@>@;
-@<Subroutines@>@;
-@#
-main()
-{
-  register int j,k;
-  register char *p;
-  @<Additional local registers@>;
-  @<Initialize all tables@>;
-  @<Simulate an adventure, going to |quit| when finished@>;
-  @<Deal with death and resurrection@>;
-quit: @<Print the score and say adieu@>;
-  exit(0);
-}
 
-@ The subroutines of this program are declared first with a prototype,
-as in {\mc ANSI C}, then with an old-style \CEE/ function definition.
-The following preprocessor commands make this work correctly with both
-new-style and old-style compilers.
-@^prototypes for functions@>
-
-@<Macros for subroutine prototypes@>=
-#ifdef __STDC__
-#define ARGS(list) list
-#else
-#define ARGS(list) ()
-#endif
 
 @* The vocabulary. Throughout the remainder of this documentation, ``you'' are
 the user and ``we'' are the game author and the computer. We don't tell you
