@@ -1,4 +1,4 @@
-/* adv10.c 0.0.3                      UTF-8                     dh:2016-10-04
+/* adv10.c 0.0.4                      UTF-8                     dh:2016-10-08
  *
  *                           ADVENTURE VERSION 1.0
  *                           =====================
@@ -40,8 +40,8 @@
  *    in the literate form.
  */
 
-/*   1. INTRODUCTION
-     ---------------
+/*   INTRODUCTION [fg:27.1]
+     ======================
      This program presents the original 350-point Collosal Cave Adventure,
      as devised by Will Crowther and extended by Don Woods in 1977.  The
      FORTRAN version was converted to C Language and recast as a Literate
@@ -49,15 +49,18 @@
        TODO:
          * Say more about organization and connection to the WEB version.
          * Explain the identification of sections and cross-references.
+         * Include abbreviated connection with [fg:27.1] text.
      */
 
-/*   2. THE PROGRAM
-     --------------
+/*   THE PROGRAM [fg:27.2]
+     =====================
      This program compiles to a single executable, adv10 (adv10.exe on
      Microsoft Windows).  When it is placed in a location where it can
      be operated by console command, just enter the name, 'adv10'.
         TO DO: Explain where instructions for compiling the program
                are found.
+        TO DO: Explain where instructions for deployment and for
+               operation of the program can also be found.
      */
 
 #include <stdio.h>      /* basic input/output routines: fgets, printf */
@@ -72,8 +75,8 @@
 #include <time.h>       /* current time, used as random number seed */
 #include <stdlib.h>     /* exit */
 
-/*   3. MACROS FOR SUBROUTINE PROTOTYPES
-     -----------------------------------
+/*   MACROS FOR SUBROUTINE PROTOTYPES [fg:27.3]
+     ==========================================
      In the code, subroutines are declared first with a prototype,
      and then with an old-style C function definition.  This is used
      to compile properly with STD C compilers and with older compilers.
@@ -95,11 +98,9 @@
      /* @^prototypes for functions@>
         XXX: I am not clear why this is present in the web file ahead of
              the conditional ARGS() definition.  It remains to be seen
-             what's up and whether this is a gathering point.
+             what's up and whether this is a gathering point.  I may
+             have simply misplaced it in my initial transpositions.
         */
-
-
-
 
 
 /*   5. TYPE DEFINITIONS
@@ -185,7 +186,9 @@ main()
 
 
 
-/* 0.0.3 2016-10-04-08:38 Convert to semantic-versioning structure and
+/* 0.0.4 2016-10-08-12:50 Adjust the use of titles and add cross=references
+         to the [fg:27] portions that tie to [fg] and advent.w.
+   0.0.3 2016-10-04-08:38 Convert to semantic-versioning structure and
          start touching things up some more.  Put more motivation in 
          here or somewhere.  Also, figure out where development is
          actually happening so I don't mess up version control.
