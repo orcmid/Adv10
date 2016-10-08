@@ -73,7 +73,7 @@ TODO
     unknown parameters, which is what "-?" will also always produce.
   * Tuck the permission mails and other hard copy materials into a paper
     file folder.
-  * Create an embargoed web-site folder for preserving copies of the source
+  * Create a sequestered web-site folder for preserving copies of the source
     materials that I am basing this project on.
   * Deal with dependencies and the intermediate use of libraries under Adv10.
   * Cover toolcraft and the intention of relying exclusively on freely-
