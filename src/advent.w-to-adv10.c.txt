@@ -1,18 +1,62 @@
-% NOT A COMPLETE FILE.  THIS FILE IS BEING GUTTED FOR ITS C CODE.
-% I SHOULD GET THIS UNDER VSS SO I CAN RECOVER FROM SCREW-UPS
-% Copyright 1998 by Donald R Woods and Donald E Knuth
-% Updated by Dennis E. Hamilton to reflect all Errata published at
-% <http://www-cs-faculty.stanford.edu/~knuth/fg.html> as of November 2013.
-% This is the file from which adv10.c is extracted.
+%* advent.w-to-adv10.c.txt 0.0.3     UTF-8                     dh:2016-10-08
 
-% If you have an old CWEB (version 3.42 or earlier), you will have to
-% change "longest_name" from 1000 to 10000 in both ctangle.w and cweave.w
-% and reinstall them. Otherwise you get error messages "string too long".
+% Copyright 1998 by Donald R Woods and Donald E Knuth
+% Don't change this file without the author's permission!
+
+%* Production of Adv10 by derivation from advent.w by permission of the 
+%* authors.  This is not an useable advent.w substitute.  It's being used to
+$* to scavenge, cross-check, and verify the extraction of the C Language code.
+
+%* Updated to reflect all Errata published at
+%* <http://www-cs-faculty.stanford.edu/~knuth/fg.html> as of November 2013.
+%*
+
+%*                     ADVENT.W BONE YARD FOR ADV10.C
+%*                     ==============================
+%*
+%*    This file is a modified copy of advent.w, the Literate Programming
+%*    source code for the Original Colossal Cave Adventure being transposed
+%*    to Adv10, a Clean C version.
+%*
+%*    This is meant to be creative destruction.  Code that is transposed
+%*    into adv10.c is removed from here.  Extraneous material that is not
+$*    reflected anywhere in the Adv10 artifacts is deleted.
+%*
+%*    This is an ugly process, doing damage to the Literate Programming
+%*    approach.  At the same time, the Literate Programming is being relied
+%*    upon in order to establish the fidelity of the Adv10 artifacts to
+%*    the performance and structure of the Literate Programming version.
+%*    When scavenging of code into adv10.c is complete and verified, that
+%*    that will result in Adv10 1.0.0.
+%*
+%*    With Adv10 1.0.0, work can begin on the work for which this found-
+%*    object text adventure was chosen.  That involves evolution of the
+%*    program into different versions, on different software technologies
+%*    and platforms that go far beyond the simple alphanumeric terminal
+%*    form of the original, while remaining the same game.  
+%*
+%*    To accomplish that, the Literate Programming approach has been 
+%*    sacrificed.  One aspect of that is to consider what alternatives 
+%*    in contemporary open-source development practice can make amends 
+%*    for that ruthless act.
+%*
+%* NOTATIONS
+%*
+%*       % identifies comment lines in the original advent.w file.
+%*      %* identifies comment lines introduced as part of the scavenging
+$*         activity.
 
 % This version (March 1999) corrects errors in the use of enum types
 % and also adds ANSI C prototype definitions.
 
+%* The 2016 transposition to adv10.c will change to use of the Clean C
+%* version of Standard C.  The use of enum types in advent.w is quite
+$* wonderful and we'll put a lot of attention on that. 
+
 % See http://www.rickadams.org/adventure/ for related info.
+
+%* *** <REMOVABLE> I don't think these matter, having to do with the
+%*     formatting of the TeX, not the code.
 
 % Here I redefine some macros of cwebmac for better formatting in this program.
 % (1) One-letter uppercase identifiers to be in typewriter type;
@@ -29,12 +73,21 @@
   \let\_=\UL \let\&=\AM \let\^=\CF \let\\=\fixnewline}
 \def\.#1{\leavevmode\hbox{\ttmode#1\kern.05em}}
 \def\){{\tentex\kern-.05em}}
+
+%* </REMOVABLE> ***
+
+%* *** <RESEARCH> I suspect these are typedefs or #DEFINEs.  Figure it out
+%*     from the code as we work through all of this.
 @s motion int
 @s action int
 @s object int
 @s not normal @q unreserve a C++ keyword @>
+%* </RESEARCH> ***
 
-\datethis
+%* *** [fg:27.1 INTRODUCTION => ==INTRODUCTION==] ***
+%* *** <REPLACE> Use something simpler that refers to sources but leaves
+%*     Don's narrative out, referencing it instead.
+
 @* Introduction. The ur-game for computers --- Adventure --- was originally
 written by Will Crowther in 1975 or 1976 and significantly extended by
 @^Crowther, William R.@>
@@ -79,6 +132,14 @@ All of the spelunking constraints and interactive behavior have
 been retained, although the structure of this \.{CWEB} program is
 naturally quite different from the {\mc FORTRAN} version that I began~with.
 
+%* </REPLACE> ***
+
+%* *** <REPLACE> with statement of fidelity.  
+%*     The comment about goto may not survive or it may end up being 
+%*     seriously reduced.  I don't know when guards and related structures
+%*     will be introduced instead.  We are in a situation where performanc
+%*     is not such an issue but code footprint does still matter.
+
 Many of the phrases in the following documentation have been lifted directly
 from comments in the {\mc FORTRAN} code. Please regard me as merely
 a translator of the program, not as an author. I thank Don Woods for
@@ -89,12 +150,20 @@ read any other programs that simulate multistate systems.)
 
 \smallskip\rightline{--- Don Knuth, September 1998}
 
-% 2. To run the program ... REMIXED
+%* </REPLACE> ***
 
-% 3. Macros for subroutine ... REMIXED
+%* *** [fg:27.2 To run the program ... => ===THE PROGRAM===]
+%* To run the program ... <TRANSPOSED/>
+
+%* *** [fg:27.3 The subroutines  => ===MACROS FOR SUBROUTINE PROTOTYPES ===]
+%* Macros for subroutine ... <TRANSPOSED/>
+%* Because we are going to use STD C, the ARGS macro is not going to be
+%* used.  We'll disappear that section when all ARGS and similar usages
+%* are eliminated.  We will also eliminate the need for forward reference
+%* provisions if at all possible.
 
 
-
+%* *** [fg:27.4 The vocabulary => ===THE VOCABULARY]
 @* The vocabulary. Throughout the remainder of this documentation, ``you'' are
 the user and ``we'' are the game author and the computer. We don't tell you
 what words to use, except indirectly; but we try to understand enough words of
@@ -107,6 +176,15 @@ that, and we look for your word in a small hash table. Each hash table entry
 contains a string of length 5~or~less, and two additional bytes for the word's
 type and meaning. Four types of words are distinguished: |motion_type|,
 |object_type|, |action_type|, and |message_type|.
+
+%* *** BIG ISSUE.  THERE ARE SOME TYPE DEFINITIONS THAT GO CLOSELY WITH
+%*     CLUSTERS OF SUBROUTINES (C LANGUAGE FUNCTIONS).  THERE WOULD BE
+%*     SOME ENCAPSULATION LATER.  ALSO, THE USE OF GLOBAL VARIABLES WOULD
+%*     BE REDUCED.  SO SEPARATION INTO THE THREE CATEGORIES MIGHT NOT
+%*     WORK SO WELL.  
+
+%* ****************** STOPPING HERE 2016-10-08-12:33 *********************
+%* ***********************************************************************
 
 @s wordtype int
 
@@ -4396,5 +4474,19 @@ to reveal a tall wizard, clothed in grey. He fixes you with a steely glare and
 declares, ``This adventure has lasted too long.'' With that he makes a single
 pass over you with his hands, and everything around you fades away into a grey
 nothingness.
+
+%*  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+%* 0.0.3 2016-10-08-12:46 Match up down to [fg 27.4 Vocabulary]
+%*       There is cross-structuring and annotation down to the point where
+%*       the vocabulary types and functions are introduced.  Markup and
+%*       comment format are introduced for cross-referencing between [fg],
+%*       advent.w, and adv10.c
+%* 0.0.2 2014-02-05 Make initial, experimental transpositions to have a 
+%*       minimal compilable unit.
+%* 0.0.1 2014-02-05 Apply 2013 Errata to advent.w
+%* 0.0.0 2010-01-26 Advent.w original as downloaded from Knuth site.
+%* 
+%*            ***  end of advent-w-to-adv10c.txt ***
 
 
