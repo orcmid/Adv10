@@ -1,0 +1,61 @@
+dev.txt 0.0.0                        UTF-8                    dh:2016-10-15
+
+               <https://github.com/orcmid/Adv10>/dev/dev.txt>
+
+                      ADV10 DEVELOPER CONSTRUCTION SETS
+                      =================================
+
+    Developer construction sets are platform-specific structures for 
+    compiling and exercising the Adv10 software.  
+    
+    In this approach, the code is always compilable and executable as
+    we work through the 0.*.* semantic versions.  There should always be
+    tests as well.  When there are version releases, the construction set
+    will build the developer version of that release.
+    
+    It is intended that developer versions do not provide branding of any
+    kind.  That also means deployment does not include the essential steps
+    for branding and delivery via app stores and other means for authenti-
+    cated end-user versions.  
+    
+    The purpose of this division is to avoid counterfeiting and creation of
+    imposter versions of software intended for casual users.
+    
+    
+MANIFEST
+
+    dev.txt
+        This description file on organization of the archive and use of its
+        materials.
+        
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                       Copyright 2016 Dennis E. Hamilton
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+TODO
+
+ * Provide more description and explain developer construction as unbranded
+   and only for developer purposes
+ 
+ * Work up the Visual C++ console compilation case
+ 
+ * Get to the first level of clean compilation for an executable null 
+   implementation, and work a form of test-driven spiral development.
+   
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ 0.0.0 2016-10-15-13:12 Initial Placeholder as part of folder setup.
+
+                           *** end of dev.txt ***        
