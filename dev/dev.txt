@@ -1,4 +1,4 @@
-dev.txt 0.0.0                        UTF-8                    dh:2016-10-15
+dev.txt 0.0.1                        UTF-8                    dh:2016-10-22
 
                <https://github.com/orcmid/Adv10>/dev/dev.txt>
 
@@ -19,7 +19,9 @@ dev.txt 0.0.0                        UTF-8                    dh:2016-10-15
     cated end-user versions.  
     
     The purpose of this division is to avoid counterfeiting and creation of
-    imposter versions of software intended for casual users.
+    imposter versions of software intended for casual users.  Each provider
+    of authenticated and verificable deployments must provide their own
+    secure authentication along with any appropriate branding.
     
     
 MANIFEST
@@ -27,6 +29,11 @@ MANIFEST
     dev.txt
         This description file on organization of the archive and use of its
         materials.
+        
+    WinCon/
+        Construction set for Windows Console version of Adv10.  Construction
+        employs freely-available Microsoft development tools for construction
+        on the Microsoft Windows PC platform.
         
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -46,16 +53,21 @@ MANIFEST
 
 TODO
 
- * Provide more description and explain developer construction as unbranded
-   and only for developer purposes
+ * Work up the Visual C++ console compilation case, WinCon
  
- * Work up the Visual C++ console compilation case
+ * Add something about finding how to build particular construction sets.
+   It can be appropriate pointers.
+ 
+ * Add something about developing/maintaining construction sets.
+   This can be by appropriate pointers.
  
  * Get to the first level of clean compilation for an executable null 
    implementation, and work a form of test-driven spiral development.
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.1 2016-10-22-11:12 Introduce the WinCon/ construction set.
+       The limitation to unbranded dev builds is also emphasized.
  0.0.0 2016-10-15-13:12 Initial Placeholder as part of folder setup.
 
                            *** end of dev.txt ***        
