@@ -1,9 +1,9 @@
-WinCon.txt 0.0.0                      UTF-8                    dh:2016-10-22
+WinCon.txt 0.0.1                      UTF-8                    dh:2016-10-23
 
               <https://github.com/orcmid/Adv10>/dev/dev.txt>
 
-                    ADV10 WINDOWS CONSOLE CONSTRUCTION SETS
-                    =======================================
+                    ADV10 WINDOWS CONSOLE CONSTRUCTION SET
+                    ======================================
 
     This construction set employs Microsoft Windows tools to construct
     a command-line console version of Adv10.  This form of the software
@@ -13,9 +13,21 @@ WinCon.txt 0.0.0                      UTF-8                    dh:2016-10-22
    
 MANIFEST
 
+    .gitignore
+        Ignoring folders that are created only for construction activity
+        and not intended as part of the maintained source tree.  This
+        prevents local customizations of working material from infecting
+        the public shared source-code tree.
+
     WinCon.txt
         This description file on organization of the construction set
         and use of its materials.
+        
+    VCBinder/
+        Provisional location of code for development of the redistributable
+        VCBind.zip file that will be used in the Adv10 source distribution.
+        This folder is to be removed when an external source for VCBind.zip
+        is established.
         
        
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -35,6 +47,10 @@ MANIFEST
     limitations under the License.
 
 TODO
+
+ * Adapt the ShowDefs VC.txt 0.03 introduction for WinCon.
+ 
+ * Scavenge other parts of VCbind from ShowDefs too.
 
  * Work up the Visual C++ console compilation case.
  
@@ -62,6 +78,8 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.1 2016-10-23-11:17 Add VCbinder/ for introduction of VCBind.zip
+       as a companion development under Adv10.
  0.0.0 2016-10-22-11:32 Initial Placeholder for WinCon construction set.
 
                            *** end of WinCon.txt ***        

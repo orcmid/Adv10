@@ -1,0 +1,126 @@
+VCbinder.txt 0.0.2                   UTF-8                    dh:2016-10-23
+
+     <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/VCbinder.txt>
+
+          CREATE VCBIND FOR VISUAL C/C++ COMMAND-LINE DEVELOPMENT
+          =======================================================
+          
+                   PROVISIONAL DEVELOPMENT SOURCE CODE
+                   -----------------------------------
+
+            VCbinder/ is the source tree for development and derivation
+            of VCbind.zip versions.  Provisional inclusion as part of the
+            Adv10 source tree is for proof-of-concept, demonstration, and
+            hardening purposes.  
+            
+            Technically, this is an independent project.  It is not
+            specific to Adv10.  
+        
+            VCbinder will eventually be relocated to a  separate source-
+            code project for reusable utilities that are valuabie in a
+            variety of development projects that include command-line
+            construction sets that employ Microsoft development tools. At
+            that point, VCbind.zip packages will provide a link to that 
+            maintained source for additional information and the latest
+            version.
+                  
+          
+    VCbind.zip is a drop-in package that can be redistributed as part of
+    a source-code construction set.  Extracting VCbind.zip provides
+    a folder and helper script, VCbind.bat.  Running the script
+    adjusts a Windows console session for command-line operation of
+    the Microsoft Visual C compiler and related Microsoft development
+    tools.  
+    
+    The extracted script allows console session-development without
+    depending on the Visual Studio (or any other) Integrated Development
+    Environment (IDE), even though the tools are commonly installed as
+    part of freely-available versions of Visual Studio.
+    
+
+MANIFEST
+
+    VCbinder.txt
+        This description file on organization of VCbind.zip and use of its
+        materials.
+
+
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                       Copyright 2014 Dennis E. Hamilton
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+TODO
+
+ * Scavenge VC.txt 0.03 from ShowDefs/VC for anything useful here.
+
+ * Figure out how to separate test running of VCBind under here is 
+   separated or not from the maintained source.  Maybe not?  So the
+   VCBind subfolder here is the source for VCBind.exe and reverting it
+   depends on re-extraction?
+   
+ * Adapt the ShowDefs experimental versions to the VCBinder structure as
+   the development source for VCBind.zip redistributables.
+
+ * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
+   shells and possibly CYGWIN.  It is desirable that these batch scripts work
+   from underneath all of those shells.
+
+ * Add prerequisites, with links to more on satisfying the prerequisites.
+
+ * There needs to be a location (nfoWare, likely) where illustrated use 
+   is provided, and the latest version can be obtained independent of the
+   project that redistributes a VCbind.zip.
+
+ * Create VCbind.zip for use in Adv10.
+
+ * Create VCbind.bat in a way that is usable from sibling folders.  This must
+   cope with the absence of a full path for the location of the source tree
+   that contains a VCbind-using construction set.
+   
+ * There seems to be no reason to include the development source in the
+   VCbind.zip itself.  
+   
+ * Because it is usable as a separate redistributable, VCbind.zip needs to
+   include a LICENSE and NOTICE file of its own.
+   
+ * VCbind.zip needs to provide information on how to deploy VCbind.zip for
+   anyone to incorporate it.  This might link to the maintained source, and
+   it should also be complete enough for free-standing redistribution.
+   
+ * Where the modification of VCbind.zip and its scripts is described is not
+   clear.  If there is a VCbind/ folder here, it should include whatever
+   goes into the VCbind.zip.  
+   
+ * Companion material that should be redistributable at the level of 
+   VCBind.zip needs packaging (VCBinder.zip?).  This should not put us in
+   a meta-recursion problem.  One thing that must be added by the user is
+   any .gitignore for VCBind/ or the equivalent, depending on how they
+   want this to work properly and to keep the source code intact.
+   
+ * VCBind.zip needs to include maintenance instructions.
+   
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ 0.0.2 2016-10-23-11:15 Placeholder for provisional VCBind development.
+       Move from ShowDefs and setup for source separate from the tree
+       that VCbind.zip extracts.
+ 0.01 2014-12-25-20:44 Use provisional VCbind.bat script for testing and
+      establishment of a more-resilient version.
+ 0.00 2014-12-19-10:08 Placeholcer for the C/C++ for VC Command-Line Compiles
+
+
+                       *** end of VCbinder.txt *** 
