@@ -13,7 +13,7 @@ dev.txt 0.0.1                        UTF-8                    dh:2016-10-22
     tests as well.  When there are version releases, the construction set
     will build the developer version of that release.
     
-    It is intended that developer versions do not provide branding of any
+    It is intended that developer versions avoid provide branding of any
     kind.  That also means deployment does not include the essential steps
     for branding and delivery via app stores and other means for authenti-
     cated end-user versions.  
@@ -22,6 +22,13 @@ dev.txt 0.0.1                        UTF-8                    dh:2016-10-22
     imposter versions of software intended for casual users.  Each provider
     of authenticated and verificable deployments must provide their own
     secure authentication along with any appropriate branding.
+    
+    The main thrust is development on and for the Microsoft Windows platform.
+    Other platforms and construction cases will be entertained. The primary
+    effort for Windows is addressed to the largest international community
+    of users and (potential) developers.  This is for practical purposes as
+    well as a means of exploiting and demonstrating the rich support for
+    high-functioning applications.
     
     
 MANIFEST
@@ -66,6 +73,7 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.2 2016-10-24-08:02 Light editing, motivation for Windows emphasis.
  0.0.1 2016-10-22-11:12 Introduce the WinCon/ construction set.
        The limitation to unbranded dev builds is also emphasized.
  0.0.0 2016-10-15-13:12 Initial Placeholder as part of folder setup.

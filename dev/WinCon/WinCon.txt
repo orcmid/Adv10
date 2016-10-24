@@ -1,4 +1,4 @@
-WinCon.txt 0.0.2                      UTF-8                    dh:2016-10-23
+WinCon.txt 0.0.3                      UTF-8                    dh:2016-10-24
 
               <https://github.com/orcmid/Adv10>/dev/dev.txt>
 
@@ -10,6 +10,26 @@ WinCon.txt 0.0.2                      UTF-8                    dh:2016-10-23
     is the closest to the original Collosal Cave Adventure when it 
     ran as a terminal application.
     
+PREREQUISITES
+
+    [TBD]
+    
+DEPENDENCIES
+
+    [TBD]
+    
+BUILDING AND RUNNING THE WINCON ADV10
+
+    [TBD]
+
+DEPLOYING AND OPERATING THE WINCON ADV10
+
+    [TBD]
+    
+WORKING ON THE WINCON ADV10 SOURCE CODE
+
+    [TBD]
+    
    
 MANIFEST
 
@@ -17,18 +37,17 @@ MANIFEST
         Ignoring folders that are created only for construction activity
         and not intended as part of the maintained source tree.  This
         prevents local customizations of working material from infecting
-        the public shared source-code tree.
+        the shared public source-code tree.
 
     WinCon.txt
         This description file on organization of the construction set
         and use of its materials.
         
-    VCBinder/
+    VCbinder/
         Provisional location of code for development of the redistributable
-        VCBind.zip file that will be used in the Adv10 source distribution.
-        This folder is to be removed when an external source for VCBind.zip
-        is established.
-        
+        VCbind.zip and VCbinder.zip construction-set components.  These are
+        independent components that are convenient to develop and verify
+        in concert with the Adv10 WinCon use of them.  
        
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -47,13 +66,7 @@ MANIFEST
     limitations under the License.
 
 TODO
-
- * WAIT: Since I am in Git, how about making VCbinder a BRANCH that need not
-   be merged here?  Or put it at the top level of Adv10?  (No, not so great).
-   Well, not yet.  I need this where I can test it and keep working it along
-   with Adv10/dev/WinCom for now.  It's too bad cross-project sharing went
-   the way of Visual SourceSafe.
-   
+ 
  * A makefile project to update VCbind.zip would also be cool.
 
  * Adapt the ShowDefs VC.txt 0.03 introduction for WinCon.
@@ -86,6 +99,8 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.3 2016-10-24-08:29 Add Outline of Coverage
+       Reflect the current thinking about VCBinder and VCbind dependency
  0.0.2 2016-10-23-12:31 More TODOs about where to put VCBinder
  0.0.1 2016-10-23-11:17 Add VCbinder/ for introduction of VCBind.zip
        as a companion development under Adv10.
