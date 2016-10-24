@@ -81,6 +81,10 @@ TODO
  * Rework all of these items to reflect the move to VCbinder/ and the use
    of VCbinder/src/ for the construction process.
    
+ * RENAME THE SRC TO DEV.  The sub-sections are for the DEV steps in making
+   the distros.  That there are scripts and text and other artifacts is
+   on behalf of that.  See if that can work with Git and GitHub.
+   
  * It would be interesting to have a make process for making VCbinder.zip.
  
  * Scavenge VC.txt 0.03 from ShowDefs/VC for anything useful here.
@@ -138,6 +142,7 @@ TODO
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.4 2016-10-25-09:59 Consider renaming src/ to dev/ here.
  0.0.3 2016-10-24-09:38 Adjust for paired VCBinder.zip and VCbind.zip
        development subtrees.
  0.0.2 2016-10-23-11:15 Placeholder for provisional VCBind development.
