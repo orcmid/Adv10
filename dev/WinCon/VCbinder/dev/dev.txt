@@ -1,11 +1,11 @@
-src.txt 0.0.0                        UTF-8                    dh:2016-10-24
+dev.txt 0.0.1                        UTF-8                    dh:2016-10-24
 
-        <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/src/src.txt>
+        <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/dev/dev.txt>
 
                             VCBINDER SOURCE CODE
                             ====================
 
-    This folder provides the source files and the procedur for composing
+    This folder provides the files and the procedure for composing
     a VCbinder.zip release.
 
 MANIFEST
@@ -43,7 +43,7 @@ TODO
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-
+ 0.0.1 2016-10-24-10:10 Rename to dev.txt under VCbinder/dev/ now.
  0.0.0 2016-10-24-09:35 Initial Placeholder as part of folder setup.
 
-                           *** end of src.txt ***
+                           *** end of dev.txt ***
