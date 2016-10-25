@@ -1,6 +1,6 @@
 WinCon.txt 0.0.3                      UTF-8                    dh:2016-10-24
 
-              <https://github.com/orcmid/Adv10>/dev/dev.txt>
+           <https://github.com/orcmid/Adv10>/dev/WinCon/WinCon.txt>
 
                     ADV10 WINDOWS CONSOLE CONSTRUCTION SET
                     ======================================
