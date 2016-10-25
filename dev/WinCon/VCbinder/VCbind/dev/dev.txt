@@ -1,4 +1,4 @@
-dev.txt 0.0.0                        UTF-8                    dh:2016-10-24
+dev.txt 0.0.2                        UTF-8                    dh:2016-10-25
 
  <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/VCbind/dev/dev.txt>
 
@@ -10,15 +10,29 @@ dev.txt 0.0.0                        UTF-8                    dh:2016-10-24
 
 MANIFEST
 
+    .gitignore
+        excluding any dev/VCbind/ testing folder from the source-code
+        version control
+
     dev.txt
-        This file of the manifest and procedures for developing and
-        delivering VCbind.zip release versions.
+        this file of the manifest and procedures for developing and
+        delivering VCbind.zip release versions
         
-     LICENSE.txt
-         Apache License Version 2.0 included in VCbind.zip distribution
+    LICENSE.txt
+        Apache License Version 2.0 included in the VCbind.zip distribution
          
-     NOTICE.txt
-         Notice file applicable to the VCbind.zip distribution
+    NOTICE.txt
+        Notice file applicable to the VCbind.zip distribution
+         
+    VCbind.txt
+        manifest and description included in the VCbind.zip distribution
+         
+    VCbind.bat
+        script in VCbind.zip that provides the binding operation
+        
+    VCbind.zip
+        dev version of VCbind.zip archive for dropping into Windows command-
+        line construction sets.  
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -38,8 +52,6 @@ MANIFEST
 
 TODO
 
- * Expand the Manifest.
- 
  * Provide the construction procedure.
  
  * Add the VCbind.txt that will be the manifest and instructions included
@@ -47,10 +59,27 @@ TODO
    
  * Develop the VCbind.bat file that will be the one operated within the
    folder extracted from VCbind.zip
+   
+ * Incorporate Bind detection for VS2015 VC (Version 14.0)
+ 
+ * Incorproate Bind detection for VS2013 VC (Version 12.0)
+ 
+ * Incorporate Bind detection for VS2012 VC (Version 11.0)
+ 
+ * Incorporate Bind detection for VS2010 VC (Version 10.0)
+ 
+ * Incorporate Bind detection for VS2008 VC (Version 9.0)
+ 
+ * Determine the oldest Visual Studio that we want to support in general.
+   Applications of VCbind might determine their own limitations on the
+   variety.
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.2 2016-10-25-13:56 Introduce Initial files
+       Expand the manifest and provide existing files for morphing into 
+       a polished VCbind.zip set.
  0.0.1 2016-10-24-18:32 Add LICENSE.txt and NOTICE.txt in support of the
        independent redistribution VCbind code in VCbind.zip.
  0.0.0 2016-10-24-18:11 Initial Placeholder as part of VCbind/dev/ folder
