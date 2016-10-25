@@ -1,4 +1,4 @@
-VCbind.txt 0.00                       UTF-8                    dh:2016-10-24
+VCbind.txt 0.0.1                       UTF-8                    dh:2016-10-25
 
    <https://github.com/orcmid/Adv10>/dev/WinCon/VCBinder/VCbind/VCbind.txt>
 
@@ -30,12 +30,23 @@ MANIFEST
 
 TODO
 
-  [TBD]
+  * The only reason for this folder is to avoid a conflict with the 
+    VCbind.txt file that goes into VCbind.zip and a VCbind.txt file that
+    is part of the construction structure of a VCbind/ directory other
+    than the one created by extraction of VCbind.zip into a VCbind/ folder.
+    
+  * It seems this is easier to handle by bringing dev/ up one level with a
+    new name, like devBind.  (devBinder would be an appropriate companion
+    choice then.)
+    
+  * It would be handy to decrease the hierarchy in this manner, especially
+    since our main purpose is to deploy via VCbinder.zip.
   
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-
- 0.00 2016-10-24-09:49 Placeholcer for the C/C++ for VC Command-Line Compiles
-      construction-set component.
+ 0.0.1 2016-10-25-14:07 Add considerations for flattening-away this folder
+       level since it has no function.
+ 0.0.0 2016-10-24-09:49 Placeholcer for the C/C++ for VC Command-Line Compiles
+       construction-set component.
 
                        *** end of VCbind.txt ***
