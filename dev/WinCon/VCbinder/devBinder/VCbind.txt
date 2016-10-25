@@ -1,0 +1,77 @@
+VCbind.txt 0.01                       UTF-8                    dh:2014-12-25
+
+        <https://github.com/orcmid/ShowDefs>/VC/VCbind.zip/VCbind.txt
+
+               BINDINGS FOR VISUAL C/C++ COMMAND-LINE COMPILES
+               ===============================================
+
+    VCbind.zip contains Windows batch scripts for binding to the developer
+    environment used for compiling with the Visual Studio C/C++ command-
+    line compiler, cl.exe, and exercise of related Microsoft developer tools.
+
+    The scripts do not perform compilation.  They setup the command-line
+    environment so that the compiler and all related Microsoft tools can be
+    used.  This includes setting the command-line PATH for finding the
+    compiler and companion development tools.  Environment variables are
+    set up for use by the tools, including where to search for C/C++ #include
+    files and search for .lib files for linking into compiled code.
+
+
+MANIFEST
+
+    VCbind.txt
+        This description file on organization of the archive and use of its
+        materials.
+
+    VCbind.bat
+        Script that, when run, will locate Visual Studio settings and perform
+        an appropriate setup of the environment for operating with the latest
+        installed version of the Visual C++ compiler and accompanying tools.
+        Other scripts in ShowDefs\VC\ expect to find this script or a custom
+        version at VC\VCbind\VCbind.bat relative to their own location under
+        VC\.
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                       Copyright 2014 Dennis E. Hamilton
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+TODO
+
+ * Verify the structure with VS2013 and any other current VS installs.
+
+ * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
+   shells and possibly CYGWIN.  It is desirable that these batch scripts work
+   from underneath all of those shells.
+
+ * Add prerequisites, with links to more on satisfying the prerequisites.
+
+ * We need some images and related documentation here where it is common to
+   all of the cases in this folder.
+
+ * Create VCbind.zip
+
+ * Create VCbind.bat in a way that is usable from sibling folders.  This must
+   cope with the absence of a full path for the location of ShowDefs as a
+   working clone of the GitHub respository.
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ 0.01 2014-12-25-20:44 Use provisional VCbind.bat script for testing and
+      establishment of a more-resilient version.
+ 0.00 2014-12-19-10:08 Placeholcer for the C/C++ for VC Command-Line Compiles
+      Initiate structure for command-line compilations analogous to the VS2013
+      Projects.
+
+                            *** end of VC.txt ***

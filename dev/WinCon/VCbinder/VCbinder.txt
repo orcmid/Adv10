@@ -2,8 +2,8 @@ VCbinder.txt 0.0.3                   UTF-8                    dh:2016-10-24
 
      <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/VCbinder.txt>
 
-          CREATE VCBIND FOR VISUAL C/C++ COMMAND-LINE DEVELOPMENT
-          =======================================================
+          CREATE VCBINDER FOR VISUAL C/C++ COMMAND-LINE DEVELOPMENT
+          =========================================================
           
                    PROVISIONAL DEVELOPMENT SOURCE CODE
                    -----------------------------------
@@ -51,11 +51,11 @@ MANIFEST
         This description file on VCBinder/ code and the purpose of
         VCBinder.zip and the VCBind.zip it includes.
         
-    src/
+    devBinder/
         The source code and instructions for construction of VCbinder.zip
         releases.
         
-    VCbind/
+    devBind/
          The subproject for development of the VCbind.zip component 
          delivered by VCbinder.zip
 
@@ -78,13 +78,6 @@ MANIFEST
 
 TODO
 
- * Rework all of these items to reflect the move to VCbinder/ and the use
-   of VCbinder/src/ for the construction process.
-   
- * RENAME THE SRC TO DEV.  The sub-sections are for the DEV steps in making
-   the distros.  That there are scripts and text and other artifacts is
-   on behalf of that.  See if that can work with Git and GitHub.
-   
  * It would be interesting to have a make process for making VCbinder.zip.
  
  * Scavenge VC.txt 0.03 from ShowDefs/VC for anything useful here.
@@ -93,22 +86,18 @@ TODO
    with Adv10/dev/WinCom for now.  It's too bad cross-project sharing went
    the way of Visual SourceSafe. 
 
- * Figure out how to separate test running of VCbind under here as 
-   separated or not from the maintained source.  Maybe not?  So the
-   VCbind/ under here has the source for VCbind.zip, sort of one layer
-   of indirection below VCbinder/.  Hmm.
-   
  * Adapt the ShowDefs experimental versions to the VCBinder structure as
    the development source for VCBind.zip redistributables.
 
  * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
    shells and possibly CYGWIN.  It is desirable that these batch scripts work
-   from underneath all of those shells.
+   from underneath all of those shells.  Any usability with Linux on Windows
+   needs to be investigated.
 
  * Add prerequisites, with links to more on satisfying the prerequisites.
 
- * There needs to be a location (nfoWare, likely) where illustrated use 
-   is provided, and the latest version can be obtained independent of the
+ * There needs to be a location (nfoWare/devtools, likely) where illustrated
+   use is provided, and the latest version can be obtained independent of the
    project that redistributes a VCbind.zip.
 
  * Create VCbind.zip for use in Adv10.
@@ -118,18 +107,11 @@ TODO
    that contains a VCbind-using construction set.
    
  * There seems to be no reason to include the development source in the
-   VCbind.zip itself.  
-   
- * Because it is usable as a separate redistributable, VCbind.zip needs to
-   include a LICENSE and NOTICE file of its own.
-   
+   VCbind.zip itself.  Include information on location of the source code.
+    
  * VCbind.zip needs to provide information on how to deploy VCbind.zip for
    anyone to incorporate it.  This might link to the maintained source, and
    it should also be complete enough for free-standing redistribution.
-   
- * Where the modification of VCbind.zip and its scripts is described is not
-   clear.  If there is a VCbind/ folder here, it should include whatever
-   goes into the VCbind.zip.  
    
  * Companion material that should be redistributable at the level of 
    VCbind.zip is provided along with VCbind.zip in VCbinder.zip. One thing
@@ -138,10 +120,15 @@ TODO
    that uses a VCbind.
    
  * VCbinder.zip and VCbind.zip need to include maintenance instructions ?.
+ 
+ * The VCbinder/ needs a .gitignore for VCbinder/ beneath it, since that is
+   one place to create an extraction for testing and confirmation purposes.
    
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.5 2016-10-25-16:08 Switch to devBind and devBinder as the subordinate
+       folders.
  0.0.4 2016-10-25-09:59 Consider renaming src/ to dev/ here.
  0.0.3 2016-10-24-09:38 Adjust for paired VCBinder.zip and VCbind.zip
        development subtrees.
