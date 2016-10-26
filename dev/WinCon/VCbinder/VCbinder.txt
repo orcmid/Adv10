@@ -1,4 +1,4 @@
-VCbinder.txt 0.0.3                   UTF-8                    dh:2016-10-24
+VCbinder.txt 0.0.6                   UTF-8                    dh:2016-10-26
 
      <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/VCbinder.txt>
 
@@ -10,15 +10,14 @@ VCbinder.txt 0.0.3                   UTF-8                    dh:2016-10-24
 
             VCbinder/ is the source tree for development and derivation
             of VCBinder.zip versions.  VCBinder.zip delivers VCBind.zip and
-            collateral files that are usable as part of construction sets 
-            for development of C/C++ applications on and for Microsoft
+            collateral files that are usable as part of construction sets
+            in the source code of software projects.  The VCbinder elements
+            are for development of C/C++ applications on and for Microsoft
             Windows.
             
-            Provisional development as part of the Adv10 WinCon source code
-            is for proof-of-concept, demonstration, and hardening purposes. 
-            Adv10 WinCon is the incubator for what will become an independent
-            component.  It is not specific to Adv10.  It does not depend on
-            Adv10 in any manner.
+            VCbinder is not specific to Adv10.  VCbinder does not depend on
+            Adv10 in any manner.  Adv10 WinCon is the incubator for what will
+            become an independent VCbinder component.  
                  
             VCbinder/ will eventually be relocated to a  separate source-
             code project for reusable components that are valuabie in a
@@ -27,14 +26,15 @@ VCbinder.txt 0.0.3                   UTF-8                    dh:2016-10-24
                   
           
     VCbinder.zip is a package from which a development project can install
-    a VCbind.zip and a couple of collateral files.  The extraction is into
-    the source code for a construction set that employs a Windows console
-    session for building a Windows applications on Microsoft Windows.  It is
+    a VCbind.zip and a couple of collateral files.  The extraction is for
+    common elements of construction sets in the source code of software 
+    projects.  The VCbinder elements are useful in using Windows console
+    sessions for building a Windows applications on Microsoft Windows.  It is
     not necessary to redistribute VCbinder.zip although it may be convenient 
-    to do so.
+    to do so, as it is being done here.
     
     VCbind.zip, extracted from VCbinder.zip, is redistributed in the source
-    code of a construction set.  Extracting VCbind.zip provides a folder
+    code of the construction set.  Extracting VCbind.zip provides a folder
     and helper script, VCbind.bat.  Running VCbind.bat adjusts a Windows
     console session for command-line operation of the Microsoft Visual C 
     compiler and related Microsoft development tools.  
@@ -52,12 +52,12 @@ MANIFEST
         VCBinder.zip and the VCBind.zip it includes.
         
     devBinder/
-        The source code and instructions for construction of VCbinder.zip
-        releases.
+        The provisonal source code and instructions for construction of
+        VCbinder.zip releases.
         
     devBind/
-         The subproject for development of the VCbind.zip component 
-         delivered by VCbinder.zip
+         The provisional subproject for development of the VCbind.zip
+         component delivered by VCbinder.zip
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -123,10 +123,29 @@ TODO
  
  * The VCbinder/ needs a .gitignore for VCbinder/ beneath it, since that is
    one place to create an extraction for testing and confirmation purposes.
+   It is also an appropriate place to use in deploying the VCbinder elements
+   up into the WinCon folder.
+   
+ * Make this folder into an integration point  that is used when VCbinder 
+   becomes an externally-maintained resource.  This folder can be where the
+   current dependency is kept and unpacked, just as it is when it is
+   developed in devBinder/ currently.
+   
+ * Change the title of this file when this becomes an integration point and
+   is no longer the development point for VCbinder as well.
+   
+ * Change this page to describe the integration activity and not so much
+   the development activity, which should be under devBinder for now.
+   
+ * O.O.  We need to think about the VCbinder.txt file within VCbinder.zip
+   and how that is not this file, WinCon/VCbinder/VCbinder.txt.  So the
+   VCbinder.zip version is not extracted over this one.  Or maybe it is?
    
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.6 2016-10-26-09:57 Tidy up.  Clarify becoming an eventual integration 
+       point for an externally-maintained VCbinder. 
  0.0.5 2016-10-25-16:08 Switch to devBind and devBinder as the subordinate
        folders.
  0.0.4 2016-10-25-09:59 Consider renaming src/ to dev/ here.
