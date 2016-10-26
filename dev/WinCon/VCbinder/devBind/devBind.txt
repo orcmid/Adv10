@@ -1,12 +1,13 @@
-dev.txt 0.0.2                        UTF-8                    dh:2016-10-25
+devBind.txt 0.0.3                     UTF-8                   dh:2016-10-26
 
  <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/VCbind/dev/dev.txt>
 
-                              VCBIND SOURCE CODE
-                              ==================
+                             VCBIND.ZIP CONSTRUCTION
+                             =======================
 
-    This folder provides the files and the procedure for composing
-    a VCbind.zip release.
+    This folder provides the files and the procedure for constructing
+    a VCbind.zip release.  It is amenable for direct use and for deploy-
+    ment via VCbinder.zip.
 
 MANIFEST
 
@@ -14,7 +15,7 @@ MANIFEST
         excluding any dev/VCbind/ testing folder from the source-code
         version control
 
-    dev.txt
+    devBind.txt
         this file of the manifest and procedures for developing and
         delivering VCbind.zip release versions
         
@@ -77,6 +78,7 @@ TODO
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.3 2016-10-26-11:07 Rename to devBind.txt for the devBind/ folder.
  0.0.2 2016-10-25-13:56 Introduce Initial files
        Expand the manifest and provide existing files for morphing into 
        a polished VCbind.zip set.
@@ -85,4 +87,4 @@ TODO
  0.0.0 2016-10-24-18:11 Initial Placeholder as part of VCbind/dev/ folder
        setup.
 
-                           *** end of dev.txt ***
+                        *** end of devBind.txt ***
