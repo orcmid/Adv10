@@ -1,4 +1,4 @@
-WinCon.txt 0.0.4                      UTF-8                    dh:2016-10-25
+WinCon.txt 0.0.5                      UTF-8                    dh:2016-10-26
 
            <https://github.com/orcmid/Adv10>/dev/WinCon/WinCon.txt>
 
@@ -43,12 +43,6 @@ MANIFEST
         This description file on organization of the construction set
         and use of its materials.
         
-    VCbinder/
-        code for development of the redistributable VCbinder.zip
-        construction-set snippet.  This is provisional development as
-        a companion within Adv10 until a stable VCbinder.zip is
-        available as a separately-available construction-set element. 
-        
     VCbind.bat (from VCbinder)
         script for performing a VCbind operation using the extracted 
         VCbind.zip
@@ -56,6 +50,11 @@ MANIFEST
     VCbind.zip (from VCbinder)
         package which provides the working VC binding script when extracted
         to VCbind/ here.
+        
+    VCbinder.zip 
+        package from which the integration of VCbind material is made.
+        This is an external dependency that is carried here for independent
+        completeness.
         
        
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -106,6 +105,8 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.5 2016-10-26-11:22 Complete the intended VCbinder integration structure
+       moving the companion development tree adjacent to WinCom.
  0.0.4 2016-10-25-16:44 Improve Structure and Adjust Work Items
        Reflect the adjusted structure and the VCbinder/ companion
  0.0.3 2016-10-24-08:29 Add Outline of Coverage
