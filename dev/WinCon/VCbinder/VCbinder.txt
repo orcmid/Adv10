@@ -1,4 +1,4 @@
-VCbinder.txt 0.0.6                   UTF-8                    dh:2016-10-26
+VCbinder.txt 0.0.7                   UTF-8                    dh:2016-10-26
 
      <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/VCbinder.txt>
 
@@ -46,6 +46,10 @@ VCbinder.txt 0.0.6                   UTF-8                    dh:2016-10-26
     
 
 MANIFEST
+
+    .gitignore
+        Excluding any temporary VCbinder/ extraction of VCbinder.zip 
+        created when importing VCbinder elements to WinCon/       
 
     VCbinder.txt
         This description file on VCBinder/ code and the purpose of
@@ -121,11 +125,6 @@ TODO
    
  * VCbinder.zip and VCbind.zip need to include maintenance instructions ?.
  
- * The VCbinder/ needs a .gitignore for VCbinder/ beneath it, since that is
-   one place to create an extraction for testing and confirmation purposes.
-   It is also an appropriate place to use in deploying the VCbinder elements
-   up into the WinCon folder.
-   
  * Make this folder into an integration point  that is used when VCbinder 
    becomes an externally-maintained resource.  This folder can be where the
    current dependency is kept and unpacked, just as it is when it is
@@ -144,6 +143,8 @@ TODO
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.7 2016-10-26-10:07 Add .gitignore to exclude working VCbinder/ folder
+       from the source-code version control.  
  0.0.6 2016-10-26-09:57 Tidy up.  Clarify becoming an eventual integration 
        point for an externally-maintained VCbinder. 
  0.0.5 2016-10-25-16:08 Switch to devBind and devBinder as the subordinate
