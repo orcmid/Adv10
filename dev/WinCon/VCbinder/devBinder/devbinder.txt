@@ -1,4 +1,4 @@
-dev.txt 0.0.1                        UTF-8                    dh:2016-10-24
+devbinder.txt 0.0.2                   UTF-8                    dh:2016-10-26
 
         <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/dev/dev.txt>
 
@@ -10,7 +10,31 @@ dev.txt 0.0.1                        UTF-8                    dh:2016-10-24
 
 MANIFEST
 
-    [TBD]
+    .gitignore
+        preventing any devbinder/VCbind/ and VCbinder/ working folders from
+        being integrated in the source-code version control; included in 
+        VCbinder.zip for the same purpose.
+        
+    VCbinder.txt
+        The manifest and procedure file that is incorporated in VCbinder.zip
+        and also works as a description at an integration point.
+               
+    VCbind.bat
+        VCbinder script used as a relay to its extracted counterpart in
+        VCbind.zip after checking that everything is where it is expected
+        to be.
+        
+    VCbind.txt
+         copy of the same file in VCbind.zip so that it can be read before
+         any VCbind.zip extraction, as may be desired.
+         
+    VCbind.zip
+         The version of the VCbind procedure that is delivered in the 
+         current VCbinder
+         
+    VCbinder.zip
+          The current VCbinder artifact for integration of VCbind elements
+          into the source-code version-control of a construction set.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -30,12 +54,15 @@ MANIFEST
 
 TODO
 
- * Expand the Manifest.
- 
  * Provide the construction procedure.
  
  * Add prerequisites and any dependencies (such as adjustments based on
    changes to VCbind.zip.
+   
+ * Add the VCbinder.txt that will be included in the VCbinder.zip file.
+ 
+ * Resolve whether that is the VCbinder.txt that is provided in the 
+   superior VCbinder/ folder.
    
  * Replace the placeholder files with ones from the companion VCbind/
    construction.
@@ -43,6 +70,8 @@ TODO
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.2 2016-10-26-10:40 Setup devBinder with placeholders and initial
+       devBinder.txt manifest.
  0.0.1 2016-10-24-10:10 Rename to dev.txt under VCbinder/dev/ now.
  0.0.0 2016-10-24-09:35 Initial Placeholder as part of folder setup.
 
