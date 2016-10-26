@@ -1,4 +1,4 @@
-WinCon.txt 0.0.5                      UTF-8                    dh:2016-10-26
+WinCon.txt 0.0.6                      UTF-8                    dh:2016-10-26
 
            <https://github.com/orcmid/Adv10>/dev/WinCon/WinCon.txt>
 
@@ -56,6 +56,10 @@ MANIFEST
         This is an external dependency that is carried here for independent
         completeness.
         
+    VC-scraps.txt
+        File here temporarily for scavenging of material into parts of this
+        construction set.
+        
        
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -75,8 +79,6 @@ MANIFEST
 
 TODO
  
- * A makefile project to update VCbinder.zip would also be cool.
-
  * Adapt the ShowDefs VC.txt 0.03 introduction for WinCon.
  
  * Work up the Visual C++ console compilation case.
@@ -105,6 +107,7 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.6 2016-10-26-11:42 cleanup for the current location and materials
  0.0.5 2016-10-26-11:22 Complete the intended VCbinder integration structure
        moving the companion development tree adjacent to WinCom.
  0.0.4 2016-10-25-16:44 Improve Structure and Adjust Work Items

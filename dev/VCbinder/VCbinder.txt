@@ -1,6 +1,6 @@
-VCbinder.txt 0.0.7                   UTF-8                    dh:2016-10-26
+VCbinder.txt 0.0.8                   UTF-8                    dh:2016-10-26
 
-     <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/VCbinder.txt>
+        <https://github.com/orcmid/Adv10>/dev/VCbinder/VCbinder.txt>
 
           CREATE VCBINDER FOR VISUAL C/C++ COMMAND-LINE DEVELOPMENT
           =========================================================
@@ -16,7 +16,7 @@ VCbinder.txt 0.0.7                   UTF-8                    dh:2016-10-26
             Windows.
             
             VCbinder is not specific to Adv10.  VCbinder does not depend on
-            Adv10 in any manner.  Adv10 WinCon is the incubator for what will
+            Adv10 in any manner.  Adv10 is the incubator for what will
             become an independent VCbinder component.  
                  
             VCbinder/ will eventually be relocated to a  separate source-
@@ -90,7 +90,7 @@ TODO
    with Adv10/dev/WinCom for now.  It's too bad cross-project sharing went
    the way of Visual SourceSafe. 
 
- * Adapt the ShowDefs experimental versions to the VCBinder structure as
+ * Adapt the ShowDefs experimental versions to the VCbinder structure as
    the development source for VCBind.zip redistributables.
 
  * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
@@ -125,7 +125,7 @@ TODO
    
  * VCbinder.zip and VCbind.zip need to include maintenance instructions ?.
  
- * Make this folder into an integration point  that is used when VCbinder 
+ * Make this folder into an integration point that is used when VCbinder 
    becomes an externally-maintained resource.  This folder can be where the
    current dependency is kept and unpacked, just as it is when it is
    developed in devBinder/ currently.
@@ -137,12 +137,13 @@ TODO
    the development activity, which should be under devBinder for now.
    
  * O.O.  We need to think about the VCbinder.txt file within VCbinder.zip
-   and how that is not this file, WinCon/VCbinder/VCbinder.txt.  So the
+   and how that is not this file, dev/VCbinder/VCbinder.txt.  So the
    VCbinder.zip version is not extracted over this one.  Or maybe it is?
    
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.8 2016-10-26-11:46 Adjust to the new location at Adv10/dev/VCbinder/
  0.0.7 2016-10-26-10:07 Add .gitignore to exclude working VCbinder/ folder
        from the source-code version control.  
  0.0.6 2016-10-26-09:57 Tidy up.  Clarify becoming an eventual integration 
