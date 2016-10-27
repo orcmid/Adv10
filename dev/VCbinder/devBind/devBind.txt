@@ -1,39 +1,40 @@
-devBind.txt 0.0.4                     UTF-8                   dh:2016-10-26
+devBind.txt 0.0.5                     UTF-8                   dh:2016-10-27
 
- <https://github.com/orcmid/Adv10>/dev/WinCon/VCbinder/VCbind/dev/dev.txt>
+  <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
 
                              VCBIND.ZIP CONSTRUCTION
                              =======================
 
     This folder provides the files and the procedure for constructing
-    a VCbind.zip release.  It is amenable for direct use and for deploy-
-    ment via VCbinder.zip.
+    a VCbind.zip component.  The VCbind.zip It is amenable for direct use
+    and for deploy-ent via VCbinder.zip.
 
 MANIFEST
 
     .gitignore
-        excluding any dev/VCbind/ testing folder from the source-code
+        excluding any devBind/VCbind/ testing folder from source-code
         version control
 
     devBind.txt
-        this file of the manifest and procedures for developing and
-        delivering VCbind.zip release versions
+        this manifest and procedures for developing and delivering 
+        VCbind.zip for use in source-code construction sets
         
     LICENSE.txt
-        Apache License Version 2.0 included in the VCbind.zip distribution
+        Apache License Version 2.0 for inclusion in VCbind.zip
          
     NOTICE.txt
-        Notice file applicable to the VCbind.zip distribution
+        Notice file for inclusion in VCbind.zip
          
     VCbind.txt
-        manifest and description included in the VCbind.zip distribution
+        manifest and description included in VCbind.zip and usable as a
+        preview as well as instructions following extraction
          
     VCbind.bat
-        script in VCbind.zip that provides the binding operation
+        script included in VCbind.zip that provides the binding operation
         
     VCbind.zip
-        dev version of VCbind.zip archive for dropping into Windows command-
-        line construction sets.  
+        current version of VCbind.zip archive for dropping into Windows 
+        command-line construction sets.  
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -63,7 +64,7 @@ TODO
    
  * Incorporate Bind detection for VS2015 VC (Version 14.0)
  
- * Incorproate Bind detection for VS2013 VC (Version 12.0)
+ * Incorporate Bind detection for VS2013 VC (Version 12.0)
  
  * Incorporate Bind detection for VS2012 VC (Version 11.0)
  
@@ -74,10 +75,37 @@ TODO
  * Determine the oldest Visual Studio that we want to support in general.
    Applications of VCbind might determine their own limitations on the
    variety.
+   
+ * Distinguish between vcvarsall.bat and vcvars.bat and determine which to
+   use.  
+   
+ * Determine the default compile and also determine the parameters for the
+   calls on the different detected Visual Studio, Visual C++ environment
+   variations.
+   
+ * Need a way to VCunbind as a way to clean up and/or remove an existing
+   binding in order to introduce a new one.  
+   
+ * Verify that the command shell VCbind is called in has local variables
+   and unbinding is locally only.  This also means that the VCbind endures
+   only as long as the single console session.  Confirm this.
+   
+ * Confirm batch-script variables used in environment setting operations
+   operations, such as IF DEFINED VS%VCbound%COMNTOOLS and 
+   SET VCcommon=VS%VCbound%COMNTOOLS as a way of finding and selecting
+   versions of Visual Studio to be detected and used for the common
+   command-line tools.
+   
+ * Check the different vcvarsall.bat files for VC++ to ensure consistencies.
+ 
+ * Put references on creating and using batch scripts somewhere.  There is
+   now (Windows 10) extensive help files built in, along with more on MSDN.
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.5 2016-10-27-11:54 Setup for progressive improvement of VCbind.zip
+       versions.
  0.0.4 2016-10-26-11:50 Adjust to new Adv10/dev/VCbinder/devBind/ location.
  0.0.3 2016-10-26-11:07 Rename to devBind.txt for the devBind/ folder.
  0.0.2 2016-10-25-13:56 Introduce Initial files

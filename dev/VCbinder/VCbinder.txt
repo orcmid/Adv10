@@ -23,6 +23,11 @@ VCbinder.txt 0.0.8                   UTF-8                    dh:2016-10-26
             code project for reusable components that are valuabie in a
             variety of projects using Microsoft command-line development
             tools and C/C++.
+            
+            While having VCbinder developed in this manner is significant
+            axe sharpening for Adv10, it is a valuable as training wheels
+            and learning curve for more substantial construction-set
+            developments.  
                   
           
     VCbinder.zip is a package from which a development project can install
@@ -125,14 +130,6 @@ TODO
    
  * VCbinder.zip and VCbind.zip need to include maintenance instructions ?.
  
- * Make this folder into an integration point that is used when VCbinder 
-   becomes an externally-maintained resource.  This folder can be where the
-   current dependency is kept and unpacked, just as it is when it is
-   developed in devBinder/ currently.
-   
- * Change the title of this file when this becomes an integration point and
-   is no longer the development point for VCbinder as well.
-   
  * Change this page to describe the integration activity and not so much
    the development activity, which should be under devBinder for now.
    
