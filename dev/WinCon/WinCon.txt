@@ -16,7 +16,19 @@ PREREQUISITES
     
 DEPENDENCIES
 
-    [TBD]
+  * Visual C command-line compiler, cl.exe, and its libraries for building
+    standard C/C++ on a Microsoft Windows PC.
+    
+    It is sufficient to obtain and install a free version of Microsoft Visual
+    Studio or Microsoft Visual C.  Versions this WinCon has been tested with
+    include
+    
+     - Visual Studio Community 2015 with Updates (Visual C++ features)
+     - Visual Studio 2013 Express for Windows Desktop
+     - Visual Studio 2012 Express for Windows Desktop
+
+    
+
     
 BUILDING AND RUNNING THE WINCON ADV10
 

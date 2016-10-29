@@ -1,19 +1,9 @@
-VC-scraps.txt                        UTF-8                    dh:2016-10=24
+VC-scraps.txt                        UTF-8                    dh:2016-10=29
 
             This is a file from which scraps may be useful in 
             annotating WinCon and the provisional VCBinder 
             development.
             
-            This is not check in.  It is used for development.
-            
-            
-VC.txt 0.03                          UTF-8                    dh:2014-12-26
-
-                <https://github.com/orcmid/ShowDefs>/VC/VC.txt
-
-                      SHOWDEFS IN VISUAL C/C++ COMPILES
-                      =================================
-
     This folder provides demonstrations of ways to use the Microsoft
     Visual C/C++ compilers in command-line builds of code targeted to
     VC-supported platforms.  This allows employment of that compiler and
@@ -21,13 +11,6 @@ VC.txt 0.03                          UTF-8                    dh:2014-12-26
     without compelling use of the Visual Studio IDE and its solution-
     building model.
 
-    Setting of options, pre-processor definitions, and use of appropriate
-    libraries is required.  This is accomplished with easily configured
-    and adapted scripts.
-
-    The VCShowDefs.c file is compiled to demonstrate equivalent builds and
-    their control, paralleling builds accomplished using Visual Studio
-    in the neighboring folder, ShowDefs/VS2013/.
 
 VISUAL C/C++ VERSIONS
     The easiest way to obtain the Visual C command-line compiler, cl.exe,
@@ -50,26 +33,13 @@ BINDING THE VC COMPILER
     VCbind.zip is here and that a VCbind\VCbind.bat file is present and is
     then used.
 
- EXAMPLE COMPILATIONS
-    Each example is in its own subfolder, such as ShowDef\VC\Default.  The
-    text file with the same name as the subfolder describes the procedure to
-    follow.
-
-MANIFEST
-
-    VC.txt
-        This description file on the construction and organization of
-        the material.
-
-    .gitignore
-        Git file for excluding the VCbind/ folder from the ShowDefs source-
-        code tree.
+THE VCBINDER EXTRACTS
 
     VCbind.bat
         A batch script that can be used from any location to verify the
         presence of VCbind and Vcbind\VCbind.bat here, then performing it
-        to establish the environment used by the different cases here,
-        such as Default.
+        to establish the environment used by command-line development
+        cases.
 
     VCbind.txt
         The manifest and procedures applicable to use of VCbind.zip
@@ -80,12 +50,9 @@ MANIFEST
 
     VCbind/
         subfolder created when VCbind.zip is extracted.  This working folder
-        is not of the ShowDefs code tree.  Any customization of the material
-        applies only locally.
+        is not under source-code version control.  Any customization of the
+        material applies only locally.
 
-    Default/
-        Visual C compiler demonstration of the pre-processor definitions
-        supplied when compiling a simple *.c file as the source code.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -115,9 +82,17 @@ TODO
 
  * We need some images and related documentation here where it is common to
    all of the cases in this folder.
+   
+ * Blend these TODOs and the specimen material into the appropriate parts of
+   VCbinder.
+   
+ * Move these scraps over to the VCbinder development where they are to be
+   used.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.4 2016-10-29-10:45 Setup as scraps for Adv10/dev/VCbinder notes and
+       procedures.  Prune back extraneous material.
  0.03 2014-12-26-10:06 Completion of some work items reflecting progress
       with the Default example.
  0.02 2014-12-25-20:35 Bring back VCbind.bat as a relay in the manner of
@@ -129,4 +104,4 @@ TODO
       Initiate structure for command-line compilations analogous to the VS2013
       Projects.
 
-                            *** end of VC.txt ***
+                        *** end of VC-scraps.txt ***

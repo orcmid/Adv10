@@ -1,4 +1,4 @@
-devBinder.txt 0.0.4                   UTF-8                    dh:2016-10-26
+devBinder.txt 0.0.5                   UTF-8                    dh:2016-10-29
 
   <https://github.com/orcmid/Adv10>/dev/VCbinder/devBinder/devBinder.txt>
 
@@ -11,8 +11,8 @@ devBinder.txt 0.0.4                   UTF-8                    dh:2016-10-26
 MANIFEST
 
     .gitignore
-        preventing any devbinder/VCbind/ and VCbinder/ working folders from
-        being integrated in the source-code version control; included in 
+        preventing any VCbind/ and VCbinder/ working sub-folders from
+        inclusion in devBinder source-code version control; included in 
         VCbinder.zip for the same purpose.
         
     devBinder.txt
@@ -20,7 +20,9 @@ MANIFEST
         
     VCbinder.txt
         The manifest and procedure file that is incorporated in VCbinder.zip
-        and also works as a description at an integration point.
+        and also works as a description at an integration point.  There
+        is sufficient information for location of the Vcbinder.zip used
+        without including it directly in the integration.
                
     VCbind.bat
         VCbinder script used as a relay to its extracted counterpart in
@@ -69,10 +71,12 @@ TODO
    
  * Replace the placeholder files with ones from the companion VCbind/
    construction.
-
+   
+ * Bring the WinCon Vc-scraps here to work on.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.5 2016-10-29-10:50 Touch up TODOs and clarify the parts kept here.
  0.0.4 2016-10-26-11:49 Adjust for the new dev/VCbinder/devBinder/ location
  0.0.3 2016-10-26-10:57 devbinder.txt -> devBinder.txt and inclusion
        in the manifest.

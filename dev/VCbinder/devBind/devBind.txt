@@ -1,13 +1,14 @@
-devBind.txt 0.0.5                     UTF-8                   dh:2016-10-27
+devBind.txt 0.0.6                     UTF-8                   dh:2016-10-29
 
   <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
 
                              VCBIND.ZIP CONSTRUCTION
                              =======================
 
-    This folder provides the files and the procedure for constructing
-    a VCbind.zip component.  The VCbind.zip It is amenable for direct use
-    and for deploy-ent via VCbinder.zip.
+    Folder devBind/ provides the files and the procedure for constructing
+    a VCbind.zip component.  VCbind.zip can be deployed and used directly.
+    It is also deployable via VCbinder.zip; consult devBinder/ for one
+    approach to deployment of VCbind.zip.
 
 MANIFEST
 
@@ -72,12 +73,14 @@ TODO
  
  * Incorporate Bind detection for VS2008 VC (Version 9.0)
  
+ * Is it meaningful to go as far back as VS2005 (Version 8.0)?
+ 
  * Determine the oldest Visual Studio that we want to support in general.
    Applications of VCbind might determine their own limitations on the
    variety.
    
- * Distinguish between vcvarsall.bat and vcvars.bat and determine which to
-   use.  
+ * Setup to always find and use vcvarsall and do not use any version of
+   Visual Studio that does not have that.
    
  * Determine the default compile and also determine the parameters for the
    calls on the different detected Visual Studio, Visual C++ environment
@@ -90,20 +93,22 @@ TODO
    and unbinding is locally only.  This also means that the VCbind endures
    only as long as the single console session.  Confirm this.
    
- * Confirm batch-script variables used in environment setting operations
-   operations, such as IF DEFINED VS%VCbound%COMNTOOLS and 
-   SET VCcommon=VS%VCbound%COMNTOOLS as a way of finding and selecting
-   versions of Visual Studio to be detected and used for the common
-   command-line tools.
+ * It does not seem possible to double-expand.  E.g., it is possible to
+   SET VSchoice=VS%VCver%COMNTOOLS but VSchoice will have the environment
+   variable name, not its value.  We can determine
+   [NOT] DEFINED VS%VCver%COMNTOOLS but there is no way to obtain its value
+   that way.   
    
  * Check the different vcvarsall.bat files for VC++ to ensure consistencies.
  
  * Put references on creating and using batch scripts somewhere.  There is
    now (Windows 10) extensive help files built in, along with more on MSDN.
+   There is also the Command Line Admionistrator's Pocket Handbook.
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.6 2016-10-28-10:51 Touch-ups and expanded TODOs
  0.0.5 2016-10-27-11:54 Setup for progressive improvement of VCbind.zip
        versions.
  0.0.4 2016-10-26-11:50 Adjust to new Adv10/dev/VCbinder/devBind/ location.
