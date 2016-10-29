@@ -1,4 +1,4 @@
-WinCon.txt 0.0.6                      UTF-8                    dh:2016-10-26
+WinCon.txt 0.0.6                      UTF-8                    dh:2016-10-29
 
            <https://github.com/orcmid/Adv10>/dev/WinCon/WinCon.txt>
 
@@ -57,7 +57,12 @@ MANIFEST
         
     VCbind.bat (from VCbinder)
         script for performing a VCbind operation using the extracted 
-        VCbind.zip
+        VCbind.zip; the extraction is confirmed and then the VCbind.bat
+        in the extracted material is performed.
+        
+    VCbind.txt (from VCbinder)
+        manifest and instructions from VCbind.zip available for review
+        before extracting VCbind.zip.
         
     VCbind.zip (from VCbinder)
         package which provides the working VC binding script when extracted
@@ -66,12 +71,7 @@ MANIFEST
     VCbinder.zip 
         package from which the integration of VCbind material is made.
         This is an external dependency that is carried here for independent
-        completeness.
-        
-    VC-scraps.txt
-        File here temporarily for scavenging of material into parts of this
-        construction set.
-        
+        completeness.      
        
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -119,6 +119,9 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.7 2016-10-29-11:03 Move VS-scraps and expand Manifest
+       The manifest is corrected and TODOs adjusted for the separated
+       VCbinder development.
  0.0.6 2016-10-26-11:42 cleanup for the current location and materials
  0.0.5 2016-10-26-11:22 Complete the intended VCbinder integration structure
        moving the companion development tree adjacent to WinCom.

@@ -1,4 +1,4 @@
-devBinder.txt 0.0.5                   UTF-8                    dh:2016-10-29
+devBinder.txt 0.0.6                   UTF-8                    dh:2016-10-29
 
   <https://github.com/orcmid/Adv10>/dev/VCbinder/devBinder/devBinder.txt>
 
@@ -40,6 +40,9 @@ MANIFEST
     VCbinder.zip
           The current VCbinder artifact for integration of VCbind elements
           into the source-code version-control of a construction set.
+          
+    VC-scraps.txt
+          Notes from an older WinCon approach for scavenging here.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -72,10 +75,9 @@ TODO
  * Replace the placeholder files with ones from the companion VCbind/
    construction.
    
- * Bring the WinCon Vc-scraps here to work on.
-
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.6 2016-10-29-11:06 Reflect the temporary introduction of VC-scraps.txt
  0.0.5 2016-10-29-10:50 Touch up TODOs and clarify the parts kept here.
  0.0.4 2016-10-26-11:49 Adjust for the new dev/VCbinder/devBinder/ location
  0.0.3 2016-10-26-10:57 devbinder.txt -> devBinder.txt and inclusion
