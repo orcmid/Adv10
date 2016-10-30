@@ -1,4 +1,4 @@
-devBind.txt 0.0.6                     UTF-8                   dh:2016-10-29
+devBind.txt 0.0.7                     UTF-8                   dh:2016-10-30
 
   <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
 
@@ -104,10 +104,28 @@ TODO
  * Put references on creating and using batch scripts somewhere.  There is
    now (Windows 10) extensive help files built in, along with more on MSDN.
    There is also the Command Line Admionistrator's Pocket Handbook.
+   
+ * Verify the VCbind structure with VS2013 and any other current VS installs.
+
+ * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
+   shells and possibly CYGWIN.  It is desirable that these batch scripts work
+   from underneath all of those shells.
+
+ * Add prerequisites, with links to more on satisfying the prerequisites.
+
+ * We need a tutorial/HowTo location on nfoWare.com with images and related 
+   documentation for the cases that apply here.
+   
+ * We need to get this far enough to apply in test builds and runs of the
+   Adv10 WinCon case.  Don't worry so much about documentation completeness
+   until we have the scripts in use.  It is all provisional while Adv10 is
+   in 0.0.* development.
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.7 2016-10-30-10:30 Capture VC-scraps and update TODOs, readying 
+       for confirmation and provisional use for Adv10 WinCon development.
  0.0.6 2016-10-28-10:51 Touch-ups and expanded TODOs
  0.0.5 2016-10-27-11:54 Setup for progressive improvement of VCbind.zip
        versions.

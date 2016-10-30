@@ -1,57 +1,13 @@
-VC-scraps.txt                        UTF-8                    dh:2016-10=29
+VC-scraps.txt 0.0.5                   UTF-8                    dh:2016-10-30
 
             This is a file from which scraps may be useful in 
             annotating WinCon and the provisional VCBinder 
             development.
             
-    This folder provides demonstrations of ways to use the Microsoft
-    Visual C/C++ compilers in command-line builds of code targeted to
-    VC-supported platforms.  This allows employment of that compiler and
-    other Microsoft tools for targeting portable source code to Windows
-    without compelling use of the Visual Studio IDE and its solution-
-    building model.
 
 
-VISUAL C/C++ VERSIONS
-    The easiest way to obtain the Visual C command-line compiler, cl.exe,
-    is by installing one of the free versions of Visual Studio.  The scripts
-    here work with VC in VS2012 through VS2015 Preview.  See the VS2013/
-    folder for information on obtaining free Visual Studio versions.
 
-    Windows 7 and later are required for operating these versions of Visual
-    Studio.
 
-BINDING THE VC COMPILER
-    A common script is used to locate and set the environment path and other
-    variables that are required in order to operate with the VC compiler,
-    its libraries, include files, and related tools.
-
-    The VCbind.zip file is extracted to provide the script that establishes
-    a compiler setup.  VCbind.txt describes that package and its usage.
-
-    The VCbind.run file here is used from other projects to check that
-    VCbind.zip is here and that a VCbind\VCbind.bat file is present and is
-    then used.
-
-THE VCBINDER EXTRACTS
-
-    VCbind.bat
-        A batch script that can be used from any location to verify the
-        presence of VCbind and Vcbind\VCbind.bat here, then performing it
-        to establish the environment used by command-line development
-        cases.
-
-    VCbind.txt
-        The manifest and procedures applicable to use of VCbind.zip
-
-    VCbind.zip
-        The script material for extraction in folder BCbind/ and used in
-        support of the compilation examples.
-
-    VCbind/
-        subfolder created when VCbind.zip is extracted.  This working folder
-        is not under source-code version control.  Any customization of the
-        material applies only locally.
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -72,25 +28,14 @@ THE VCBINDER EXTRACTS
 
 TODO
 
- * Verify the VC structure with VS2013 and any other current VS installs.
+ * Delete this
 
- * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
-   shells and possibly CYGWIN.  It is desirable that these batch scripts work
-   from underneath all of those shells.
-
- * Add prerequisites, with links to more on satisfying the prerequisites.
-
- * We need some images and related documentation here where it is common to
-   all of the cases in this folder.
-   
- * Blend these TODOs and the specimen material into the appropriate parts of
-   VCbinder.
-   
- * Move these scraps over to the VCbinder development where they are to be
-   used.
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.5 2016-10-30-10:42 Ready for Deletion
+       Everything is either discarded or scavenged to where it can be used
+       further.
  0.0.4 2016-10-29-10:45 Setup as scraps for Adv10/dev/VCbinder notes and
        procedures.  Prune back extraneous material.
  0.03 2014-12-26-10:06 Completion of some work items reflecting progress
