@@ -1,4 +1,4 @@
-devBind.txt 0.0.7                     UTF-8                   dh:2016-10-30
+devBind.txt 0.0.8                     UTF-8                   dh:2016-10-31
 
   <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
 
@@ -9,6 +9,11 @@ devBind.txt 0.0.7                     UTF-8                   dh:2016-10-30
     a VCbind.zip component.  VCbind.zip can be deployed and used directly.
     It is also deployable via VCbinder.zip; consult devBinder/ for one
     approach to deployment of VCbind.zip.
+    
+    The details of VCbind.zip and its usage are in the file VCbind.txt.
+    That file is provided within VCbind.zip.  It is also recommended that
+    the file be placed as a companion of VCbind.zip so that users can
+    determine how to proceed before extracting the VCbind.zip content.
 
 MANIFEST
 
@@ -57,9 +62,6 @@ TODO
 
  * Provide the construction procedure.
  
- * Add the VCbind.txt that will be the manifest and instructions included
-   in VCbind.zip.
-   
  * Develop the VCbind.bat file that will be the one operated within the
    folder extracted from VCbind.zip
    
@@ -74,6 +76,9 @@ TODO
  * Incorporate Bind detection for VS2008 VC (Version 9.0)
  
  * Is it meaningful to go as far back as VS2005 (Version 8.0)?
+ 
+ * Incorporte Bind detection for the VC Compiler Tools distributions too,
+   if necessary.
  
  * Determine the oldest Visual Studio that we want to support in general.
    Applications of VCbind might determine their own limitations on the
@@ -120,10 +125,41 @@ TODO
    Adv10 WinCon case.  Don't worry so much about documentation completeness
    until we have the scripts in use.  It is all provisional while Adv10 is
    in 0.0.* development.
+   
+ * Verify the structure with current VS installs and record the supported
+   cases.
+
+ * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
+   shells and possibly CYGWIN.  It is desirable that these batch scripts work
+   from underneath all of those shells.
+
+ * Add prerequisites, with links to more on satisfying the prerequisites.
+
+ * We need some images and related documentation here where it is common to
+   all of the cases in this folder.
+
+ * Create VCbind.zip
+
+ * Create VCbind.bat in a way that is usable from sibling folders.  This must
+   cope with the absence of a full path for the location of ShowDefs as a
+   working clone of the GitHub respository.
+   
+ * Do we want VCbind.zip to be signed?  That's not a particularly bad
+   idea. Not clear what the best way to accomplish it is that ensures
+   use of a proper public key though.
+   
+ * Allude to VCbinder in some fashion.  Maybe in a section on 
+   REDISTRIBUTION in VCbind.txt
+   
+ * Include the Notice and other files in the VCbind.txt.  0.0.3 is 
+   incomplete.  It might be valuable to connect to the VCbinder that was
+   designed for redistribution of the given VCbind.zip.
 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.8 2016-10-31-09:27 Consolidate TODOs here and start fleshing out
+       the VCbind.txt file.
  0.0.7 2016-10-30-10:30 Capture VC-scraps and update TODOs, readying 
        for confirmation and provisional use for Adv10 WinCon development.
  0.0.6 2016-10-28-10:51 Touch-ups and expanded TODOs
