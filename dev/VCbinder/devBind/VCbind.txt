@@ -1,35 +1,58 @@
-VCbind.txt 0.0.2                       UTF-8                    dh:2016-10-27
+VCbind.txt 0.0.3                       UTF-8                      2016-10-31
 
-        <https://github.com/orcmid/Adv10>/VCbinder/devBind/VCbind.txt
+              BINDINGS FOR VISUAL C/C++ COMMAND-LINE COMPILATION
+              ==================================================
 
-               BINDINGS FOR VISUAL C/C++ COMMAND-LINE COMPILES
-               ===============================================
+    VCbind.zip contains a Windows batch script for binding to the developer
+    environment used for compiling with the Microsoft Visual C/C++ command- 
+    line compiler, cl.exe, aud using related Microsoft developer tools.
+    
+    This **x.y.z** distribution of VCbind.zip is available on the web at
+    <http://nfoWare.com/dev/**TBD**>.  Consult that page for the latest
+    status, links to useful related material, and the most-recent version.
+    If there is any concern for the authenticity or correctness of a
+    VCbind.zip, obtain a full replacement from that location.
 
-    VCbind.zip contains Windows batch scripts for binding to the developer
-    environment used for compiling with the Visual Studio C/C++ command-
-    line compiler, cl.exe, and exercise of related Microsoft developer tools.
+    VCbind.zip is to be extracted at the location where it appears in a
+    construction set.  The result is a companion folder with the following
+    structure:
+    
+               construction-set-location\
+                  ...
+                  VCbind.zip    *location in the construction set
+                  VCbind\       *created by extraction
+                     Vcbind.txt
+                     VCbind.bat
+                  ...
+                  
+    The VCbind\ folder is not part of the source-code.  It only needs to
+    be created when the given construction set is to be used.  VCbind\ is a
+    working folder that can be customized, if necessary, without touching the
+    construction set code.  Restoration of the VCbind\ to its original
+    form is by re-extracting it from VCbind.zip.  When the construction set
+    is no longer needed, the VCbind\ folder can be deleted, leaving the
+    construction set otherwise intact and reusable in the future.
+    
+EXTRACTION OF VCBIND.ZIP CONTENT
 
-    The scripts do not perform compilation.  They setup the command-line
-    environment so that the compiler and all related Microsoft tools can be
-    used.  This includes setting the command-line PATH for finding the
-    compiler and companion development tools.  Environment variables are
-    set up for use by the tools, including where to search for C/C++ #include
-    files and search for .lib files for linking into compiled code.
+    [TBD]
+    
+USING THE VCBIND\VCBIND.BAT SCRIPT
 
+    [TBD]
+                   
 
-MANIFEST OF VCBIND.ZIP
+MANIFEST OF VCBIND.ZIP [Version]
 
-    VCbind.txt
+    VCbind.txt **x.y.z** **size** bytes, dated **yyyy-mm-ddThh:mmZ**
         This description file on organization of the archive and use of its
         materials.
 
-    VCbind.bat
-        Script that, when run, will locate Visual Studio settings and perform
+    VCbind.bat **x.y.z** **size** bytes, dated **yyyy-mm-ddThh:mmZ**
+        Script that, when run, will locate Visual C++ settings and perform
         an appropriate setup of the environment for operating with the latest
         installed version of the Visual C++ compiler and accompanying tools.
-        Other scripts in ShowDefs\VC\ expect to find this script or a custom
-        version at VC\VCbind\VCbind.bat relative to their own location under
-        VC\.
+
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -47,27 +70,10 @@ MANIFEST OF VCBIND.ZIP
     See the License for the specific language governing permissions and
     limitations under the License.
 
-TODO
-
- * Verify the structure with VS2013 and any other current VS installs.
-
- * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
-   shells and possibly CYGWIN.  It is desirable that these batch scripts work
-   from underneath all of those shells.
-
- * Add prerequisites, with links to more on satisfying the prerequisites.
-
- * We need some images and related documentation here where it is common to
-   all of the cases in this folder.
-
- * Create VCbind.zip
-
- * Create VCbind.bat in a way that is usable from sibling folders.  This must
-   cope with the absence of a full path for the location of ShowDefs as a
-   working clone of the GitHub respository.
-
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.3 2016-10-31-09:20 Draft Sketch for a distributable VCbind.txt
+       TODOs moved to devBind and text focused on usage of VCbind.zip.
  0.0.2 2016-10-27-11:48 Inport the 0.01 version from ShowDefs for
        continuing customization for VCbind and VCbinder.
  0.01 2014-12-25-20:44 Use provisional VCbind.bat script for testing and
