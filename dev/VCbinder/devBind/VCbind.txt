@@ -1,4 +1,4 @@
-VCbind.txt 0.0.4                       UTF-8                      2016-10-31
+VCbind.txt 0.0.5                       UTF-8                      2016-11-03
 
               BINDINGS FOR VISUAL C/C++ COMMAND-LINE COMPILATION
               ==================================================
@@ -21,21 +21,22 @@ VCbind.txt 0.0.4                       UTF-8                      2016-10-31
                   ...
                   VCbind.zip    *location in the construction set
                   VCbind\       *created by extraction
+                     ...
                      Vcbind.txt
                      VCbind.bat
                   ...
                   
     The VCbind\ folder is not part of the source-code.  It only needs to
     be created when the given construction set is to be used.  VCbind\ is a
-    working folder that can be customized, if necessary, without touching the
-    construction set code.  Restoration of the VCbind\ to its original
-    form is by re-extracting it from VCbind.zip.  When the construction set
-    is no longer needed, the VCbind\ folder can be deleted, leaving the
-    construction set otherwise intact and reusable in the future.
+    working folder that can be customized, if necessary, without touching
+    construction-set code.  Restoration of the VCbind\ to its original
+    form is by deleting it and re-extracting it from VCbind.zip.  When the 
+    construction set is no longer needed, the VCbind\ folder can be deleted,
+    leaving the construction set intact and reusable in the future.
     
 EXTRACTION OF VCBIND.ZIP CONTENT
 
-    [TBD]
+    On 
     
 USING THE VCBIND\VCBIND.BAT SCRIPT
 
@@ -78,6 +79,7 @@ MANIFEST OF VCBIND.ZIP [Version]
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.5 2016-11-03-14:36 Expand the instructions for direct usage.
  0.0.4 2016-10-31-11:37 Add LICENSE and NOTICE, tweak Manifest
  0.0.3 2016-10-31-09:20 Draft Sketch for a distributable VCbind.txt
        TODOs moved to devBind and text focused on usage of VCbind.zip.

@@ -1,19 +1,84 @@
-devBind.txt 0.0.10                     UTF-8                   dh:2016-11-01
+devBind.txt 0.0.11                     UTF-8                     2016-11-03
 
   <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
 
                              VCBIND.ZIP CONSTRUCTION
                              =======================
+                             
+    The files and the VCbind.zip here are in-progress development versions. 
+    For the latest considered-stable version for general use, check the
+    VCbinder/ folder, above.
 
-    Folder devBind/ provides the files and the procedure for constructing
-    a VCbind.zip component.  VCbind.zip can be deployed and used directly.
-    It is also deployable via VCbinder.zip; consult devBinder/ for one
-    approach to deployment of VCbind.zip.
+    Folder devBind/ provides the files for under-development maintenance,
+    testing, and delivery of a VCbind.zip drop-in for use in software
+    source-code construction sets.      VCbinder and its development in
+    devBinder/ illustrates one way to accomplish that in the routine
+    development of construction sets.
     
     The details of VCbind.zip and its usage are in the file VCbind.txt.
-    That file is provided within VCbind.zip.  It is also recommended that
-    the file be placed as a companion of VCbind.zip so that users can
+    That file is provided in VCbind.zip.  It is also recommended that
+    VCbind.txt be placed as a companion of VCbind.zip so that users can
     determine how to proceed before extracting the VCbind.zip content.
+    
+PREREQUISITE CAPABILITIES FOR VCBIND DEVELOPMENT WORK
+
+  * Performing console (cmd.exe) command-line sessions on Microsoft Windows.
+  
+  * Understanding and using the command-line environment of Windows and how
+    the Visual C++ components are found and operated on Windows.
+    
+  * Experience with the built-in Compressed (zipped) Folder support of
+    Microsoft Windows.
+    
+  * Ability to demonstrate the testing and confirmation of VCbind.bat
+    operation, including all of the exception-handling cases.
+    
+  * Using the Microsoft cl.exe command-line compiler in demonstrating 
+    demonstration of successful VCbind accomplishment.
+    
+  
+DEVBIND MAINTENANCE AND DEVELOPMENT
+
+  1. Have this source code folder in a PC location where you can edit all 
+     of its content.  If the folder is not named devBind\, adjust what 
+     follows below accordingly.  It is recommended that you have a clone
+     or fork of the origin repository in order to have source-code control
+     of your changes, whether or not for contribution back to the origin
+     project.
+     
+  2. In the devBind\ folder, follow the VCbind.txt instructions and
+     extract VCbind.zip to the subfolder, VCbind\ (i.e., Windows 
+     folder location devBind\VCbind\).
+     
+  3. Perform editing and testing in the VCbind\ subfolder.  
+  
+  4. When done, or at a checkpoint, move your changes and additions from
+     the devBind\VCbind\ folder back to the devBind folder.  Delete the
+     VCbind folder so there is no confusion about what is the current work.
+     If there is nothing you want to change, simply delete the VCbind\ 
+     folder.
+     
+  5. Synchronize VCbind.zip with your work.  To keep the changes copied
+     from VCbind\ at step 4,
+  
+     5.1 Delete the VCbind.zip file.
+     
+     5.2 In the Windows File Explorer, creat a New Compress (zipped) Folder
+         in devBind\.  Name it VCbind.zip.
+         
+     5.3 Drag the VCbind.zip-intened  devBind\ files into the new, empty
+         VCbind.zip: LICENSE.txt, NOTICE.txt, VCbind.bat, and VCbind.txt. 
+         If there are additional files included in VCbind.zip, copy those
+         into the VCbind.zip as well.
+         
+  6. Adjust this devBind.txt to reflect any change to the manifest and 
+     anything else that needs to be changed to have current documentation.
+     
+  7. Check-in the modified/new materials under the source-code management
+     you are using.  Depending on the state of completion and project
+     requirements for thorough testing, contribute back to any project
+     this work is on behalf of.
+
 
 MANIFEST
 
@@ -60,7 +125,7 @@ MANIFEST
 
 TODO
 
- * Provide the construction procedure.
+ * Provide links for the prerequisites.
  
  * Develop the VCbind.bat file that will be the one operated within the
    folder extracted from VCbind.zip
@@ -77,7 +142,7 @@ TODO
  
  * Is it meaningful to go as far back as VS2005 (Version 8.0)?
  
- * Incorporte Bind detection for the VC Compiler Tools distributions.  This
+ * Incorporte VCbind detection for the VC Compiler Tools distributions.  This
    works the same as Version 14.0.  It should be transparent.
  
  * Determine the oldest Visual Studio that we want to support in general.
@@ -108,8 +173,8 @@ TODO
    
  * The Microsoft Visual Studio "15" Preview 5 setup is very different than
    for any previous versions.  It is a considerable hack and might not be
-   worth supporting.  It can be supported but needs to be flagged as an
-   awful hack.
+   worth supporting.  It can be supported but needs to be flagged as a
+   temporary hack pending availability of an RTM Community version.
  
  * Put references on creating and using batch scripts somewhere.  There is
    now (Windows 10) extensive help files built in, along with more on MSDN.
@@ -121,7 +186,8 @@ TODO
    shells and possibly CYGWIN.  It is desirable that these batch scripts work
    from underneath all of those shells.
 
- * Add prerequisites, with links to more on satisfying the prerequisites.
+ * Find references for the prerequisite information.  These will probably be
+   in nfoWare ToolCraft or some devtools area.
 
  * We need a tutorial/HowTo location on nfoWare.com with images and related 
    documentation for the cases that apply here.
@@ -131,14 +197,13 @@ TODO
    until we have the scripts in use.  It is all provisional while Adv10 is
    in 0.0.* development.
    
-* We need some images and related documentation here where it is common to
-   all of the cases in this folder.  This should be at the nfoWare location.
+ * Create a VCbind.zip that is tied to devBind, VCbinder, and such.
 
- * Create VCbind.zip
-
- * Create VCbind.bat in a way that is usable from sibling folders.  This must
-   cope with the absence of a full path for the location of ShowDefs as a
-   working clone of the GitHub respository.
+ * VCbind.bat can be referenced from anywhere.  It is not necessary to
+   change the current working directory in order to employ VCbind.bat.
+   Having shortcuts to help with this might be something that should
+   be encouraged but not handled in detail here.  That seems like another
+   HOWTO to address on nfoWare.
    
  * Do we want VCbind.zip to be signed?  That's not a particularly bad
    idea. Not clear what the best way to accomplish it is that ensures
@@ -147,8 +212,11 @@ TODO
  * Allude to VCbinder in some fashion.  Maybe in a section on 
    REDISTRIBUTION in VCbind.txt
    
+ * Provide a checklist of the testing cases that apply to VCbind.bat.
+   
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.11 2016-11-03-14:32 Completed sketch for developer use of devBind/
  0.0.10 2016-11-01-25:45 TODOs cleanup. 
   0.0.9 2016-10-31-11:43 Complete some TODOs, tweak others.
   0.0.8 2016-10-31-09:27 Consolidate TODOs here and start fleshing out
