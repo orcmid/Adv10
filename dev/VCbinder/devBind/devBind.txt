@@ -1,4 +1,4 @@
-devBind.txt 0.0.11                     UTF-8                     2016-11-03
+devBind.txt 0.0.12                     UTF-8                     2016-11-04
 
   <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
 
@@ -213,9 +213,21 @@ TODO
    REDISTRIBUTION in VCbind.txt
    
  * Provide a checklist of the testing cases that apply to VCbind.bat.
+ 
+ * Verify that %VisualStudioVersion% is set by all vcvarsall.bat scripts,
+   as well as %VCINSTALLDIR%.  See how to make use of that when there has
+   evidently been a run of vcvarsall.bat already.
+   
+ * Don't use vsvars32.bat at all?  It might not even be a good test for
+   presence of an installed version.
+   
+ * Figure out a difference of mostly-silent versus annotated terminal
+   presence.
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.12 2016-11-04-10:58 More TODOs - determining when VC vars already set
+        and what to advise the user.
  0.0.11 2016-11-03-14:32 Completed sketch for developer use of devBind/
  0.0.10 2016-11-01-25:45 TODOs cleanup. 
   0.0.9 2016-10-31-11:43 Complete some TODOs, tweak others.
