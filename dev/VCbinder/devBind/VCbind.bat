@@ -1,7 +1,45 @@
 @echo off
-rem VCbind\VCbind.bat 0.0.4           UTF-8                    dh:2016-10-27
-echo * VCbind\VCbind.bat 0.0.4: %USERNAME%'s %COMPUTERNAME% VC environment
+rem VCbind.zip\VCbind.bat 0.0.5       UTF-8                     dh:2016-11-**
+rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
+rem                  =====================================
+
+rem This procedure sets the Windows PC command-shell environment for uase of
+rem the Visual C++ command-line compiler, cl.exe, from within a console
+rem session.  Additional documentation of the procedure and its usage are
+rem found in the VCbind.txt file in the same VCbind.zip in which this
+rem VCbind.bat is normally found.  There is additional information at
+rem <http://nfoWare.com/dev/2016/11/d161101.htm>.
+rem    This file reflects ideas applied at the Apache Software Foundation for
+rem <https://archive.apache.org/dist/openoffice/4.1.2-patch1/binaries/Windows>
+
+rem ANNOUNCE THIS SCRIPT
+rem     XXX: Assume Stand-alone operation for now.
+rem          For nesting in another script, find a way to be more "headless"
+rem          and avoid clearing and taking over the console shell window.
+TITLE SET VC++ COMMAND-LINE ENVIRONMENT
+COLOR 71
+rem   Soft white background with blue text
+CLS
+ECHO:
+ECHO: [VCbind] 0.0.5 SETTING UP VC++ COMMAND-LINE ENVIRONMENT
+ECHO:          with %0
+ECHO:          on %DATE% using %USERNAME%'s %COMPUTERNAME% 
+
+rem VERIFY MINIMUM OPERATING CONDITIONS
+IF NOT CMDEXTVERSION 2 GOTO :FAIL0
+
+rem VERIFY LOCATION OF THE SCRIPT WHERE VCBIND.ZIP IS FULLY EXTRACTED
+IF NOT EXIST "%~dp0LICENSE.txt" GOTO :FAIL1
+IF NOT EXIST "%~dp0NOTICE.txt" GOTO :FAIL1
+IF NOT EXIST "%~dp0VCbind.txt" GOTO :FAIL1
+IF NOT EXIST "%~dp0VCbind.bat" GOTO :FAIL1
+
+rem **** CONTINUE REWORKING FROM HERE ****
+rem CONFIRM WHETHER SETTINGS HAVE ALREADY BEEN MADE
+rem VERIFY THAT SETTINGS ARE NOT IN CONFLICT
+rem 
 SET VisualStudioVersion=
 rem Only set on a successful operation for any request
 CALL "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat" %1
@@ -12,6 +50,41 @@ SET VCbindOpt=x86
 IF NOT "%1" == "" SET VCbindOpt=%1
 rem An appropriate message goes here about setting, etc.
 EXIT /B 0
+
+:FAIL1
+ECHO:
+ECHO: [VCbind] **** SCRIPT IS NOT IN THE REQUIRED LOCATION ****
+ECHO:          VCbind.bat must be in the folder that VCbind.zip
+ECHO:          is extracted into.  VCbind.bat is not designed to be
+ECHO:          separated from the extracted contents of VCbind.zip.
+ECHO:
+ECHO:          NO CHANGES HAVE BEEN MADE
+ECHO:          Follow the instructions in the accompanying VCbind.txt
+ECHO:          file for extracting all of VCbind.zip content to a 
+ECHO:          working location and using the VCbind.bat there. Also
+ECHO:          see "http://nfoWare.com/dev/2016/11/d161101.htm".
+GOTO :BAIL
+
+:BAIL
+COLOR 74
+rem   Soft White background and Red text
+ECHO:
+ECHO:
+PAUSE
+EXIT /B 2
+
+:FAIL0
+ECHO:
+ECHO: [VCbind] **** COMMAND SHELL EXTENSIONS REQUIRED ****
+ECHO:          This script requires CMDEXTVERSION 2 or greater.
+ECHO:          This is available since at least Windows XP SP3.
+ECHO: 
+ECHO:          NO CHANGES HAVE BEEN MADE
+ECHO:          To enable Command Extensions, arrange to initiate
+ECHO:          the command shell with the /E:ON command-line option
+ECHO:          before performing VCbind.bat.
+GOTO :BAIL
+
 
 REM **** NOT USING CODE BELOW HERE FOR NOW ****************************
 SET ERRORLEVEL=
@@ -71,7 +144,7 @@ rem Exit /B code required to prevent global exit.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
-rem                Copyright 2006, 2014 Dennis E. Hamilton
+rem                    Copyright 2006 Dennis E. Hamilton
 rem
 rem Licensed under the Apache License, Version 2.0 (the "License");
 rem you may not use this file except in compliance with the License.
@@ -87,27 +160,10 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
-rem SET ENVIRONMENT TO USE the VC++ command-line compiler.  This script
-rem is executed in a console session to set the environment for command-line
-rem operation of compiler cl.exe and related tools, with setup of paths for
-rem executables, link libraries, and include files.
 
-rem The procedure always exits with ERRORLEVEL set, with 0 for success,
-rem 2 for failure.
-
-rem TODO
-rem  * Capture and Explain Errors here rather than in scripts depending
-rem    on VCbind.
-rem  * Create environment settings that avoid repeated additions to
-rem    PATH and other environment variables.
-rem  * Fail when an already-set environment is with different vcvarsall
-rem    options.
-rem  * Move all of the TODOs to the devBind.txt file describing further
-rem    development of devBind.
-rem  * Convert devBind to automatically find a candidate environment setup
-rem    or to have a specified one.
-
-
+rem 0.0.5 2016-11-08-10:54 Rearrange comments and move TODOs to the
+rem       devBind.txt working file.  Check for acceptable CMDEXTVERSION 
+rem       and location (%dp0) where this script is located.
 rem 0.0.4 2016-10-27-11:43 Boilerplate in VCbinder/devBind folder 
 rem       for morphing into a more robust, automatic version that works
 rem       free-standing as part of a command-line construction set for
