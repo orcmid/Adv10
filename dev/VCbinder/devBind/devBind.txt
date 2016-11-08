@@ -1,4 +1,4 @@
-devBind.txt 0.0.13                    UTF-8                         2016-11-05
+devBind.txt 0.0.14                    UTF-8                        2016-11-08
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -12,18 +12,29 @@ devBind.txt 0.0.13                    UTF-8                         2016-11-05
 
     Folder devBind/ provides the files for under-development maintenance,
     testing, and delivery of a VCbind.zip drop-in for use in software
-    source-code construction sets.  VCbinder and its development in
-    devBinder/ illustrates one way to accomplish that in the routine
+    source-code construction sets.  VCbinder and its development in the
+    nearby devBinder/ illustrates one way to accomplish that in the routine
     development of construction sets.
     
     The details of VCbind.zip and its usage are in the file VCbind.txt.
-    That file is provided in VCbind.zip.  It is often useful to also include
-    VCbind.txt as a companion file of VCbind.zip so that users can
+    That file is part of the VCbind.zip content.  It can be useful to also 
+    include VCbind.txt as a companion file with VCbind.zip so users can
     determine how to proceed before extracting VCbind.zip content itself.
     
     More about the variety of ways that VCbind.zip may be useful can be
     found in source-code constructions sets for building Microsoft
     Windows programs from simple C/C++ source-code configurations.
+    
+    NOTE: When there is development, maintenance, and testing in this
+    devBind/ folder, the working versions of VCbind.txt, VCbind.bat, and 
+    VCbind.zip can be inconsistent.
+    
+    
+USING VCBIND.ZIP
+
+    For the latest stable VCbind recommended for general distribution and
+    usage, consult the VCbinder folder and the latest public downloads
+    available at <http://nfoWare.com/dev/2016/11/d161101b.htm>.
     
     
 PREREQUISITE CAPABILITIES FOR VCBIND DEVELOPMENT WORK
@@ -37,7 +48,7 @@ PREREQUISITE CAPABILITIES FOR VCBIND DEVELOPMENT WORK
     to work on, if any.  
       
     Going deeper may involve expanding skills in several areas, including
-    those below.
+    these for your review.
     
      * Working with the source-code management system, if any, that this
        source code folder was obtained from
@@ -76,34 +87,32 @@ DEVBIND MAINTENANCE AND DEVELOPMENT
      project.
      
   2. In the devBind\ folder, follow the VCbind.txt instructions and
-     extract VCbind.zip to the subfolder, VCbind\ (i.e., Windows 
+     extract VCbind.zip to the subfolder VCbind\ (i.e., Windows 
      folder location devBind\VCbind\).
      
-  3. Perform editing and testing in the VCbind\ subfolder.  
-  
-  4. When done, or at a checkpoint, move your changes and additions from
-     the devBind\VCbind\ folder back to the devBind folder.  Delete the
-     VCbind folder so there is no confusion about what is the current work.
-     If there is nothing you want to change, simply delete the VCbind\ 
-     folder.
+     The following steps have been employed in the original progression
+     of devBind work.  There are many ways to accomplish the same result.
+     The key is to always know what is the latest and what is not current.
      
-  5. Synchronize VCbind.zip with your work.  To keep the changes copied
-     from VCbind\ at step 4,
+  3. Edit the VCbind.bat and VCbind.txt files here in the devBind\ folder.
+     Copy modified VCbind.bat files to devBind\VCbind\ for testing and
+     confirmation of test cases.  Confirm that the cl.exe compiler can be
+     operated and that successful compilations are produced.
+    
+  4. Wnen done or at a chock-point, synchronize VCbind.zip with your work.  
   
-     5.1 Delete the VCbind.zip file.
+     4.1 Delete the devBind\VCbind.zip file.
      
-     5.2 In the Windows File Explorer, creat a New Compress (zipped) Folder
+     4.2 In the Windows File Explorer, creat a New Compressed (zipped) Folder
          in devBind\.  Name it VCbind.zip.
          
-     5.3 Drag the VCbind.zip-intened  devBind\ files into the new, empty
-         VCbind.zip: LICENSE.txt, NOTICE.txt, VCbind.bat, and VCbind.txt. 
-         If there are additional files included in VCbind.zip, copy those
-         into the VCbind.zip as well.
+     4.3 Drag the VCbind.zip-intended  devBind\ files into the new, empty
+         VCbind.zip: LICENSE.txt, NOTICE.txt, VCbind.bat, and VCbind.txt.
          
-  6. Adjust this devBind.txt to reflect any change to the manifest and 
+  7. Adjust this devBind.txt to reflect any change to the manifest and 
      anything else that needs to be changed to have current documentation.
      
-  7. Check-in the modified/new materials under the source-code management
+  8. Check-in the modified/new materials under the source-code management
      you are using.  Depending on the state of completion and project
      requirements for thorough testing, contribute back to any project
      this work is on behalf of.
@@ -112,12 +121,12 @@ DEVBIND MAINTENANCE AND DEVELOPMENT
 MANIFEST
 
     .gitignore
-        excluding any devBind/VCbind/ testing folder from source-code
+        excluding any devBind/VCbind/ working folder from source-code
         version control
 
     devBind.txt
-        this manifest and procedures for developing and delivering 
-        VCbind.zip for use in source-code construction sets
+        this manifest and procedures for developing a VCbind.zip
+        for use in source-code construction sets
         
     LICENSE.txt
         Apache License Version 2.0 for inclusion in VCbind.zip
@@ -133,8 +142,8 @@ MANIFEST
         script included in VCbind.zip that provides the binding operation
         
     VCbind.zip
-        current version of VCbind.zip archive for dropping into Windows 
-        command-line construction sets.  
+        current working development version of VCbind.zip archive for 
+        dropping into Windows command-line construction sets.  
 
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
@@ -173,7 +182,7 @@ TODO
  * Is it meaningful to go as far back as VS2005 (Version 8.0)?
  
  * Incorporte VCbind detection for the VC Compiler Tools distributions.  This
-   works the same as Version 14.0.  It should be transparent.
+   works the same as Version 14.0 so far.  It should be transparent.
  
  * Determine the oldest Visual Studio that we want to support in general.
    Applications of VCbind might determine their own limitations on the
@@ -239,9 +248,6 @@ TODO
    idea. Not clear what the best way to accomplish it is that ensures
    use of a proper public key though.
    
- * Allude to VCbinder in some fashion.  Maybe in a section on 
-   REDISTRIBUTION in VCbind.txt
-   
  * Provide a checklist of the testing cases that apply to VCbind.bat.
  
  * Verify that %VisualStudioVersion% is set by all vcvarsall.bat scripts,
@@ -265,13 +271,40 @@ TODO
 
  * Convert devBind to automatically find a candidate environment setup
    or to have a specified one.
+     
+ * VCbind.bat: Add links to locations where more information can be found
+   in case the script is (found) separated from VCbind.zip.
    
- * The maintenance/customization procedure added in 0.0.11 is too clumsy
-   in actual use.  Streamline it.
+ * VCbind.bat: Come up with a bypass scheme that avoids taking over the 
+   console window when VCbind.bat is run beneath another script that has
+   control.
    
+ * The term for cmd.exe is "command shell."  Use that consistently.
+   See <https://technet.microsoft.com/en-us/library/bb490954.aspx>.
+   
+ * Check %CMDEXTVERSION% to ensure that a compatible cmd.exe and 
+   extension level are available.  The result is 2 by default starting
+   with Windows XP.  
+   
+ * %PROCESSOR_ARCHITECTURE% is "x86" on 32-bit processors, including Windows
+   XP on 32-bit machines.  AMD64 is used on the usual 64-bit processors.
+   
+ * Help on cmd.exe and the Windows Console Shell should also point out how
+   much off-line help is built into the shell.
+   
+ * Need to suggest help cmd and also help setlocal as part of the off-line
+   help.
+   
+ * Put something at <http://nfoWare.com/dev/2016/11/d161101b.htm> [;<).
+ 
+ * Add a confirmation checklist with basic smoketest as well as a systematic
+   exercise of the script.  
+   
+ * Consider a script for systematic confirmation of VCbind.bat operation.
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.0.14 2016-11-08-08:57 Smooth the procedures, review and expand TODOs
  0.0.13 2016-11-05-10:38 Touch-ups. Transpose TODOs from VCbind.bat 0.0.4. 
         Identify need for troubleshooting the maintenance/customization
         procedure.  Use rulers as separators to aid plaintext margin-keeping.
@@ -295,6 +328,6 @@ TODO
   0.0.1 2016-10-24-18:32 Add LICENSE.txt and NOTICE.txt in support of the
         independent redistribution VCbind code in VCbind.zip.
   0.0.0 2016-10-24-18:11 Initial Placeholder as part of VCbind/dev/ folder
-       setup.
+        setup.
  
                         *** end of devBind.txt ***
