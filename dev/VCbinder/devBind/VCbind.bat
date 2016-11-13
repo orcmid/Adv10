@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.5       UTF-8                     dh:2016-11-**
+rem VCbind.zip\VCbind.bat 0.0.6       UTF-8                     dh:2016-11-13
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -8,22 +8,22 @@ rem                  =====================================
 rem This procedure sets the Windows PC command-shell environment for uase of
 rem the Visual C++ command-line compiler, cl.exe, from within a console
 rem session.  Additional documentation of the procedure and its usage are
-rem found in the VCbind.txt file in the same VCbind.zip in which this
-rem VCbind.bat is normally found.  There is additional information at
-rem <http://nfoWare.com/dev/2016/11/d161101.htm>.
+rem found in the accompanying VCbind.txt file.  For further information,
+rem see <http://nfoWare.com/dev/2016/11/d161101.htm> and check for the latest
+rem version at <http://nfoWare.com/dev/2016/11/d161101b.htm>.
 rem    This file reflects ideas applied at the Apache Software Foundation for
 rem <https://archive.apache.org/dist/openoffice/4.1.2-patch1/binaries/Windows>
 
 rem ANNOUNCE THIS SCRIPT
 rem     XXX: Assume Stand-alone operation for now.
 rem          For nesting in another script, find a way to be more "headless"
-rem          and avoid clearing and taking over the console shell window.
+rem          and avoid clearing and taking over the command shell window.
 TITLE SET VC++ COMMAND-LINE ENVIRONMENT
 COLOR 71
 rem   Soft white background with blue text
 CLS
 ECHO:
-ECHO: [VCbind] 0.0.5 SETTING UP VC++ COMMAND-LINE ENVIRONMENT
+ECHO: [VCbind] 0.0.6 SETTING UP VC++ COMMAND-LINE ENVIRONMENT
 ECHO:          with %0
 ECHO:          on %DATE% using %USERNAME%'s %COMPUTERNAME% 
 
@@ -36,20 +36,107 @@ IF NOT EXIST "%~dp0NOTICE.txt" GOTO :FAIL1
 IF NOT EXIST "%~dp0VCbind.txt" GOTO :FAIL1
 IF NOT EXIST "%~dp0VCbind.bat" GOTO :FAIL1
 
-rem **** CONTINUE REWORKING FROM HERE ****
-rem CONFIRM WHETHER SETTINGS HAVE ALREADY BEEN MADE
-rem VERIFY THAT SETTINGS ARE NOT IN CONFLICT
+rem DETERMINE PARAMETERS
+rem    Three environment variables are set whenever there is a successful
+rem    VCbind.bat conclusion:
+rem           VCbound is the environment (e.g., 140) that was used
+rem       VCmodeBound is the mode (e.g., x86) of compilation bound
+rem        VCboundVer is the version (e.g., 14.0) of Visual Studio.
+rem
+rem    other VC* environment variables are used transiently and will
+rem    be altered without checking whether they are already defined.
+  
+rem    XXX: For now, assume no VC* parameters are requested on the
+rem         VCbind.bat command-line.
+
+SET VCasked=%VCbound%
+SET VCmodeAsked=x86
+ECHO: [VCbind] Requesting binding for %VCmodeAsked% compilation.
+
+rem CHECK WHETHER VCBIND SETTINGS HAVE ALREADY BEEN MADE
+IF DEFINED VCbound GOTO :ALREADY
+
+rem CHECK WHETHER THERE HAS BEEN SOME OTHER BINDING ALREADY 
+IF DEFINED VisualStudioVersion GOTO :FAIL4
+
+rem FIND AVAILABLE 
 rem 
-SET VisualStudioVersion=
-rem Only set on a successful operation for any request
+rem    XXX: Just use known version 11.0 for initial testing.
+set VCasked=110
 CALL "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat" %1
 rem Only call if there has never been a successful operation
-IF "%VisualStudioVersion%" == "" GOTO :FAIL3
-SET VCbindVer=%VisualStudioVersion%
-SET VCbindOpt=x86
-IF NOT "%1" == "" SET VCbindOpt=%1
-rem An appropriate message goes here about setting, etc.
+IF "%VisualStudioVersion%" == "" GOTO :FAIL5
+
+ECHO:
+ECHO: [VCbind] Environment set for VC++ %VisualStudioVersion% %VCmodeAsked%.
+GOTO :SUCCESS
+
+:ALREADY
+rem CHECK IF THERE IS A CONFLICT WITH THE PREVIOUS BINDING
+IF NOT "%VCasked%" == "%VCbound%" GOTO :FAIL2
+IF NOT "%VCmodeAsked%" == "%VCmodeBound%" GOTO :FAIL2
+
+rem CHECK IF ANOTHER CONFLICT HAS ARISEN
+IF NOT "%VCboundVer%" == "%VisualStudioVersion%" GOTO :FAIL3
+
+rem TRUST PREVIOUS SETTINGS TO BE REUSABLE
+ECHO:
+ECHO: [VCbind] Environment set for VC++ %VCboundVer% %VCmodeBound% unchanged.        
+GOTO :SUCCESS
+
+:SUCCESS
+rem    XXX: Assuming no need to fiddle ERRORLEVEL at this point.
+ECHO:
+ECHO:
+SET VCbound=%VCasked%
+SET VCmodeBound=%VCmodeAsked%
+SET VCboundVer=%VisualStudioVersion%
+rem    correct whether first or subsequent success
+PAUSE
 EXIT /B 0
+
+:FAIL5
+ECHO:
+ECHO: [VCbind] *** SETUP FOR TOOLS %VCasked% %VCmodeAsked% FAILED ***
+ECHO:          Check preceding messages for failure information.
+ECHO:
+ECHO:          THE CURRENT STATE IS UNPREDICTABLE
+ECHO:          It is likely that %VCmodeAsked% is not supported by
+ECHO:          the installed VS %VCasked% Common Tools.  There may
+ECHO:          be other problems.
+GOTO :BAIL
+
+:FAIL4
+ECHO:
+ECHO: [VCbind] *** VC ENVIRONMENT ALREADY SET BY OTHER MEANS ***
+ECHO:          The environment is already set for compiling with the
+ECHO:          VC++ compiler of Visual Studio version %VisualStudioVerison%.
+GOTO :NOMIXING
+
+:FAIL3
+ECHO:
+ECHO: [VCbind] *** VC ENVIRONMENT HAS BEEN ALTERED ***
+ECHO:          There has been an alteration of VC binding to version %VisualStudioVersion%
+ECHO:          from the version %VCboundVer% set by VCbind.  Continuing
+ECHO:          this command-shell session may lead to unexpected results.
+GOTO :NOMIXING
+
+:FAIL2
+ECHO:
+ECHO: [VCbind] **** CONFLICT WITH A PRIOR VCBIND ****
+ECHO:          The current request conflicts with settings already
+ECHO:          in effect for %VCmodeBound% compilations using the
+ECHO:          VC++ compiler of Visual Studio version %VisualStudioVersion%.
+rem               TODO: confirm version is always set when vcvarsall works.
+GOTO :NOMIXING
+
+:NOMIXING
+ECHO:
+ECHO:          NO CHANGES HAVE BEEN MADE
+ECHO:          Do not attempt to change or mix VCbind settings in a command-
+ECHO:          shell session in which VCbind or other settings have already
+ECHO:          been made.
+GOTO :BAIL
 
 :FAIL1
 ECHO:
@@ -65,14 +152,6 @@ ECHO:          working location and using the VCbind.bat there. Also
 ECHO:          see "http://nfoWare.com/dev/2016/11/d161101.htm".
 GOTO :BAIL
 
-:BAIL
-COLOR 74
-rem   Soft White background and Red text
-ECHO:
-ECHO:
-PAUSE
-EXIT /B 2
-
 :FAIL0
 ECHO:
 ECHO: [VCbind] **** COMMAND SHELL EXTENSIONS REQUIRED ****
@@ -85,62 +164,14 @@ ECHO:          the command shell with the /E:ON command-line option
 ECHO:          before performing VCbind.bat.
 GOTO :BAIL
 
-
-REM **** NOT USING CODE BELOW HERE FOR NOW ****************************
-SET ERRORLEVEL=
-rem     Remove any incoming %ERRORLEVEL% setting.
-
-IF "%VS80COMNTOOLS%"=="" GOTO :FAIL1
-IF NOT "%VCINSTALLDIR%"=="" GOTO :PRESET
-IF NOT EXIST "%VS80COMNTOOLS%vsvars32.bat" GOTO :FAIL2
-ECHO Settings from %VS80COMNTOOLS%
-
-CALL "%VS80COMNTOOLS%vsvars32.bat"
-rem       using the vsvars setup for the installed Visual Studio 2005.
-
-IF "%ERRORLEVEL%" == "" SET ERRORLEVEL=1
+:BAIL
+IF NOT ERRORLEVEL 2 SET ERRORLEVEL=2
+COLOR 74
+rem   Soft White background and Red text
+ECHO:
+ECHO:
+PAUSE
 EXIT /B %ERRORLEVEL%
-
-:PRESET
-ECHO Using VC++ at %VCINSTALLDIR%
-rem      the vsvars have already been set.
-
-EXIT /B 1
-
-:FAIL1
-ECHO:  **** This script requires Visual C++ 2005 to be installed and
-ECHO:  **** the environment variable VS80COMNTOOLS set as part of that
-ECHO:  **** Visual C++ or Visual Studio 2005 install
-EXIT /B 2
-
-:FAIL2
-ECHO: **** Although VS80COMNTOOLS is set, the file vsvars32.bat is
-ECHO: **** not available at %VS80COMNTOOLS%
-ECHO: ****    Install Visual C++ 2005 Express Edition or modify this
-ECHO: **** MyVC++.bat script to locate vsvars32.bat properly in your
-ECHO: **** Visual Studio 2005 configuration.
-EXIT /B 2
-
-:FAIL3
-ECHO * VCBIND OPERATION FAILED
-ECHO *     VCbind failed for the reasons noted above.
-ECHO *     Provide appropriate correction and customization if needed.
-IF "%1" == "" GOTO :BYPASS3
-ECHO *     Ensure that the VC Version selected by VCbind supports the
-ECHO *     vcvarsall parameter of %1.
-:BYPASS3
-ECHO *     When the situation is corrected, it may be necessary to start a
-ECHO *     new console session to clear out any environment alterations from
-ECHO *     the failed VCbind.
-ECHO:
-EXIT /B 2
-
-:ANNOUNCE
-rem Identify this script only if we're done here.
-ECHO * VCbind.bat 0.0.4 ESTABLISH VC ENVIRONMENT FOR VC COMPILES %1
-ECHO:
-EXIT /B 0
-rem Exit /B code required to prevent global exit.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
@@ -161,6 +192,7 @@ rem limitations under the License.
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 
+rem 0.0.6 2016-11-13-11:52 Add Checks for All Conflict Cases     
 rem 0.0.5 2016-11-08-10:54 Rearrange comments and move TODOs to the
 rem       devBind.txt working file.  Check for acceptable CMDEXTVERSION 
 rem       and location (%dp0) where this script is located.
