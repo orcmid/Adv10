@@ -1,31 +1,36 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.6       UTF-8                     dh:2016-11-13
+rem VCbind.zip\VCbind.bat 0.0.7       UTF-8                     dh:2016-11-14
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
-rem                  =====================================
+rem                  ======================================
 
-rem This procedure sets the Windows PC command-shell environment for uase of
-rem the Visual C++ command-line compiler, cl.exe, from within a console
-rem session.  Additional documentation of the procedure and its usage are
-rem found in the accompanying VCbind.txt file.  For further information,
-rem see <http://nfoWare.com/dev/2016/11/d161101.htm> and check for the latest
+rem This procedure sets the Windows PC command-shell environment for command-
+rem line use of the Visual C++ command-line compiler, cl.exe, and related
+rem build tools.
+
+rem Additional documentation of the procedure and its usage are found in the
+rem accompanying VCbind.txt file.  For further information, see
+rem <http://nfoWare.com/dev/2016/11/d161101.htm> and check for the latest
 rem version at <http://nfoWare.com/dev/2016/11/d161101b.htm>.
-rem    This file reflects ideas applied at the Apache Software Foundation for
+
+rem This file reflects ideas applied at the Apache Software Foundation for
 rem <https://archive.apache.org/dist/openoffice/4.1.2-patch1/binaries/Windows>
 
 rem ANNOUNCE THIS SCRIPT
 rem     XXX: Assume Stand-alone operation for now.
 rem          For nesting in another script, find a way to be more "headless"
 rem          and avoid clearing and taking over the command shell window.
-TITLE SET VC++ COMMAND-LINE ENVIRONMENT
+
+TITLE VC++ COMMAND-LINE BUILD ENVIRONMENT SETUP
 COLOR 71
 rem   Soft white background with blue text
+
 CLS
 ECHO:
-ECHO: [VCbind] 0.0.6 SETTING UP VC++ COMMAND-LINE ENVIRONMENT
-ECHO:          with %0
-ECHO:          on %DATE% using %USERNAME%'s %COMPUTERNAME% 
+ECHO: [VCbind] 0.0.7 SETTING UP VC++ COMMAND-SHELL ENVIRONMENT
+ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME% 
+ECHO:          %~dp0
 
 rem VERIFY MINIMUM OPERATING CONDITIONS
 IF NOT CMDEXTVERSION 2 GOTO :FAIL0
@@ -41,17 +46,15 @@ rem    Three environment variables are set whenever there is a successful
 rem    VCbind.bat conclusion:
 rem           VCbound is the environment (e.g., 140) that was used
 rem       VCmodeBound is the mode (e.g., x86) of compilation bound
-rem        VCboundVer is the version (e.g., 14.0) of Visual Studio.
-rem
-rem    other VC* environment variables are used transiently and will
+rem        VCboundVer is the version (e.g., 14.0) of Visual Studio
+rem                   that the VC++ build tools correspond to.
+rem    other VC* environment-variable names are used transiently and will
 rem    be altered without checking whether they are already defined.
   
 rem    XXX: For now, assume no VC* parameters are requested on the
 rem         VCbind.bat command-line.
-
 SET VCasked=%VCbound%
 SET VCmodeAsked=x86
-ECHO: [VCbind] Requesting binding for %VCmodeAsked% compilation.
 
 rem CHECK WHETHER VCBIND SETTINGS HAVE ALREADY BEEN MADE
 IF DEFINED VCbound GOTO :ALREADY
@@ -59,16 +62,14 @@ IF DEFINED VCbound GOTO :ALREADY
 rem CHECK WHETHER THERE HAS BEEN SOME OTHER BINDING ALREADY 
 IF DEFINED VisualStudioVersion GOTO :FAIL4
 
-rem FIND AVAILABLE 
+rem FIND AVAILABLE VC++ BUILD TOOLS
 rem 
 rem    XXX: Just use known version 11.0 for initial testing.
 set VCasked=110
 CALL "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat" %1
-rem Only call if there has never been a successful operation
 IF "%VisualStudioVersion%" == "" GOTO :FAIL5
 
-ECHO:
-ECHO: [VCbind] Environment set for VC++ %VisualStudioVersion% %VCmodeAsked%.
+ECHO:          Success: VC++ %VisualStudioVersion% %VCmodeAsked%-mode set up.
 GOTO :SUCCESS
 
 :ALREADY
@@ -80,8 +81,9 @@ rem CHECK IF ANOTHER CONFLICT HAS ARISEN
 IF NOT "%VCboundVer%" == "%VisualStudioVersion%" GOTO :FAIL3
 
 rem TRUST PREVIOUS SETTINGS TO BE REUSABLE
-ECHO:
-ECHO: [VCbind] Environment set for VC++ %VCboundVer% %VCmodeBound% unchanged.        
+rem      Avoid multiple running of vcvarsall and duplicating the PATH and
+rem      other parameter settings.
+ECHO:          Using existing VC++ %VCboundVer% %VCmodeBound%-mode settings.        
 GOTO :SUCCESS
 
 :SUCCESS
@@ -97,11 +99,11 @@ EXIT /B 0
 
 :FAIL5
 ECHO:
-ECHO: [VCbind] *** SETUP FOR TOOLS %VCasked% %VCmodeAsked% FAILED ***
+ECHO: [VCbind] *** SETUP FOR TOOLS %VCasked% %VCmodeAsked%-MODE FAILED ***
 ECHO:          Check preceding messages for failure information.
 ECHO:
 ECHO:          THE CURRENT STATE IS UNPREDICTABLE
-ECHO:          It is likely that %VCmodeAsked% is not supported by
+ECHO:          It is likely that %VCmodeAsked%-mode is not supported by
 ECHO:          the installed VS %VCasked% Common Tools.  There may
 ECHO:          be other problems.
 GOTO :BAIL
@@ -125,7 +127,7 @@ GOTO :NOMIXING
 ECHO:
 ECHO: [VCbind] **** CONFLICT WITH A PRIOR VCBIND ****
 ECHO:          The current request conflicts with settings already
-ECHO:          in effect for %VCmodeBound% compilations using the
+ECHO:          in effect for %VCmodeBound%-mode compilations using the
 ECHO:          VC++ compiler of Visual Studio version %VisualStudioVersion%.
 rem               TODO: confirm version is always set when vcvarsall works.
 GOTO :NOMIXING
@@ -154,9 +156,9 @@ GOTO :BAIL
 
 :FAIL0
 ECHO:
-ECHO: [VCbind] **** COMMAND SHELL EXTENSIONS REQUIRED ****
-ECHO:          This script requires CMDEXTVERSION 2 or greater.
-ECHO:          This is available since at least Windows XP SP3.
+ECHO:          **** COMMAND SHELL EXTENSIONS REQUIRED ****
+ECHO:          VCbind requires CMDEXTVERSION 2 or greater.
+ECHO:          This is available on all platforms VCbind supports.
 ECHO: 
 ECHO:          NO CHANGES HAVE BEEN MADE
 ECHO:          To enable Command Extensions, arrange to initiate
@@ -192,6 +194,9 @@ rem limitations under the License.
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 
+rem 0.0.7 2016-11-14-09:55 Smooth output of messages
+rem       The output messages are smoothed to be more condensed in
+rem       non-failure cases.
 rem 0.0.6 2016-11-13-11:52 Add Checks for All Conflict Cases     
 rem 0.0.5 2016-11-08-10:54 Rearrange comments and move TODOs to the
 rem       devBind.txt working file.  Check for acceptable CMDEXTVERSION 
@@ -200,8 +205,7 @@ rem 0.0.4 2016-10-27-11:43 Boilerplate in VCbinder/devBind folder
 rem       for morphing into a more robust, automatic version that works
 rem       free-standing as part of a command-line construction set for
 rem       creating Microsoft Windows programs on Microsft Windows.
-rem       Scavenged from ShowDefs version scavenged from the OdmVC++.bat 
-rem       0.27 version of 2006-11-04-16:35
+rem       Scavenged from ShowDefs version 0.03. 
 rem 0.03 2014-12-28-19:11 Get vcvarsall Handshake CALL working
 rem      Handshake set up and failure case managed.
 rem 0.02 2014-12-28-17:06 Correct vcvarsall Usage
