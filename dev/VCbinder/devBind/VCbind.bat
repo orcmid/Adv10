@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.9       UTF-8                     dh:2016-11-15
+rem VCbind.zip\VCbind.bat 0.0.10       UTF-8                    dh:2016-11-15 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -14,21 +14,25 @@ rem accompanying VCbind.txt file.  For further information, see
 rem <http://nfoWare.com/dev/2016/11/d161101.htm> and check for the latest
 rem version at <http://nfoWare.com/dev/2016/11/d161101b.htm>.
 
-rem ANNOUNCE THIS SCRIPT
-rem     XXX: Assume Stand-alone operation for now.
-rem          For nesting in another script, find a way to be more "headless"
-rem          and avoid clearing and taking over the command shell window.
+rem DETERMINE IF TERSE OR VERBOSE
+rem     %1 value "*" selects terse operation
+rem     don't shift it out until Command Extensions confirmed.
+SET VCterse=
+IF "%1" == "*" SET VCterse=^>NUL
+rem                used to dump verbose echos
 
+rem ANNOUNCE THIS SCRIPT
+IF "%1" == "*" GOTO :WHISPER
 TITLE VC++ COMMAND-LINE BUILD ENVIRONMENT SETUP
 COLOR 71
 rem   Soft white background with blue text
 
 CLS
 ECHO:
-ECHO: [VCbind] 0.0.9 SETTING UP VC++ COMMAND-SHELL ENVIRONMENT
-ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME% 
-rem VERIFY MINIMUM OPERATING CONDITIONS
+:WHISPER
+ECHO: [VCbind] 0.0.10 SETTING UP VC++ COMMAND-SHELL ENVIRONMENT
 IF NOT CMDEXTVERSION 2 GOTO :FAIL0
+ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME% 
 ECHO:          %~f0
 rem            reporting full-path filename of this script
 
@@ -44,8 +48,9 @@ rem    VCbind.bat has the following command-line parameters:
 rem         > VCbind [*][option [toolset]]
 
 rem    where
-rem             * signifies that non-verbose output is preferred
+rem             * signifies that terse output is preferred
 rem               (suitable when operated from within another script)
+
 rem        config is one of the VC++ "platform" cases:
 rem                        x86 for producing x86 code via the x86 compiler
 rem                      amd64 for producing x64 code via the x64 compiler
@@ -53,6 +58,7 @@ rem                  amd64_x86 for producing x86 code via the x64 compiler
 rem                  x86_amd64 for producing x64 code via the x86 compiler
 rem               Some toolsets and platforms will limite these.
 rem               x86 is the default and always works.
+
 rem       toolset identifies which common tools to start checking from:
 rem                        140 for Visual Studio 2015 (14.0) flavors, then 
 rem                        120 for Visual Studio 2013 (12.0) flavors, then
@@ -73,6 +79,8 @@ rem    be altered without checking whether they are already defined.
   
 rem    XXX: For now, assume no VC* parameters are requested on the
 rem         VCbind.bat command-line.
+
+IF "%1" == "*" SHIFT /1
 SET VCasked=%VCbound%
 SET VCaskedConfig=x86
 
@@ -83,6 +91,7 @@ rem CHECK WHETHER THERE HAS BEEN SOME OTHER BINDING ALREADY
 IF DEFINED VCINSTALLDIR GOTO :FAIL4
 
 rem FIND LATEST-AVAILABLE RELEASED VC++ BUILD TOOLS
+
 :TRY140
 IF NOT DEFINED VS140COMNTOOLS GOTO :TRY120
 set VisualStudioVersion=14.0
@@ -146,91 +155,91 @@ ECHO:          Using existing VC++ %VCboundVer% %VCboundConfig% config setup.
 GOTO :SUCCESS
 
 :SUCCESS
-ECHO:
-ECHO:
+
 SET VCbound=%VCasked%
 SET VCboundConfig=%VCaskedConfig%
 SET VCboundVer=%VisualStudioVersion%
 rem    appropriate whether or not already set
-PAUSE
+ECHO:  %VCterse%
+IF "%VCterse%" == "" PAUSE
 EXIT /B 0
 
 :FAIL6
 ECHO:          *** NO VC++ BUILD TOOLS FOUND ***
-ECHO:          VCbind-supported desktop build tools could not be located.
-ECHO:
-ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE
-ECHO:          See %<http://nfoWare.com/dev/2016/11/d161101.htm%>
-ECHO:          for suitable freely-available versions.
+ECHO:          VCbind-supported build tools could not be located.   %VCterse%
+ECHO:          %VCterse%
+ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                
+ECHO:          See %<http://nfoWare.com/dev/2016/11/d161101.htm%>   %VCterse%
+ECHO:          for suitable freely-available versions.              %VCterse%
 GOTO :BAIL
 
 :FAIL5
 set VisualStudioVersion=
-rem     XXX: Incase incorrectly guessed in a :TRYnnn step.
-ECHO:
-ECHO: [VCbind] *** SETUP FOR TOOLS %VCasked% %VCaskedConfig%-CONFIG FAILED ***
+rem     in case incorrectly guessed at :TRY140
+ECHO: [VCbind] *** SETUP FOR TOOLS %VCasked% %VCaskedConfig% CONFIG FAILED ***
 ECHO:          Check preceding messag(s) for failure information.
-ECHO:
-ECHO:          NO VC++ CONFIGURATION ENVIRONMENT IS SET
+ECHO:          %VCterse%
+ECHO:          NO VC++ CONFIGURATION ENVIRONMENT IS SET             %VCterse%
 GOTO :BAIL
 
 :FAIL4
-ECHO:          *** VC ENVIRONMENT ALREADY SET BY OTHER MEANS ***
-ECHO:          The environment is already set for compiling with the
-ECHO:          VC++ compiler of Visual Studio version %VisualStudioVerison%.
+ECHO:          *** VC ENVIRONMENT ALREADY SET BY OTHER MEANS ***    %VCterse%  
+ECHO:          The environment is already set for compiling with a  %VCterse%
+ECHO:          VC++ compiler version %VisualStudioVersion%          %VCterse%
 GOTO :NOMIXING
 
 :FAIL3
 ECHO:          *** VC ENVIRONMENT HAS BEEN ALTERED ***
-ECHO:          There has been an alteration of VC binding to version %VisualStudioVersion%
-ECHO:          from the version %VCboundVer% set by VCbind.  Continuing
-ECHO:          this command-shell session may lead to unexpected results.
+ECHO:          VC binding to VC++ %VisualStudioVersion% is changed  %VCterse%
+ECHO:          from version %VCboundVer% set by VCbind.  Continuing %VCterse%
+ECHO:          this session may lead to unexpected results.         %VCterse%
 GOTO :NOMIXING
 
 :FAIL2
 ECHO:          **** CONFLICT WITH A PRIOR VCBIND ****
-ECHO:          The current request conflicts with settings already
-ECHO:          in effect for %VCboundConfig% config compilations using the
-ECHO:          VC++ compiler of Visual Studio version %VisualStudioVersion%.
+ECHO:          The current request conflicts with settings already  %VCterse%
+ECHO:          in effect for %VCboundConfig% config with the VC++   %VCterse%
+ECHO:          %VisualStudioVersion% compiler.                      %VCterse%
 GOTO :NOMIXING
 
 :NOMIXING
-ECHO:
+ECHO:          %VCterse%
 ECHO:          NO CHANGES HAVE BEEN MADE
-ECHO:          Do not attempt to change or mix VCbind settings in a command-
-ECHO:          shell session in which VCbind or other settings have already
-ECHO:          been made.
+ECHO:          Do not attempt to change or mix VCbind settings in   %VCterse%
+ECHO:          a command-shell session in which VC++ environment    %VCterse%
+ECHO:          settings have already been made.                     %VCterse%
 GOTO :BAIL
 
 :FAIL1
 ECHO:          **** SCRIPT IS NOT IN THE REQUIRED LOCATION ****
-ECHO:          VCbind.bat must be in the folder that VCbind.zip
-ECHO:          is extracted into.  VCbind.bat is not designed to be
-ECHO:          separated from the extracted contents of VCbind.zip.
-ECHO:
+ECHO:          VCbind.bat must be in the folder that VCbind.zip     %VCterse%
+ECHO:          is extracted into.  VCbind.bat is not designed to be %VCterse%
+ECHO:          separated from the extracted contents of VCbind.zip. %VCterse%
+ECHO:          %VCterse%
 ECHO:          NO CHANGES HAVE BEEN MADE
-ECHO:          Follow the instructions in the accompanying VCbind.txt
-ECHO:          file for extracting all of VCbind.zip content to a 
-ECHO:          working location and using the VCbind.bat there. Also
-ECHO:          see "http://nfoWare.com/dev/2016/11/d161101.htm".
+ECHO:          Follow instructions in the accompanying VCbind.txt   %VCterse%
+ECHO:          file for extracting all of VCbind.zip content to a   %VCterse%
+ECHO:          working location and using the VCbind.bat there. Also%VCterse%
+ECHO:          see ^<http://nfoWare.com/dev/2016/11/d161101.htm^>.  %VCterse%
 GOTO :BAIL
 
 :FAIL0
 ECHO:          **** COMMAND SHELL EXTENSIONS REQUIRED ****
-ECHO:          VCbind requires CMDEXTVERSION 2 or greater.
-ECHO:          This is available on all platforms VCbind supports.
-ECHO: 
+ECHO:          VCbind requires CMDEXTVERSION 2 or greater.           %VCterse%
+ECHO:          This is available on all platforms VCbind supports.   %VCterse%
+ECHO:          %VCterse%
 ECHO:          NO CHANGES HAVE BEEN MADE
-ECHO:          To enable Command Extensions, arrange to initiate
-ECHO:          the command shell with the /E:ON command-line option
-ECHO:          before VCbind.bat is performed directly or indirectly.
+ECHO:          To enable Command Extensions, arrange to initiate     %VCterse%
+ECHO:          the command shell with the /E:ON command-line option  %VCterse%
+ECHO:          before VCbind.bat is performed directly or indirectly.%VCterse%
 GOTO :BAIL
 
 :BAIL
+ECHO:
 IF NOT ERRORLEVEL 2 SET ERRORLEVEL=2
+IF NOT "%VCterese%" == "" EXIT /B %ERRORLEVEL%
 COLOR 74
 rem   Soft White background and Red text
-ECHO:
 ECHO:
 PAUSE
 EXIT /B %ERRORLEVEL%
@@ -256,6 +265,7 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem 0.0.10 2016-11-15-14:31 Introduce Terse operation;  smooth messages.
 rem 0.0.9 2016-11-15-11:03 Define parameters, choose "config" naming of
 rem       platform types, and smooth messages and comments some more.
 rem 0.0.8 2016-11-14-17:43 Add Try ladder for determining the latest version

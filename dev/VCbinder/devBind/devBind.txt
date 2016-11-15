@@ -1,4 +1,4 @@
-devBind.txt 0.0.17                    UTF-8                        2016-11-14
+devBind.txt 0.0.18                    UTF-8                        2016-11-15
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -200,15 +200,7 @@ TODO
  * Filter modes for older VS versions that do not support them.
    
  * Is it meaningful to go as far back as VS2005 (Version 8.0)?
- 
- * Determine the oldest Visual Studio that we want to support in general.
-   Applications of VCbind might determine their own limitations on the
-   variety.
     
- * Determine the default compile and also determine the parameters for the
-   calls on the different detected Visual Studio, Visual C++ environment
-   variations.
-   
  * Need a way to VCunbind as a way to clean up and/or remove an existing
    binding in order to introduce a new one.  There is a form of this in
    the vcvarsall procedure for Version 15.0, but nothing earlier.  There
@@ -219,9 +211,12 @@ TODO
    only as long as the single console session.  Confirm this.
    
  * The Microsoft Visual Studio "15" Preview 5 setup is very different than
-   for any previous versions.  It is a considerable hack and might not be
-   worth supporting.  It can be supported but needs to be flagged as a
-   temporary hack pending availability of an RTM Community version.
+   for any previous versions.  It is a considerable hack and will not be
+   supported as part of a general-use VCbind release.  
+   
+ * After VCbind 0.1.0 is achieved, use VCbind 0.1.x to include provisional
+   support for Microsoft Visual Studio "15" Preview editions until RTM
+   happens.  Then take it to VCbind 0.2.0.  
  
  * Put references on creating and using batch scripts somewhere.  There is
    now (Windows 10) extensive help files built in, along with more on MSDN.
@@ -262,26 +257,26 @@ TODO
    all operation of the script.  The full testing is needed for a release
    candidate and also the level of testing needs to be accounted for in
    a pull request.  
- 
- * Verify that %VisualStudioVersion% is set by all vcvarsall.bat scripts,
-   as well as %VCINSTALLDIR%.  See how to make use of that when there has
-   evidently been a run of vcvarsall.bat already.
-    
- * Figure out a difference of mostly-silent versus annotated terminal
-   presence.  Is there a way to operate either way?
    
- * Capture and Explain Errors in VCbind.bat rather than in scripts depending
-   on VCbind.
-   
- * Convert devBind to automatically find a candidate environment setup
-   or to have a specified one.
-     
+ * VCbind.zip should provide a sample that can be used to verify compilation
+   after a successful binding.  This should provide the smoke-test case and
+   also demonstrate some things about calling cl.exe with @*.opt parameters.
+         
+ * A failure of vcvarsall.bat can cause the usage message, which will be
+   confusing.  So we must filter the type as well as the toolset.
+         
  * VCbind.bat: Add links to locations where more information can be found
    in case the script is (found) separated from VCbind.zip.
    
- * VCbind.bat: Come up with a bypass scheme that avoids taking over the 
-   console window when VCbind.bat is run beneath another script that has
-   control.
+ * Figure out what config cases work on older Visual Studio versions and
+   filter for those if it seems desirable.
+   
+ * Move the parameter business to VCbind.txt and out of the .bat comments?
+ 
+ * For neatness, it appears that the version should not be in the VCbind.zip
+   name.  But it all works better if we know what version it is withoug
+   inspecting it.  It also helps if VCbind.zip and the VCbind.txt go
+   out of sync.
    
  * The term for cmd.exe is "command shell."  Use that consistently.
    See <https://technet.microsoft.com/en-us/library/bb490954.aspx>.
@@ -289,7 +284,8 @@ TODO
    shell.
    
  * %PROCESSOR_ARCHITECTURE% is "x86" on 32-bit processors, including Windows
-   XP on 32-bit machines.  AMD64 is used on the usual 64-bit processors.
+   XP on 32-bit machines.  AMD64 is used on the usual 64-bit processors.  It
+   might be useful to filter on these when checking parameters.
    
  * Help provided here on cmd.exe and the Windows Command Shell should also
    point out how much off-line help is built into the shell.
@@ -297,8 +293,6 @@ TODO
  * Need to suggest help cmd and also help setlocal as part of the off-line
    help.
    
- * Put something at <http://nfoWare.com/dev/2016/11/d161101b.htm> [;<).
- 
  * Add a confirmation checklist with basic smoketest as well as a systematic
    exercise of the script.  
    
@@ -307,7 +301,7 @@ TODO
  * Do we need a little "Hello World" sort of compilation for getting more
    than just eliciting "cl.exe /?" output?  Maybe that is the second smoke
    test, that will be important whenever VCbind.bat is operated from 
-   within CygWin or other Unix-style shells.  This is maybe a VCbuild check.
+   within CygWin or other Unix-style shells.  This is maybe a VCbuild sample.
    
  * There needs to be a tip or example of a handy shortcut for testing,
    etc.  That might also be better in a VCbuild or VCrun (VCcheck?) test.
@@ -317,6 +311,7 @@ TODO
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.0.18 2016-11-15-14:37 Implement terse option; refine TODOs 
  0.0.17 2016-11-14-17:48 Included detection and binding for Visual Studio 
         2008 through 2015.  Clean up TODOs that are now resolved.
  0.0.16 2016-11-13-09:55 Tie to nfoWare.com folio d161101, annotate further
