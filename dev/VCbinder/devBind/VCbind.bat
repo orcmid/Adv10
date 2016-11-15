@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.7       UTF-8                     dh:2016-11-14
+rem VCbind.zip\VCbind.bat 0.0.8       UTF-8                     dh:2016-11-14
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -28,12 +28,12 @@ rem   Soft white background with blue text
 
 CLS
 ECHO:
-ECHO: [VCbind] 0.0.7 SETTING UP VC++ COMMAND-SHELL ENVIRONMENT
+ECHO: [VCbind] 0.0.8 SETTING UP VC++ COMMAND-SHELL ENVIRONMENT
 ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME% 
-ECHO:          %~dp0
-
 rem VERIFY MINIMUM OPERATING CONDITIONS
 IF NOT CMDEXTVERSION 2 GOTO :FAIL0
+ECHO:          %~f0
+rem            reporting full-path filename of this script
 
 rem VERIFY LOCATION OF THE SCRIPT WHERE VCBIND.ZIP IS FULLY EXTRACTED
 IF NOT EXIST "%~dp0LICENSE.txt" GOTO :FAIL1
@@ -62,13 +62,48 @@ IF DEFINED VCbound GOTO :ALREADY
 rem CHECK WHETHER THERE HAS BEEN SOME OTHER BINDING ALREADY 
 IF DEFINED VisualStudioVersion GOTO :FAIL4
 
-rem FIND AVAILABLE VC++ BUILD TOOLS
-rem 
-rem    XXX: Just use known version 11.0 for initial testing.
-set VCasked=110
-CALL "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat" %1
-IF "%VisualStudioVersion%" == "" GOTO :FAIL5
+rem FIND LATEST-AVAILABLE RELEASED VC++ BUILD TOOLS
+:TRY140
+IF NOT DEFINED VS140COMNTOOLS GOTO :TRY120
+CALL :VCTRY "%VS140COMNTOOLS%..\..\VC\" 140
+IF NOT ERRORLEVEL 9 EXIT /B %ERRORLEVEL%
 
+:TRY120
+IF NOT DEFINED VS120COMNTOOLS GOTO :TRY110
+CALL :VCTRY "%VS120COMNTOOLS%..\..\VC\" 120
+IF NOT ERRORLEVEL 9 EXIT /B %ERRORLEVEL%
+
+:TRY110
+IF NOT DEFINED VS110COMNTOOLS GOTO :TRY100
+CALL :VCTRY "%VS110COMNTOOLS%..\..\VC" 110
+IF NOT ERRORLEVEL 9 EXIT /B %ERRORLEVEL%
+
+:TRY100
+IF NOT DEFINED VS100COMNTOOLS GOTO :TRY90
+CALL :VCTRY "%VS100COMNTOOLS%..\..\VC" 100
+IF NOT ERRORLEVEL 9 EXIT /B %ERRORLEVEL%
+
+:TRY90
+IF NOT DEFINED VS90COMNTOOLS GOTO :FAIL6
+CALL :VCTRY "%VS90COMNTOOLS%..\..\VC" 90
+IF NOT ERRORLEVEL 9 EXIT /B %ERRORLEVEL%
+GOTO :FAIL6
+
+rem TRY ESTABLISHING A PARTICULAR VC++ VERSION 
+rem       %1 is the quoted full path to the expected VC folder
+rem       %2 is the common tools version (e.g., 140 for VS 14.0, 2015)
+rem ERRORLEVEL 9 is returned if there is a VC\ setup is not supplied
+rem            2 is returned if there was a reported FAIL case
+rem            0 is returned if there was a reported SUCCESS case
+
+:VCTRY
+set ERRORLEVEL=
+set VCasked=%2%
+IF NOT EXIST %1\vcvarsall.bat EXIT /B 9
+CALL %1\vcvarsall.bat %VCmodeAsked%
+IF ERRORLEVEL 1 EXIT /B 2
+
+:WINNER
 ECHO:          Success: VC++ %VisualStudioVersion% %VCmodeAsked%-mode set up.
 GOTO :SUCCESS
 
@@ -97,10 +132,20 @@ rem    correct whether first or subsequent success
 PAUSE
 EXIT /B 0
 
+:FAIL6
+ECHO:          *** NO VC++ BUILD TOOLS FOUND ***
+ECHO:          VC++ desktop build tools could not be located.
+ECHO:
+ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE
+ECHO:          VCbind does not check earlier than Visual Studio 2008.
+ECHO:          See %<http://nfoWare.com/dev/2016/11/d161101.htm%>
+ECHO:          for suitable freely-available versions.
+GOTO :BAIL
+
 :FAIL5
 ECHO:
 ECHO: [VCbind] *** SETUP FOR TOOLS %VCasked% %VCmodeAsked%-MODE FAILED ***
-ECHO:          Check preceding messages for failure information.
+ECHO:          Check preceding messag(s)for failure information.
 ECHO:
 ECHO:          THE CURRENT STATE IS UNPREDICTABLE
 ECHO:          It is likely that %VCmodeAsked%-mode is not supported by
@@ -109,23 +154,20 @@ ECHO:          be other problems.
 GOTO :BAIL
 
 :FAIL4
-ECHO:
-ECHO: [VCbind] *** VC ENVIRONMENT ALREADY SET BY OTHER MEANS ***
+ECHO:          *** VC ENVIRONMENT ALREADY SET BY OTHER MEANS ***
 ECHO:          The environment is already set for compiling with the
 ECHO:          VC++ compiler of Visual Studio version %VisualStudioVerison%.
 GOTO :NOMIXING
 
 :FAIL3
-ECHO:
-ECHO: [VCbind] *** VC ENVIRONMENT HAS BEEN ALTERED ***
+ECHO:          *** VC ENVIRONMENT HAS BEEN ALTERED ***
 ECHO:          There has been an alteration of VC binding to version %VisualStudioVersion%
 ECHO:          from the version %VCboundVer% set by VCbind.  Continuing
 ECHO:          this command-shell session may lead to unexpected results.
 GOTO :NOMIXING
 
 :FAIL2
-ECHO:
-ECHO: [VCbind] **** CONFLICT WITH A PRIOR VCBIND ****
+ECHO:          **** CONFLICT WITH A PRIOR VCBIND ****
 ECHO:          The current request conflicts with settings already
 ECHO:          in effect for %VCmodeBound%-mode compilations using the
 ECHO:          VC++ compiler of Visual Studio version %VisualStudioVersion%.
@@ -141,8 +183,7 @@ ECHO:          been made.
 GOTO :BAIL
 
 :FAIL1
-ECHO:
-ECHO: [VCbind] **** SCRIPT IS NOT IN THE REQUIRED LOCATION ****
+ECHO:          **** SCRIPT IS NOT IN THE REQUIRED LOCATION ****
 ECHO:          VCbind.bat must be in the folder that VCbind.zip
 ECHO:          is extracted into.  VCbind.bat is not designed to be
 ECHO:          separated from the extracted contents of VCbind.zip.
@@ -155,7 +196,6 @@ ECHO:          see "http://nfoWare.com/dev/2016/11/d161101.htm".
 GOTO :BAIL
 
 :FAIL0
-ECHO:
 ECHO:          **** COMMAND SHELL EXTENSIONS REQUIRED ****
 ECHO:          VCbind requires CMDEXTVERSION 2 or greater.
 ECHO:          This is available on all platforms VCbind supports.
@@ -193,10 +233,11 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
-
+rem 0.0.8 2016-11-14-17:43 Add Try ladder for determining the latest version
+rem       installed.  Simplify message layout further.
 rem 0.0.7 2016-11-14-09:55 Smooth output of messages
 rem       The output messages are smoothed to be more condensed in
-rem       non-failure cases.
+rem       non-failure cases.  There is better clarity and terminology.
 rem 0.0.6 2016-11-13-11:52 Add Checks for All Conflict Cases     
 rem 0.0.5 2016-11-08-10:54 Rearrange comments and move TODOs to the
 rem       devBind.txt working file.  Check for acceptable CMDEXTVERSION 

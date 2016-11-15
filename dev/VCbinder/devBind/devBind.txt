@@ -1,4 +1,4 @@
-devBind.txt 0.0.16                    UTF-8                        2016-11-13
+devBind.txt 0.0.17                    UTF-8                        2016-11-14
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -197,31 +197,14 @@ TODO
  * Provide links for the prerequisites.  Also to examples of where VCbind
    is used in cases that are relatively easy to teeth on.
  
- * Develop the VCbind.bat file that will be the one operated within the
-   folder extracted from VCbind.zip
+ * Filter modes for older VS versions that do not support them.
    
- * Incorporate Bind detection for VS2015 VC (Version 14.0)
- 
- * Incorporate Bind detection for VS2013 VC (Version 12.0)
- 
- * Incorporate Bind detection for VS2012 VC (Version 11.0)
- 
- * Incorporate Bind detection for VS2010 VC (Version 10.0)
- 
- * Incorporate Bind detection for VS2008 VC (Version 9.0)
- 
  * Is it meaningful to go as far back as VS2005 (Version 8.0)?
- 
- * Incorporte VCbind detection for the VC Compiler Tools distributions.  This
-   works the same as Version 14.0 so far.  It should be transparent.
  
  * Determine the oldest Visual Studio that we want to support in general.
    Applications of VCbind might determine their own limitations on the
    variety.
-   
- * Setup to always find and use vcvarsall and do not use any version of
-   Visual Studio that does not have that.
-   
+    
  * Determine the default compile and also determine the parameters for the
    calls on the different detected Visual Studio, Visual C++ environment
    variations.
@@ -234,12 +217,6 @@ TODO
  * Verify that the command shell VCbind is called in has local variables
    and unbinding is only local.  This also means that the VCbind endures
    only as long as the single console session.  Confirm this.
-   
- * It does not seem possible to double-expand.  E.g., it is possible to
-   SET VSchoice=VS%VCver%COMNTOOLS but VSchoice will have the environment
-   variable name, not its value.  We can determine
-   [NOT] DEFINED VS%VCver%COMNTOOLS but there is no way to obtain its value
-   that way.   
    
  * The Microsoft Visual Studio "15" Preview 5 setup is very different than
    for any previous versions.  It is a considerable hack and might not be
@@ -289,22 +266,13 @@ TODO
  * Verify that %VisualStudioVersion% is set by all vcvarsall.bat scripts,
    as well as %VCINSTALLDIR%.  See how to make use of that when there has
    evidently been a run of vcvarsall.bat already.
-   
- * Don't use vsvars32.bat at all?  It might not even be a good test for
-   presence of an installed version.
-   
+    
  * Figure out a difference of mostly-silent versus annotated terminal
    presence.  Is there a way to operate either way?
    
  * Capture and Explain Errors in VCbind.bat rather than in scripts depending
    on VCbind.
    
- * Create environment settings that avoid repeated additions to
-   PATH and other environment variables.
-   
- * Fail when an already-set environment is with different vcvarsall
-   options (unless it can be cleaned?)
-
  * Convert devBind to automatically find a candidate environment setup
    or to have a specified one.
      
@@ -349,6 +317,8 @@ TODO
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.0.17 2016-11-14-17:48 Included detection and binding for Visual Studio 
+        2008 through 2015.  Clean up TODOs that are now resolved.
  0.0.16 2016-11-13-09:55 Tie to nfoWare.com folio d161101, annotate further
  0.0.15 2016-11-08-10:57 VCbind.bat verification of CMDEXTVERSION and
         location introduced.  More TODO thoughts.
