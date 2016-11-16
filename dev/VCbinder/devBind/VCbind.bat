@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.11       UTF-8                       2016-11-15 
+rem VCbind.zip\VCbind.bat 0.0.12       UTF-8                       2016-11-16 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -30,7 +30,7 @@ rem   Soft white background with blue text
 CLS
 ECHO:
 :WHISPER
-ECHO: [VCbind] 0.0.11 SETTING UP VC++ COMMAND-SHELL ENVIRONMENT
+ECHO: [VCbind] 0.0.12 SETTING UP VC++ COMMAND-SHELL ENVIRONMENT
 IF NOT CMDEXTVERSION 2 GOTO :FAIL0
 ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME% 
 ECHO:          %~f0
@@ -57,7 +57,7 @@ rem                      amd64 for producing x64 code via the x64 compiler
 rem                  amd64_x86 for producing x86 code via the x64 compiler
 rem                  x86_amd64 for producing x64 code via the x86 compiler
 rem               Some toolsets and platforms will limite these.
-rem               x86 is the default and always works.
+rem               x86 is the default and always works for desktop toolsets.
 
 rem       toolset identifies which common tools to start checking from:
 rem                        140 for Visual Studio 2015 (14.0) flavors, then 
@@ -66,7 +66,6 @@ rem                        110 for Visual Studio 2012 (11.0) flavors, then
 rem                        100 for Visual Studio 2010 (10.0) flavors, and then
 rem                         90 for Visual Studio 2008 (9.0) flavors
 rem                140 is the default  
-rem                XXX: This variability allows for easy testing also.
 
 rem    Three environment variables are set whenever there is a successful
 rem    VCbind.bat conclusion:
@@ -88,8 +87,9 @@ IF NOT "%2" == "" SET VCasked=%2
 
 rem VERIFY CONFIG
 IF "%VCaskedConfig%" == "x86"  GOTO :CHECKTOOLSET
-IF "%VCaskedConfig%" == "amd64" GOTO :CHECKTOOLSET
 IF "%VCaskedConfig%" == "x86_amd64" GOTO :CHECKTOOLSET
+IF "%PROCESSOR_ARCHITECTURE%" == "x86" GOTO :FAIL7
+IF "%VCaskedConfig%" == "amd64" GOTO :CHECKTOOLSET
 IF NOT "%VCaskedConfig%" == "amd64_x86" GOTO :FAIL7
 
 :CHECKTOOLSET
@@ -110,6 +110,7 @@ IF DEFINED VCINSTALLDIR GOTO :FAIL4
 rem FIND LATEST-AVAILABLE RELEASED TOOLSET
 rem      starting from VCasked (default 140)   
 
+SET VCtopTry=%VCasked%
 GOTO :TRY%VCasked%
 
 :TRY140
@@ -154,7 +155,7 @@ set ERRORLEVEL=
 set VCasked=%2%
 IF NOT EXIST %1\vcvarsall.bat EXIT /B 9
 CALL %1\vcvarsall.bat %VCaskedConfig%
-IF ERRORLEVEL 1 GOTO :FAIL5
+IF NOT DEFINED VCINSTALLDIR GOTO :FAIL5
 
 :WINNER
 ECHO:          Success: VC++ %VisualStudioVersion% %VCaskedConfig% config set.
@@ -187,62 +188,61 @@ EXIT /B 0
 ECHO:          *** UNSUPPORTED VCBIND PARAMETER ***
 ECHO:          Invalid: %*
 ECHO:          %VCterse%
-ECHO:          NO CHANGES HAVE BEEN MADE
+ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                %VCterse%
 GOTO :BAIL
 
 :FAIL6
-ECHO:          *** NO VC++ BUILD TOOLS FOUND ***
-ECHO:          VCbind-supported build tools could not be located.   %VCterse%
+ECHO:          *** NO VC++ TOOLSET FOUND ***
+ECHO:          None of toolset %VCtopTry% or older are available.
 ECHO:          %VCterse%
-ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                
-ECHO:          See %<http://nfoWare.com/dev/2016/11/d161101.htm%>   %VCterse%
+ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                %VCterse%              
+ECHO:          See ^<http://nfoWare.com/dev/2016/11/d161101.htm^>   %VCterse%
 ECHO:          for suitable freely-available versions.              %VCterse%
 GOTO :BAIL
 
 :FAIL5
 set VisualStudioVersion=
 rem     in case incorrectly guessed at :TRY140
-ECHO: [VCbind] *** SETUP FOR TOOLS %VCasked% %VCaskedConfig% CONFIG FAILED ***
-ECHO:          Check preceding messag(s) for failure information.
+ECHO: [VCbind] *** FOUND TOOLSET %VCasked% %VCaskedConfig% CONFIG FAILS ***
+ECHO:          Check preceding message(s) for details.              %VCterse%          
 ECHO:          %VCterse%
-ECHO:          NO VC++ CONFIGURATION ENVIRONMENT IS SET             %VCterse%
+ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                %VCterse%         
 GOTO :BAIL
 
 :FAIL4
-ECHO:          *** VC ENVIRONMENT ALREADY SET BY OTHER MEANS ***    %VCterse%  
+ECHO:          *** FAIL: VC ENVIRONMENT ALREADY SET BY OTHER MEANS ***  
 ECHO:          The environment is already set for compiling with a  %VCterse%
 ECHO:          VC++ compiler version %VisualStudioVersion%          %VCterse%
 GOTO :NOMIXING
 
 :FAIL3
-ECHO:          *** VC ENVIRONMENT HAS BEEN ALTERED ***
-ECHO:          VC binding to VC++ %VisualStudioVersion% is changed  %VCterse%
+ECHO:          *** FAIL: VCBIND ENVIRONMENT HAS BEEN ALTERED ***
+ECHO:          Binding to VC++ %VisualStudioVersion% is changed     %VCterse%
 ECHO:          from version %VCboundVer% set by VCbind.  Continuing %VCterse%
 ECHO:          this session may lead to unexpected results.         %VCterse%
 GOTO :NOMIXING
 
 :FAIL2
-ECHO:          **** CONFLICT WITH A PRIOR VCBIND ****
+ECHO:          **** FAIL: PRIOR VCBIND %VCboundConfig% %VCbound% CONFLICT ****
 ECHO:          The current request conflicts with settings already  %VCterse%
-ECHO:          in effect for %VCboundConfig% config with the VC++   %VCterse%
-ECHO:          %VisualStudioVersion% compiler.                      %VCterse%
+ECHO:          in effect for the VS %VisualStudioVersion% compiler. %VCterse%
 GOTO :NOMIXING
 
 :NOMIXING
 ECHO:          %VCterse%
-ECHO:          NO CHANGES HAVE BEEN MADE
+ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                %VCterse%
 ECHO:          Do not attempt to change or mix VCbind settings in   %VCterse%
 ECHO:          a command-shell session in which VC++ environment    %VCterse%
 ECHO:          settings have already been made.                     %VCterse%
 GOTO :BAIL
 
 :FAIL1
-ECHO:          **** SCRIPT IS NOT IN THE REQUIRED LOCATION ****
+ECHO:          **** FAIL: SCRIPT IS NOT IN THE REQUIRED LOCATION ****
 ECHO:          VCbind.bat must be in the folder that VCbind.zip     %VCterse%
 ECHO:          is extracted into.  VCbind.bat is not designed to be %VCterse%
 ECHO:          separated from the extracted contents of VCbind.zip. %VCterse%
 ECHO:          %VCterse%
-ECHO:          NO CHANGES HAVE BEEN MADE
+ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                %VCterse%
 ECHO:          Follow instructions in the accompanying VCbind.txt   %VCterse%
 ECHO:          file for extracting all of VCbind.zip content to a   %VCterse%
 ECHO:          working location and using the VCbind.bat there. Also%VCterse%
@@ -250,11 +250,11 @@ ECHO:          see ^<http://nfoWare.com/dev/2016/11/d161101.htm^>.  %VCterse%
 GOTO :BAIL
 
 :FAIL0
-ECHO:          **** COMMAND SHELL EXTENSIONS REQUIRED ****
+ECHO:          **** FAIL: COMMAND SHELL EXTENSIONS REQUIRED ****
 ECHO:          VCbind requires CMDEXTVERSION 2 or greater.           %VCterse%
 ECHO:          This is available on all platforms VCbind supports.   %VCterse%
 ECHO:          %VCterse%
-ECHO:          NO CHANGES HAVE BEEN MADE
+ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                 %VCterse%
 ECHO:          To enable Command Extensions, arrange to initiate     %VCterse%
 ECHO:          the command shell with the /E:ON command-line option  %VCterse%
 ECHO:          before VCbind.bat is performed directly or indirectly.%VCterse%
@@ -291,6 +291,8 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem 0.0.12 2016-11-16-09:03 Correct detection of failure in :VCTRY, tune 
+rem        error messages. 
 rem 0.0.11 2016-11-15-17:21 Complete Parameter Filtering
 rem 0.0.10 2016-11-15-14:31 Introduce Terse operation;  smooth messages.
 rem 0.0.9 2016-11-15-11:03 Define parameters, choose "config" naming of

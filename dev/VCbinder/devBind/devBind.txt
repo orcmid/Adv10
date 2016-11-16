@@ -1,4 +1,4 @@
-devBind.txt 0.0.18                    UTF-8                        2016-11-15
+devBind.txt 0.0.19                    UTF-8                        2016-11-16
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -187,6 +187,9 @@ MANIFEST
 
 TODO
 
+ * Address the difference between VCbind.zip here and VCbind-x.y.z with
+   semantic versioning in the forms released to general use.
+
  * Add statement about how Toolcraft, TROST, and the ability for anyone
    to confirm the functioning of the VCbind technique, with prerequisite
    preparation.
@@ -196,20 +199,9 @@ TODO
    
  * Provide links for the prerequisites.  Also to examples of where VCbind
    is used in cases that are relatively easy to teeth on.
- 
- * Filter modes for older VS versions that do not support them.
    
  * Is it meaningful to go as far back as VS2005 (Version 8.0)?
-    
- * Need a way to VCunbind as a way to clean up and/or remove an existing
-   binding in order to introduce a new one.  There is a form of this in
-   the vcvarsall procedure for Version 15.0, but nothing earlier.  There
-   still might be an approach in that.
-   
- * Verify that the command shell VCbind is called in has local variables
-   and unbinding is only local.  This also means that the VCbind endures
-   only as long as the single console session.  Confirm this.
-   
+        
  * The Microsoft Visual Studio "15" Preview 5 setup is very different than
    for any previous versions.  It is a considerable hack and will not be
    supported as part of a general-use VCbind release.  
@@ -220,7 +212,7 @@ TODO
  
  * Put references on creating and using batch scripts somewhere.  There is
    now (Windows 10) extensive help files built in, along with more on MSDN.
-   There is also the Command Line Admionistrator's Pocket Handbook.
+   There is also the Command Line Administrator's Pocket Handbook.
    
  * Verify the VCbind structure with VS2015 and all other current VS 
    Express and Community installs.
@@ -261,32 +253,24 @@ TODO
  * VCbind.zip should provide a sample that can be used to verify compilation
    after a successful binding.  This should provide the smoke-test case and
    also demonstrate some things about calling cl.exe with @*.opt parameters.
-         
- * A failure of vcvarsall.bat can cause the usage message, which will be
-   confusing.  So we must filter the type as well as the toolset.
-         
+                
  * VCbind.bat: Add links to locations where more information can be found
    in case the script is (found) separated from VCbind.zip.
    
- * Figure out what config cases work on older Visual Studio versions and
-   filter for those if it seems desirable.
-   
- * Move the parameter business to VCbind.txt and out of the .bat comments?
+ * Figure out what config cases never work on older Visual Studio versions and
+   filter for those if it seems desirable.  This is only needed to prevent
+   a vcvarsall.bat from presenting its usage message and confusing everything.
  
- * For neatness, it appears that the version should not be in the VCbind.zip
-   name.  But it all works better if we know what version it is withoug
-   inspecting it.  It also helps if VCbind.zip and the VCbind.txt go
-   out of sync.
+ * For neatness, it appears that the version should be in the VCbind.zip
+   name but not in VCbind.bat.  It all works better if we know what version 
+   of VCbind.zip is installed without inspecting it.  This also helps to
+   confirm whether VCbind.zip and the VCbind.txt are out of sync.
    
  * The term for cmd.exe is "command shell."  Use that consistently.
    See <https://technet.microsoft.com/en-us/library/bb490954.aspx>.
    We can talk about a console session, but it is running the command 
    shell.
-   
- * %PROCESSOR_ARCHITECTURE% is "x86" on 32-bit processors, including Windows
-   XP on 32-bit machines.  AMD64 is used on the usual 64-bit processors.  It
-   might be useful to filter on these when checking parameters.
-   
+    
  * Help provided here on cmd.exe and the Windows Command Shell should also
    point out how much off-line help is built into the shell.
    
@@ -311,6 +295,8 @@ TODO
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.0.19 2016-11-16-09:16 Add helpful information when a found toolset fails.
+        Use PROCESSOR_ARCHITECTURE to filter config parameter.  Refine TODOs.
  0.0.18 2016-11-15-14:37 Implement terse option; refine TODOs 
  0.0.17 2016-11-14-17:48 Included detection and binding for Visual Studio 
         2008 through 2015.  Clean up TODOs that are now resolved.
