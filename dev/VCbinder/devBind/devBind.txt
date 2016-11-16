@@ -1,4 +1,4 @@
-devBind.txt 0.0.19                    UTF-8                        2016-11-16
+devBind.txt 0.0.20                    UTF-8                        2016-11-16
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -207,14 +207,18 @@ TODO
    supported as part of a general-use VCbind release.  
    
  * After VCbind 0.1.0 is achieved, use VCbind 0.1.x to include provisional
-   support for Microsoft Visual Studio "15" Preview editions until RTM
-   happens.  Then take it to VCbind 0.2.0.  
+   support for Microsoft Visual Studio "15" RCn editions until RTM
+   happens.  Then take it to VCbind 0.2.0.  NOTE: If RTM happens before
+   0.1.0, just include it.
+   
+ * Install Visual Studio 2017 RC1 (version 15.0) and see if it can be
+   incorporated in the same manner as existing choices.
  
  * Put references on creating and using batch scripts somewhere.  There is
    now (Windows 10) extensive help files built in, along with more on MSDN.
    There is also the Command Line Administrator's Pocket Handbook.
    
- * Verify the VCbind structure with VS2015 and all other current VS 
+ * Verify the VCbind structure with VS2008 and all subsequent VS 
    Express and Community installs.
 
  * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
@@ -295,6 +299,7 @@ TODO
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.0.20 2016-11-16-15:04 Edit TODOs, add Usage to VCBind.bat
  0.0.19 2016-11-16-09:16 Add helpful information when a found toolset fails.
         Use PROCESSOR_ARCHITECTURE to filter config parameter.  Refine TODOs.
  0.0.18 2016-11-15-14:37 Implement terse option; refine TODOs 

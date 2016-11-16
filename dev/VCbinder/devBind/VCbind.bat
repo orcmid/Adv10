@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.12       UTF-8                       2016-11-16 
+rem VCbind.zip\VCbind.bat 0.0.13     UTF-8                        2016-11-16 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -16,7 +16,7 @@ rem version at <http://nfoWare.com/dev/2016/11/d161101b.htm>.
 
 rem SELECT TERSE OR VERBOSE
 rem     %1 value "*" selects terse operation
-rem     don't shift it out until Command Extensions confirmed.
+rem     don't shift sny out until Command Extensions confirmed.
 SET VCterse=
 IF "%1" == "*" SET VCterse=^>NUL
 rem                used to dump verbose echoes
@@ -30,10 +30,10 @@ rem   Soft white background with blue text
 CLS
 ECHO:
 :WHISPER
-ECHO: [VCbind] 0.0.12 SETTING UP VC++ COMMAND-SHELL ENVIRONMENT
+ECHO: [VCbind] 0.0.13 VC++ COMMAND-SHELL ENVIRONMENT SETUP
 IF NOT CMDEXTVERSION 2 GOTO :FAIL0
-ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME% 
-ECHO:          %~f0
+ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME%         %VCterse%
+ECHO:          %~f0                                                 
 rem            reporting full-path filename of this script
 
 rem VERIFY LOCATION OF THE SCRIPT WHERE VCBIND.ZIP IS FULLY EXTRACTED
@@ -43,46 +43,16 @@ IF NOT EXIST "%~dp0VCbind.txt" GOTO :FAIL1
 IF NOT EXIST "%~dp0VCbind.bat" GOTO :FAIL1
 
 rem DETERMINE PARAMETERS
-rem    VCbind.bat has the following command-line parameters:
-
-rem         > VCbind [*][option [toolset]]
-
-rem    where
-rem             * signifies that terse output is preferred
-rem               (suitable when operated from within another script)
-
-rem        config is one of the VC++ "platform" cases:
-rem                        x86 for producing x86 code via the x86 compiler
-rem                      amd64 for producing x64 code via the x64 compiler
-rem                  amd64_x86 for producing x86 code via the x64 compiler
-rem                  x86_amd64 for producing x64 code via the x86 compiler
-rem               Some toolsets and platforms will limite these.
-rem               x86 is the default and always works for desktop toolsets.
-
-rem       toolset identifies which common tools to start checking from:
-rem                        140 for Visual Studio 2015 (14.0) flavors, then 
-rem                        120 for Visual Studio 2013 (12.0) flavors, then
-rem                        110 for Visual Studio 2012 (11.0) flavors, then
-rem                        100 for Visual Studio 2010 (10.0) flavors, and then
-rem                         90 for Visual Studio 2008 (9.0) flavors
-rem                140 is the default  
-
-rem    Three environment variables are set whenever there is a successful
-rem    VCbind.bat conclusion:
-rem           VCbound identifes the common tools (e.g., 140) that were used
-rem     VCboundConfig is the bound configuration (e.g., x86) for compilation
-rem        VCboundVer is the version (e.g., 14.0) of Visual Studio
-rem                   that the VC++ build tools correspond to.
-rem    other VC* environment-variable names are used transiently and will
-rem    be altered without checking whether they are already defined.
+rem    See :USAGE for the VCbind API contract
   
+IF "%1" == "?" GOTO :USAGE
 IF "%1" == "*" SHIFT /1
 
 SET VCaskedConfig=x86
 IF NOT "%1" == "" SET VCaskedConfig=%1
 
 SET VCasked=140
-IF DEFINED VCboud SET VCasked=%VCbound%
+IF DEFINED VCbound SET VCasked=%VCbound%
 IF NOT "%2" == "" SET VCasked=%2
 
 rem VERIFY CONFIG
@@ -143,6 +113,7 @@ CALL :VCTRY "%VS90COMNTOOLS%..\..\VC" 90
 IF NOT ERRORLEVEL 9 EXIT /B %ERRORLEVEL%
 GOTO :FAIL6
 
+:VCTRY
 rem TRY ESTABLISHING A PARTICULAR VC++ VERSION 
 rem       %1 is the quoted full path to the expected VC folder
 rem       %2 is the common tools version (e.g., 140 for VS 14.0, 2015)
@@ -150,9 +121,8 @@ rem ERRORLEVEL 9 is returned if there is a VC\ setup is not supplied
 rem            2 is returned if there was a reported FAIL case
 rem            0 is returned if there was a reported SUCCESS case
 
-:VCTRY
-set ERRORLEVEL=
-set VCasked=%2%
+SET ERRORLEVEL=
+SET VCasked=%2%
 IF NOT EXIST %1\vcvarsall.bat EXIT /B 9
 CALL %1\vcvarsall.bat %VCaskedConfig%
 IF NOT DEFINED VCINSTALLDIR GOTO :FAIL5
@@ -185,11 +155,11 @@ IF "%VCterse%" == "" PAUSE
 EXIT /B 0
 
 :FAIL7
-ECHO:          *** UNSUPPORTED VCBIND PARAMETER ***
+ECHO:          *** UNSUPPORTED VCBIND PARAMETER(S) ***
 ECHO:          Invalid: %*
 ECHO:          %VCterse%
 ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                %VCterse%
-GOTO :BAIL
+GOTO :USAGE
 
 :FAIL6
 ECHO:          *** NO VC++ TOOLSET FOUND ***
@@ -260,6 +230,45 @@ ECHO:          the command shell with the /E:ON command-line option  %VCterse%
 ECHO:          before VCbind.bat is performed directly or indirectly.%VCterse%
 GOTO :BAIL
 
+:USAGE
+rem    PROVIDE USAGE INFORMATION
+ECHO:   %VCterse%
+ECHO:   USAGE: VCbind ?
+ECHO:          VCbind [*][option [toolset]]
+IF NOT "%1" == "?" GOTO :BAIL
+ECHO:   where
+ECHO:           ? produces this usage information.
+ECHO:
+ECHO:           * selects terse output
+ECHO:
+ECHO:      config is one of the VC++ "platform" configuration types:
+ECHO:                      x86 for producing x86 code via the x86 compiler
+ECHO:                    amd64 for producing x64 code via the x64 compiler
+ECHO:                amd64_x86 for producing x86 code via the x64 compiler
+ECHO:                x86_amd64 for producing x64 code via the x86 compiler
+ECHO:             Toolset installations may vary which cases are supported.
+ECHO:             x86 is the default and always works for desktop toolsets.
+ECHO:
+ECHO:     toolset identifies which common tools to start checking from:
+ECHO:                 140 for Visual Studio 2015 (14.0) flavors, then 
+ECHO:                 120 for Visual Studio 2013 (12.0) flavors, then
+ECHO:                 110 for Visual Studio 2012 (11.0) flavors, then
+ECHO:                 100 for Visual Studio 2010 (10.0) flavors, and then
+ECHO:                  90 for Visual Studio 2008 (9.0) flavors
+ECHO:             140 is the default  
+ECHO:
+ECHO:   Three environment variables are set whenever VCbind succeeds.
+ECHO:
+ECHO:          VCbound identifes the common tools (e.g., 140) that were used
+ECHO:    VCboundConfig is the bound configuration type (e.g., x86)
+ECHO:       VCboundVer is the version (e.g., 14.0) of Visual Studio
+ECHO:                  that the VC++ build tools correspond to.
+ECHO:
+ECHO:    Other VC* environment-variable names are used transiently.  They
+ECHO:    will be used without checking whether they are already defined.
+PAUSE
+EXIT /B 0
+
 :BAIL
 ECHO:
 IF NOT ERRORLEVEL 2 SET ERRORLEVEL=2
@@ -291,6 +300,8 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem 0.0.13 2016-11-16-15:00 Implement "?" option for Usage Information plus
+rem        small cleanups
 rem 0.0.12 2016-11-16-09:03 Correct detection of failure in :VCTRY, tune 
 rem        error messages. 
 rem 0.0.11 2016-11-15-17:21 Complete Parameter Filtering
