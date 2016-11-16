@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.10       UTF-8                    dh:2016-11-15 
+rem VCbind.zip\VCbind.bat 0.0.11       UTF-8                       2016-11-15 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -14,12 +14,12 @@ rem accompanying VCbind.txt file.  For further information, see
 rem <http://nfoWare.com/dev/2016/11/d161101.htm> and check for the latest
 rem version at <http://nfoWare.com/dev/2016/11/d161101b.htm>.
 
-rem DETERMINE IF TERSE OR VERBOSE
+rem SELECT TERSE OR VERBOSE
 rem     %1 value "*" selects terse operation
 rem     don't shift it out until Command Extensions confirmed.
 SET VCterse=
 IF "%1" == "*" SET VCterse=^>NUL
-rem                used to dump verbose echos
+rem                used to dump verbose echoes
 
 rem ANNOUNCE THIS SCRIPT
 IF "%1" == "*" GOTO :WHISPER
@@ -30,7 +30,7 @@ rem   Soft white background with blue text
 CLS
 ECHO:
 :WHISPER
-ECHO: [VCbind] 0.0.10 SETTING UP VC++ COMMAND-SHELL ENVIRONMENT
+ECHO: [VCbind] 0.0.11 SETTING UP VC++ COMMAND-SHELL ENVIRONMENT
 IF NOT CMDEXTVERSION 2 GOTO :FAIL0
 ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME% 
 ECHO:          %~f0
@@ -77,20 +77,40 @@ rem                   that the VC++ build tools correspond to.
 rem    other VC* environment-variable names are used transiently and will
 rem    be altered without checking whether they are already defined.
   
-rem    XXX: For now, assume no VC* parameters are requested on the
-rem         VCbind.bat command-line.
-
 IF "%1" == "*" SHIFT /1
-SET VCasked=%VCbound%
-SET VCaskedConfig=x86
 
+SET VCaskedConfig=x86
+IF NOT "%1" == "" SET VCaskedConfig=%1
+
+SET VCasked=140
+IF DEFINED VCboud SET VCasked=%VCbound%
+IF NOT "%2" == "" SET VCasked=%2
+
+rem VERIFY CONFIG
+IF "%VCaskedConfig%" == "x86"  GOTO :CHECKTOOLSET
+IF "%VCaskedConfig%" == "amd64" GOTO :CHECKTOOLSET
+IF "%VCaskedConfig%" == "x86_amd64" GOTO :CHECKTOOLSET
+IF NOT "%VCaskedConfig%" == "amd64_x86" GOTO :FAIL7
+
+:CHECKTOOLSET
+rem VERIFY TOOLSET
+IF "%VCasked%" == "140" GOTO :CHECKCONFLICT
+IF "%VCasked%" == "120" GOTO :CHECKCONFLICT
+IF "%VCasked%" == "110" GOTO :CHECKCONFLICT
+IF "%VCasked%" == "100" GOTO :CHECKCONFLICT
+IF NOT "%VCasked%" ==  "90" GOTO :FAIL7
+
+:CHECKCONFLICT
 rem CHECK WHETHER VCBIND SETTINGS HAVE ALREADY BEEN MADE
 IF DEFINED VCbound GOTO :ALREADY
 
 rem CHECK WHETHER THERE HAS BEEN SOME OTHER BINDING ALREADY 
 IF DEFINED VCINSTALLDIR GOTO :FAIL4
 
-rem FIND LATEST-AVAILABLE RELEASED VC++ BUILD TOOLS
+rem FIND LATEST-AVAILABLE RELEASED TOOLSET
+rem      starting from VCasked (default 140)   
+
+GOTO :TRY%VCasked%
 
 :TRY140
 IF NOT DEFINED VS140COMNTOOLS GOTO :TRY120
@@ -155,7 +175,6 @@ ECHO:          Using existing VC++ %VCboundVer% %VCboundConfig% config setup.
 GOTO :SUCCESS
 
 :SUCCESS
-
 SET VCbound=%VCasked%
 SET VCboundConfig=%VCaskedConfig%
 SET VCboundVer=%VisualStudioVersion%
@@ -163,6 +182,13 @@ rem    appropriate whether or not already set
 ECHO:  %VCterse%
 IF "%VCterse%" == "" PAUSE
 EXIT /B 0
+
+:FAIL7
+ECHO:          *** UNSUPPORTED VCBIND PARAMETER ***
+ECHO:          Invalid: %*
+ECHO:          %VCterse%
+ECHO:          NO CHANGES HAVE BEEN MADE
+GOTO :BAIL
 
 :FAIL6
 ECHO:          *** NO VC++ BUILD TOOLS FOUND ***
@@ -237,7 +263,7 @@ GOTO :BAIL
 :BAIL
 ECHO:
 IF NOT ERRORLEVEL 2 SET ERRORLEVEL=2
-IF NOT "%VCterese%" == "" EXIT /B %ERRORLEVEL%
+IF NOT "%VCterse%" == "" EXIT /B %ERRORLEVEL%
 COLOR 74
 rem   Soft White background and Red text
 ECHO:
@@ -265,6 +291,7 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem 0.0.11 2016-11-15-17:21 Complete Parameter Filtering
 rem 0.0.10 2016-11-15-14:31 Introduce Terse operation;  smooth messages.
 rem 0.0.9 2016-11-15-11:03 Define parameters, choose "config" naming of
 rem       platform types, and smooth messages and comments some more.
