@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.13     UTF-8                        2016-11-16 
+rem VCbind.zip\VCbind.bat 0.0.14     UTF-8                          2016-11-20 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -10,13 +10,17 @@ rem line use of the Visual C++ command-line compiler, cl.exe, and related
 rem build tools.
 
 rem Additional documentation of the procedure and its usage are found in the
-rem accompanying VCbind.txt file.  For further information, see
+rem accompanying VCbind-0.0.14.txt file.  For further information, see
 rem <http://nfoWare.com/dev/2016/11/d161101.htm> and check for the latest
 rem version at <http://nfoWare.com/dev/2016/11/d161101b.htm>.
 
+rem Designate this Version 
+SET VCverNum=0.1.0
+rem     semantic versioning candidate
+
 rem SELECT TERSE OR VERBOSE
 rem     %1 value "*" selects terse operation
-rem     don't shift sny out until Command Extensions confirmed.
+rem     don't shift that %1 out until Command Extensions confirmed.
 SET VCterse=
 IF "%1" == "*" SET VCterse=^>NUL
 rem                used to dump verbose echoes
@@ -30,7 +34,7 @@ rem   Soft white background with blue text
 CLS
 ECHO:
 :WHISPER
-ECHO: [VCbind] 0.0.13 VC++ COMMAND-SHELL ENVIRONMENT SETUP
+ECHO: [VCbind] %VCverNum% VC++ COMMAND-SHELL ENVIRONMENT SETUP
 IF NOT CMDEXTVERSION 2 GOTO :FAIL0
 ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME%         %VCterse%
 ECHO:          %~f0                                                 
@@ -39,7 +43,7 @@ rem            reporting full-path filename of this script
 rem VERIFY LOCATION OF THE SCRIPT WHERE VCBIND.ZIP IS FULLY EXTRACTED
 IF NOT EXIST "%~dp0LICENSE.txt" GOTO :FAIL1
 IF NOT EXIST "%~dp0NOTICE.txt" GOTO :FAIL1
-IF NOT EXIST "%~dp0VCbind.txt" GOTO :FAIL1
+IF NOT EXIST "%~dp0VCbind-%VCverNum%.txt" GOTO :FAIL1
 IF NOT EXIST "%~dp0VCbind.bat" GOTO :FAIL1
 
 rem DETERMINE PARAMETERS
@@ -49,26 +53,21 @@ IF "%1" == "?" GOTO :USAGE
 IF "%1" == "*" SHIFT /1
 
 SET VCaskedConfig=x86
+rem    make even the default explicit
 IF NOT "%1" == "" SET VCaskedConfig=%1
 
 SET VCasked=140
+rem    default absent any other provision
 IF DEFINED VCbound SET VCasked=%VCbound%
+rem    if previous binding, use that toolset by default
 IF NOT "%2" == "" SET VCasked=%2
 
 rem VERIFY CONFIG
-IF "%VCaskedConfig%" == "x86"  GOTO :CHECKTOOLSET
-IF "%VCaskedConfig%" == "x86_amd64" GOTO :CHECKTOOLSET
+IF "%VCaskedConfig%" == "x86"  GOTO :CHECKCONFLICT
+IF "%VCaskedConfig%" == "x86_amd64" GOTO :CHECKCONFLICT
 IF "%PROCESSOR_ARCHITECTURE%" == "x86" GOTO :FAIL7
-IF "%VCaskedConfig%" == "amd64" GOTO :CHECKTOOLSET
+IF "%VCaskedConfig%" == "amd64" GOTO :CHECKCONFLICT
 IF NOT "%VCaskedConfig%" == "amd64_x86" GOTO :FAIL7
-
-:CHECKTOOLSET
-rem VERIFY TOOLSET
-IF "%VCasked%" == "140" GOTO :CHECKCONFLICT
-IF "%VCasked%" == "120" GOTO :CHECKCONFLICT
-IF "%VCasked%" == "110" GOTO :CHECKCONFLICT
-IF "%VCasked%" == "100" GOTO :CHECKCONFLICT
-IF NOT "%VCasked%" ==  "90" GOTO :FAIL7
 
 :CHECKCONFLICT
 rem CHECK WHETHER VCBIND SETTINGS HAVE ALREADY BEEN MADE
@@ -77,10 +76,19 @@ IF DEFINED VCbound GOTO :ALREADY
 rem CHECK WHETHER THERE HAS BEEN SOME OTHER BINDING ALREADY 
 IF DEFINED VCINSTALLDIR GOTO :FAIL4
 
+rem VERIFY TOOLSET
+IF "%VCasked%" == "140" GOTO :FINDTOOLSET
+IF "%VCasked%" == "120" GOTO :FINDTOOLSET
+IF "%VCasked%" == "110" GOTO :FINDTOOLSET
+IF "%VCasked%" == "100" GOTO :FINDTOOLSET
+IF NOT "%VCasked%" ==  "90" GOTO :FAIL7
+
+:FINDTOOLSET
 rem FIND LATEST-AVAILABLE RELEASED TOOLSET
-rem      starting from VCasked (default 140)   
+rem      starting from VCasked   
 
 SET VCtopTry=%VCasked%
+rem      so we can report where checking started
 GOTO :TRY%VCasked%
 
 :TRY140
@@ -89,6 +97,7 @@ set VisualStudioVersion=14.0
 rem    XXX: Because Build Tools case doesn't set it
 CALL :VCTRY "%VS140COMNTOOLS%..\..\VC\" 140
 IF NOT ERRORLEVEL 9 EXIT /B %ERRORLEVEL%
+rem    XXX: :VCTRY has cleared VisualStudioVersion in that case
 set VisualStudioVersion=
 rem    XXX: Because guessed wrong
 
@@ -117,8 +126,11 @@ GOTO :FAIL6
 rem TRY ESTABLISHING A PARTICULAR VC++ VERSION 
 rem       %1 is the quoted full path to the expected VC folder
 rem       %2 is the common tools version (e.g., 140 for VS 14.0, 2015)
-rem ERRORLEVEL 9 is returned if there is a VC\ setup is not supplied
+rem ERRORLEVEL 9 is returned if a VC\ setup is not present
 rem            2 is returned if there was a reported FAIL case
+rem              XXX: VisualStudioVersion is unset in this case, removing the
+rem                   anticipation of success with a toolset that does not
+rem                   set it.  See :TRY140
 rem            0 is returned if there was a reported SUCCESS case
 
 SET ERRORLEVEL=
@@ -140,7 +152,7 @@ rem CHECK IF ANOTHER CONFLICT HAS ARISEN
 IF NOT "%VCboundVer%" == "%VisualStudioVersion%" GOTO :FAIL3
 
 rem TRUST PREVIOUS SETTINGS TO BE REUSABLE
-rem      Avoid multiple running of vcvarsall and duplicating the PATH and
+rem      Avoid multiple running of VC\ settings and duplicating the PATH and
 rem      other parameter settings.
 ECHO:          Using existing VC++ %VCboundVer% %VCboundConfig% config setup.        
 GOTO :SUCCESS
@@ -213,7 +225,7 @@ ECHO:          is extracted into.  VCbind.bat is not designed to be %VCterse%
 ECHO:          separated from the extracted contents of VCbind.zip. %VCterse%
 ECHO:          %VCterse%
 ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                %VCterse%
-ECHO:          Follow instructions in the accompanying VCbind.txt   %VCterse%
+ECHO:          Follow instructions in the VCbind-%VCverNum%.txt     %VCterse%
 ECHO:          file for extracting all of VCbind.zip content to a   %VCterse%
 ECHO:          working location and using the VCbind.bat there. Also%VCterse%
 ECHO:          see ^<http://nfoWare.com/dev/2016/11/d161101.htm^>.  %VCterse%
@@ -234,7 +246,7 @@ GOTO :BAIL
 rem    PROVIDE USAGE INFORMATION
 ECHO:   %VCterse%
 ECHO:   USAGE: VCbind ?
-ECHO:          VCbind [*][option [toolset]]
+ECHO:          VCbind [*][config [toolset]]
 IF NOT "%1" == "?" GOTO :BAIL
 ECHO:   where
 ECHO:           ? produces this usage information.
@@ -300,6 +312,10 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem 0.0.14 2016-11-20-13:41 Complete annotations.  Re-order checking for
+rem        a previous setup, whether simple repetition or conflicting.
+rem        Designate for candidate VCbind.zip 0.1.0 with version number
+rem        in the VCbind-%VCverNum%.txt file.
 rem 0.0.13 2016-11-16-15:00 Implement "?" option for Usage Information plus
 rem        small cleanups
 rem 0.0.12 2016-11-16-09:03 Correct detection of failure in :VCTRY, tune 
