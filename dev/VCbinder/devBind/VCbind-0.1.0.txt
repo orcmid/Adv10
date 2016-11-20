@@ -1,17 +1,18 @@
-VCbind.txt 0.0.5                       UTF-8                      2016-11-03
+VCbind-0.1.0.txt 0.0.6                  UTF-8                      2016-11-20
 
               BINDINGS FOR VISUAL C/C++ COMMAND-LINE COMPILATION
               ==================================================
 
-    VCbind.zip contains a Windows batch script for binding to the developer
-    environment used for compiling with the Microsoft Visual C/C++ command- 
-    line compiler, cl.exe, aud using related Microsoft developer tools.
+    VCbind.zip provides a Windows batch script for setting up a command-
+    line environment.  The provided environment enables compiling with the
+    Microsoft Visual C/C++ command-line compiler, cl.exe, aud using related
+    Microsoft developer tools.
     
-    This **x.y.z** distribution of VCbind.zip is available on the web at
-    <http://nfoWare.com/dev/**TBD**>.  Consult that page for the latest
-    status, links to useful related material, and the most-recent version.
-    If there is any concern for the authenticity or correctness of a
-    VCbind.zip, obtain a full replacement from that location.
+    This 0.1.0 distribution of VCbind.zip is available on the web at
+    <http://nfoWare.com/dev/2016/11/d161101c.txt>.  Consult that page for 
+    the latest status, links to useful related material, and the most-recent
+    version.  If there is any concern for the authenticity or correctness of a
+    VCbind.zip, obtain a full replacement from nfoWare.com.
 
     VCbind.zip is to be extracted at the location where it appears in a
     construction set.  The result is a companion folder with the following
@@ -22,7 +23,7 @@ VCbind.txt 0.0.5                       UTF-8                      2016-11-03
                   VCbind.zip    *location in the construction set
                   VCbind\       *created by extraction
                      ...
-                     Vcbind.txt
+                     Vcbind-0.1.0.txt
                      VCbind.bat
                   ...
                   
@@ -51,11 +52,11 @@ MANIFEST OF VCBIND.ZIP [Version]
     NOTICE.txt 1.0.0 814 byte 2016-10-24 version
         applicable NOTICE for VCbind.zip and its content
         
-    VCbind.txt **x.y.z** **size** byte **yyyy-mm-ddThh:mmZ** version
+    VCbind-0.1.0.txt **x.y.z** **size** byte **yyyy-mm-ddThh:mmZ** version
         This description file on organization of the archive and use of its
         materials.
 
-    VCbind.bat **x.y.z** **size** byte **yyyy-mm-ddThh:mmZ** version
+    VCbind.bat 0.1.0 **size** byte **yyyy-mm-ddThh:mmZ** version
         Script that, when run, will locate Visual C++ settings and perform
         an appropriate setup of the environment for operating with the latest
         installed version of the Visual C++ compiler and accompanying tools.
@@ -79,6 +80,7 @@ MANIFEST OF VCBIND.ZIP [Version]
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.6 2016-11-20-14:26 Adjust as draft of VCbind-0.1.0.txt
  0.0.5 2016-11-03-14:36 Expand the instructions for direct usage.
  0.0.4 2016-10-31-11:37 Add LICENSE and NOTICE, tweak Manifest
  0.0.3 2016-10-31-09:20 Draft Sketch for a distributable VCbind.txt
@@ -91,4 +93,4 @@ MANIFEST OF VCBIND.ZIP [Version]
       Initiate structure for command-line compilations analogous to the VS2013
       Projects.
 
-                         *** end of VCbind.txt ***
+                       *** end of VCbind-0.1.0.txt ***
