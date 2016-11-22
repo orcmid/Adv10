@@ -1,19 +1,36 @@
-VCbind-0.1.0.txt 0.0.6                  UTF-8                      2016-11-20
+VCbind-0.1.0.txt 0.0.7                  UTF-8                       2016-11-22
 
               BINDINGS FOR VISUAL C/C++ COMMAND-LINE COMPILATION
               ==================================================
+              
+         This 0.1.0 distribution of VCbind.zip is available on the web 
+         at <http://nfoWare.com/dev/2016/11/d161101c.txt>.  Consult 
+         that page for the latest status, links to useful related 
+         material, and the most-recent version.  If there is concern 
+         for the authenticity or correctness of a VCbind.zip, obtain
+         a full replacement at nfoWare.com.
+         
+         CONTENT
+            1. Overview
+            2. Extraction of VCbind.zip Content
+            3. Using the VCbind\VCbind.bat Script
+            Manifest of VCbind.zip 0.1.0
+         
+ 1. OVERVIEW
 
-    VCbind.zip provides a Windows batch script for setting up a command-
+    VCbind.zip delivers a Windows batch script for setting up a command-
     line environment.  The provided environment enables compiling with the
     Microsoft Visual C/C++ command-line compiler, cl.exe, aud using related
     Microsoft developer tools.
     
-    This 0.1.0 distribution of VCbind.zip is available on the web at
-    <http://nfoWare.com/dev/2016/11/d161101c.txt>.  Consult that page for 
-    the latest status, links to useful related material, and the most-recent
-    version.  If there is any concern for the authenticity or correctness of a
-    VCbind.zip, obtain a full replacement from nfoWare.com.
-
+    VCbind.zip is intended as a component of larger construction sets. 
+    Consult construction-set instructions for amendments on for VCbind.zip 
+    for extraction and usage of the contents.  
+    
+    Ordinarily, construction sets using VCbind version 0.1.0 have a copy 
+    of this file, VCbind-0.1.0.txt, alongside the VCbind.zip file.  Use
+    the version included in VCbind.zip if it is different.
+    
     VCbind.zip is to be extracted at the location where it appears in a
     construction set.  The result is a companion folder with the following
     structure:
@@ -27,24 +44,22 @@ VCbind-0.1.0.txt 0.0.6                  UTF-8                      2016-11-20
                      VCbind.bat
                   ...
                   
-    The VCbind\ folder is not part of the source-code.  It only needs to
-    be created when the given construction set is to be used.  VCbind\ is a
-    working folder that can be customized, if necessary, without touching
-    construction-set code.  Restoration of the VCbind\ to its original
-    form is by deleting it and re-extracting it from VCbind.zip.  When the 
-    construction set is no longer needed, the VCbind\ folder can be deleted,
-    leaving the construction set intact and reusable in the future.
+    The VCbind\ folder is not part of the construction-set source-code.  
+    Create it by extraction of VCbind.zip whenever the construction set is 
+    used.  If desired, customize the extracted VCbind\ content, leaving the
+    construction-set code intact.  Restore VCbind\ to its original form by 
+    deleting th extracted folder and re-extracting from VCbind.zip.  
     
-EXTRACTION OF VCBIND.ZIP CONTENT
+ 2. EXTRACTION OF VCBIND.ZIP CONTENT
 
-    On 
+    [TBD]
     
-USING THE VCBIND\VCBIND.BAT SCRIPT
+ 3. USING THE VCBIND\VCBIND.BAT SCRIPT
 
     [TBD]
                    
 
-MANIFEST OF VCBIND.ZIP [Version]
+ 4. MANIFEST OF VCBIND.ZIP 0.1.0
 
     LICENSE.txt
         copy of the Apache Licnese Version 2.0 of January 2004
@@ -80,6 +95,7 @@ MANIFEST OF VCBIND.ZIP [Version]
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.7 2016-11-22-09:31 Touch up organization and text about VCbind 0.1.0
  0.0.6 2016-11-20-14:26 Adjust as draft of VCbind-0.1.0.txt
  0.0.5 2016-11-03-14:36 Expand the instructions for direct usage.
  0.0.4 2016-10-31-11:37 Add LICENSE and NOTICE, tweak Manifest

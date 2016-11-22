@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.14     UTF-8                          2016-11-20 
+rem VCbind.zip\VCbind.bat 0.0.15     UTF-8                          2016-11-22 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -9,8 +9,8 @@ rem This procedure sets the Windows PC command-shell environment for command-
 rem line use of the Visual C++ command-line compiler, cl.exe, and related
 rem build tools.
 
-rem Additional documentation of the procedure and its usage are found in the
-rem accompanying VCbind-0.0.14.txt file.  For further information, see
+rem Additional documentation of this procedure and its usage are found in the
+rem accompanying VCbind-0.1.0.txt file.  For further information, see
 rem <http://nfoWare.com/dev/2016/11/d161101.htm> and check for the latest
 rem version at <http://nfoWare.com/dev/2016/11/d161101b.htm>.
 
@@ -312,6 +312,7 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem 0.0.15 2016-11-22-09:05 Touch-ups, smoothing connections to other material
 rem 0.0.14 2016-11-20-13:41 Complete annotations.  Re-order checking for
 rem        a previous setup, whether simple repetition or conflicting.
 rem        Designate for candidate VCbind.zip 0.1.0 with version number
