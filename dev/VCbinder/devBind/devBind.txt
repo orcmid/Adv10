@@ -1,4 +1,4 @@
-devBind.txt 0.0.22                    UTF-8                         2016-11-22
+devBind.txt 0.0.23                    UTF-8                         2016-11-22
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -25,8 +25,8 @@ devBind.txt 0.0.22                    UTF-8                         2016-11-22
     testing and confirmation of VCbind operation.  Someone without the 
     experience to have developed VCbind themselves should still be able to use
     it, to successfully confirm its functioning, and to make successful
-    adaptations/variations as more is learned.  
-        
+    adaptations/variations as more is learned. 
+           
     
 USING VCBIND.ZIP
 
@@ -34,7 +34,22 @@ USING VCBIND.ZIP
     for its usage in a construction set that employs VCbind.  
 
     To obtain the VCbind currently recommended for general usage, consult
-    <http://nfoWare.com/dev/2016/11/d161101b.htm>.  
+    <http://nfoWare.com/dev/2016/11/d161101b.htm>. 
+    
+    
+DEPENDENCIES FOR VCBIND
+
+    Beside built-in Microsoft Windows utitilities, VCbind depends only on 
+    freely-available versions of Visual Studio Software, whether Express or 
+    Community editions.  
+    
+    There is no reliance on the Visual Studio Integrated Development Environment
+    (IDE) itself, just the command-line compiler and development tools.
+    
+    Have a text editor that is suitable for viewing/editing plsintext, batch 
+    scripts, source codes, and compiler error logs.
+    
+    The same dependencies apply to development work on VCbind itself.
     
     
 PREREQUISITE CAPABILITIES FOR VCBIND DEVELOPMENT WORK
@@ -182,125 +197,18 @@ MANIFEST
     limitations under the License.
 
 TODO
- 
- * Beyond VCbind-0.1.0, add the smoke test and anything for testing.  These
-   are available for stand-alone usage but backed-up by web pages that can
-   be more informative than plaintext files.
-
- * Add statement about how Toolcraft, TROST, and the ability for anyone
-   to confirm the functioning of the VCbind technique, with prerequisite
-   preparation.
-   
+  
  * Add Dependencies as well as prerequisites.  These are the technical
    dependencies.
    
  * Provide links for the prerequisites.  Also to examples of where VCbind
    is used in cases that are relatively easy to teeth on.
    
- * Is it meaningful to go as far back as VS2005 (Version 8.0)?
-        
- * The Microsoft Visual Studio "15" Preview 5 setup is very different than
-   for any previous versions.  It is a considerable hack and will not be
-   supported as part of a general-use VCbind release.  
-   
- * After VCbind 0.1.0 is achieved, use VCbind 0.1.x to include provisional
-   support for Microsoft Visual Studio "15" RCn editions until RTM
-   happens.  Then take it to VCbind 0.2.0.  NOTE: If RTM happens before
-   0.1.0, just include it.
-   
- * Install Visual Studio 2017 RC1 (version 15.0) and see if it can be
-   incorporated in the same manner as existing choices.
- 
- * Put references on creating and using batch scripts somewhere.  There is
-   now (Windows 10) extensive help files built in, along with more on MSDN.
-   There is also the Command Line Administrator's Pocket Handbook.
-   
- * Verify the VCbind structure with VS2008 and all subsequent VS 
-   Express and Community installs.
-
- * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
-   shells and possibly CYGWIN.  It is desirable that these batch scripts work
-   from underneath all of those shells.
-
- * Find references for the prerequisite information.  These will probably be
-   in nfoWare ToolCraft or some devtools area.
-
- * We need a tutorial/HowTo location on nfoWare.com with images and related 
-   documentation for the cases that apply here.
-   
- * We need to get this far enough to apply in test builds and runs of the
-   Adv10 WinCon case.  Don't worry so much about documentation completeness
-   until we have the scripts in use.  It is all provisional while Adv10 is
-   in 0.0.* development.
-   
- * VCbind.bat can be referenced from anywhere.  It is not necessary to
-   change the current working directory in order to employ VCbind.bat
-   and it returns with no change to the current working directory.
-   Having shortcuts to help with this might be something that should
-   be encouraged but not handled in detail here.  That seems like another
-   HOWTO to address on nfoWare.
-   
- * Do we want VCbind.zip to be signed?  That's not a particularly bad
-   idea. Not clear what the best way to accomplish it is that ensures
-   use of a proper public key though.
-   
- * Provide a checklist of the testing cases that apply to VCbind.bat.
-   It should provide a smoke test as well as test cases for confirming
-   all operation of the script.  The full testing is needed for a release
-   candidate and also the level of testing needs to be accounted for in
-   a pull request.  
-   
- * VCbind.zip should provide a sample that can be used to verify compilation
-   after a successful binding.  This should provide the smoke-test case and
-   also demonstrate some things about calling cl.exe with @*.opt parameters.
-                
- * VCbind.bat: Add links to locations where more information can be found
-   in case the script is (found) separated from VCbind.zip.
-   
- * Figure out what config cases never work on older Visual Studio versions and
-   filter for those if it seems desirable.  This is only needed to prevent
-   a vcvarsall.bat from presenting its usage message and confusing everything.
- 
- * To preserve integration with other procedures and simplify documentation,
-   the VCbind.bat and VCbind.zip names are preserved, with semantic versioning
-   applied to the VCbind.txt name (e.g., VCbind-0.1.0.txt) and the version
-   set and displayed within VCbind.bat.
-   
- * The term for cmd.exe is "command shell."  Use that consistently.
-   See <https://technet.microsoft.com/en-us/library/bb490954.aspx>.
-   We can talk about a console session, but it is running the command 
-   shell.
-    
- * Help provided here on cmd.exe and the Windows Command Shell should also
-   point out how much off-line help is built into the shell.
-   
- * Need to suggest help cmd and also help setlocal as part of the off-line
-   help.
-   
- * Add a confirmation checklist with basic smoketest as well as a systematic
-   exercise of the script.  
-   
- * Consider a script for systematic confirmation of VCbind.bat operation.
- 
- * Do we need a little "Hello World" sort of compilation for getting more
-   than just eliciting "cl.exe /?" output?  Maybe that is the second smoke
-   test, that will be important whenever VCbind.bat is operated from 
-   within CygWin or other Unix-style shells.  This is maybe a VCbuild sample.
-   
- * The first smoke test is simply to perform a "cl.exe" command and see the
-   compiler notification.
-   
- * The second smoke test is to extract and carry out the compilation and
-   execution of a small program.
-   
- * There needs to be a tip or example of a handy shortcut for testing,
-   etc.  That might also be better in a VCbuild or VCrun (VCcheck?) test.
-   
- * The testing and confirmation of VCbind.bat should be included in 
-   VCbind.zip, along with a smoke-test procedure.
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.0.23 2016-11-22-16:34 Move most TODOs and narrative to nfoWare and
+        continue managing from <http://nfoWare.com/dev/2016/11/d161101a.htm>.
  0.0.22 2016-11-22-09:29 Cleanups around VCbind 0.1.0 and TODOs
  0.0.21 2016-11-20-14:06 Identify VCbind 0.1.0 target candidacy and switch
         VCbind.txt naming to VCbind-0.1.0.txt.  Adjust text and TODOs.
