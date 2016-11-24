@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.16     UTF-8                          2016-11-24 
+rem VCbind.zip\VCbind.bat 0.0.17     UTF-8                          2016-11-24 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -141,6 +141,7 @@ IF NOT DEFINED VCINSTALLDIR GOTO :FAIL5
 
 :WINNER
 ECHO:          Success: VC++ %VisualStudioVersion% %VCaskedConfig% config set.
+ECHO:          %VCINSTALLDIR% %VCterse%
 GOTO :SUCCESS
 
 :ALREADY
@@ -315,6 +316,7 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem 0.0.17 2016-11-24-10:56 Add one overlooked VCINSTALLDIR reporting
 rem 0.0.16 2016-11-24-10:45 Report VCINSTALLDIR of the set environment
 rem        aiding trouble-shooting of success and of error cases.
 rem 0.0.15 2016-11-22-09:05 Touch-ups, smoothing connections to other material
