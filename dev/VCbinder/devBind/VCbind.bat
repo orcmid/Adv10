@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.15     UTF-8                          2016-11-22 
+rem VCbind.zip\VCbind.bat 0.0.16     UTF-8                          2016-11-24 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -154,7 +154,8 @@ IF NOT "%VCboundVer%" == "%VisualStudioVersion%" GOTO :FAIL3
 rem TRUST PREVIOUS SETTINGS TO BE REUSABLE
 rem      Avoid multiple running of VC\ settings and duplicating the PATH and
 rem      other parameter settings.
-ECHO:          Using existing VC++ %VCboundVer% %VCboundConfig% config setup.        
+ECHO:          Using existing VC++ %VCboundVer% %VCboundConfig% config setup. 
+ECHO:          %VCINSTALLDIR% %VCterse%
 GOTO :SUCCESS
 
 :SUCCESS
@@ -195,13 +196,15 @@ GOTO :BAIL
 ECHO:          *** FAIL: VC ENVIRONMENT ALREADY SET BY OTHER MEANS ***  
 ECHO:          The environment is already set for compiling with a  %VCterse%
 ECHO:          VC++ compiler version %VisualStudioVersion%          %VCterse%
+ECHO:          %VCINSTALLDIR% %VCterse%
 GOTO :NOMIXING
 
 :FAIL3
 ECHO:          *** FAIL: VCBIND ENVIRONMENT HAS BEEN ALTERED ***
 ECHO:          Binding to VC++ %VisualStudioVersion% is changed     %VCterse%
-ECHO:          from version %VCboundVer% set by VCbind.  Continuing %VCterse%
-ECHO:          this session may lead to unexpected results.         %VCterse%
+ECHO:          from version %VCboundVer% set by VCbind.  Now at     %VCterse%
+ECHO:          %VCINSTALLDIR% %VCterse%
+ECHO:          Continuing this session may have unexpected results. %VCterse%
 GOTO :NOMIXING
 
 :FAIL2
@@ -312,6 +315,8 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem 0.0.16 2016-11-24-10:45 Report VCINSTALLDIR of the set environment
+rem        aiding trouble-shooting of success and of error cases.
 rem 0.0.15 2016-11-22-09:05 Touch-ups, smoothing connections to other material
 rem 0.0.14 2016-11-20-13:41 Complete annotations.  Re-order checking for
 rem        a previous setup, whether simple repetition or conflicting.
