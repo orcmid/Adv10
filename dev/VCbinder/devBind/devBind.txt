@@ -1,4 +1,4 @@
-devBind.txt 0.0.23                    UTF-8                         2016-11-22
+devBind.txt 0.0.24                    UTF-8                         2016-11-24
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -24,7 +24,7 @@ devBind.txt 0.0.23                    UTF-8                         2016-11-22
     Extensive details are provided here and in VCbind.zip to support non-expert
     testing and confirmation of VCbind operation.  Someone without the 
     experience to have developed VCbind themselves should still be able to use
-    it, to successfully confirm its functioning, and to make successful
+    it to successfully confirm its functioning, and to make successful
     adaptations/variations as more is learned. 
            
     
@@ -39,7 +39,7 @@ USING VCBIND.ZIP
     
 DEPENDENCIES FOR VCBIND
 
-    Beside built-in Microsoft Windows utitilities, VCbind depends only on 
+    Beside built-in Microsoft Windows utilities, VCbind depends only on 
     freely-available versions of Visual Studio Software, whether Express or 
     Community editions.  
     
@@ -198,15 +198,30 @@ MANIFEST
 
 TODO
   
- * Add Dependencies as well as prerequisites.  These are the technical
-   dependencies.
+ * Provide links for resolving the dependencies.
    
  * Provide links for the prerequisites.  Also to examples of where VCbind
    is used in cases that are relatively easy to teeth on.
    
+ * Confirm that the VS 2013 Build Tools also provide a C/C++ compiler.
+ 
+ * Test with Visual Studio C++ Express 2008.
+ 
+ * Link to an illustrated procedure for the extraction from VCbind.zip.
+ 
+ * Link to an illustrated procedure with regard to desired Windows desktop
+   options for performing developer and trouble-shooting work.
+   
+ * Link to an illustrated procedure for the easiest way to fire up VCbind.bat.
+ 
+ * Link to an illustrated procedure for firing up a command-shell session,
+   navigating to VCbind\ or other place, performing a VCbind.bat operation,
+   and use the resulting environment in the session.
+   
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.0.24 2016-11-24-14:51 Update TODOs, correct some text, freeze 0.1.0
  0.0.23 2016-11-22-16:34 Move most TODOs and narrative to nfoWare and
         continue managing from <http://nfoWare.com/dev/2016/11/d161101a.htm>.
  0.0.22 2016-11-22-09:29 Cleanups around VCbind 0.1.0 and TODOs
