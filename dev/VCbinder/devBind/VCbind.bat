@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.17     UTF-8                          2016-11-24 
+rem VCbind.zip\VCbind.bat 0.0.18     UTF-8                          2016-11-24 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -212,6 +212,7 @@ GOTO :NOMIXING
 ECHO:          **** FAIL: PRIOR VCBIND %VCboundConfig% %VCbound% CONFLICT ****
 ECHO:          The current request conflicts with settings already  %VCterse%
 ECHO:          in effect for the VS %VisualStudioVersion% compiler. %VCterse%
+ECHO:          %VCINSTALLDIR% %VCterse%
 GOTO :NOMIXING
 
 :NOMIXING
@@ -316,6 +317,7 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem 0.0.18 2016-11-24-11:19 Add another overlooked VCINSTALLDIR report case
 rem 0.0.17 2016-11-24-10:56 Add one overlooked VCINSTALLDIR reporting
 rem 0.0.16 2016-11-24-10:45 Report VCINSTALLDIR of the set environment
 rem        aiding trouble-shooting of success and of error cases.
