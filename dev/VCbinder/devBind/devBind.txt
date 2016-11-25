@@ -1,4 +1,4 @@
-devBind.txt 0.0.24                    UTF-8                         2016-11-24
+devBind.txt 0.0.25                    UTF-8                         2016-11-24
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -221,6 +221,9 @@ TODO
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.0.25 2016-11-24-17:36 Digitally Sign 0.1.0 Artifacts
+        VCbind-0.1.0.txt is clearsigned and an external signature and SHA256
+        hash are produced for VCbind.zip.
  0.0.24 2016-11-24-14:51 Update TODOs, correct some text, freeze 0.1.0
  0.0.23 2016-11-22-16:34 Move most TODOs and narrative to nfoWare and
         continue managing from <http://nfoWare.com/dev/2016/11/d161101a.htm>.
