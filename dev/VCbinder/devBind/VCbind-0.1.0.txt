@@ -1,3 +1,6 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
 VCbind-0.1.0.txt 0.0.8                  UTF-8                       2016-11-24
 
               BINDINGS FOR VISUAL C/C++ COMMAND-LINE COMPILATION
@@ -157,7 +160,7 @@ MANIFEST OF VCBIND.ZIP 0.1.0
     NOTICE.txt 1.0.0 814 byte 2016-10-24 version
         applicable NOTICE for VCbind.zip and its content
         
-    VCbind-0.1.0.txt 0.0.8 9,045 byte 2016-11-24T14:42 version
+    VCbind-0.1.0.txt 0.0.8 9,670 byte 2016-11-24T17:28 clearsigned version
         This description file on organization of the archive and use of its
         materials.
 
@@ -185,6 +188,7 @@ MANIFEST OF VCBIND.ZIP 0.1.0
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.9 2016-11-24-17:28 Clearsign this document.
  0.0.8 2016-11-24-14:42 Refine the text. Add Developer Use section.  Make
        0.1.0 release version.
  0.0.7 2016-11-22-09:31 Touch up organization and text about VCbind 0.1.0
@@ -202,3 +206,15 @@ MANIFEST OF VCBIND.ZIP 0.1.0
       Projects.
 
                        *** end of VCbind-0.1.0.txt ***
+                       
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQEcBAEBCAAGBQJYN5OjAAoJEPluif/UVmKK+gIH/0bp75vR+BavM8dDOFVqwdoH
+WBF8dMtlyFDcDKLBVAzwtRUrujNvmTiFYXVNg9uJ1WDSqf+i/T62naJkPnQ3TQQY
+00xdlkMAWHoNP4ezSvV81wsnv3PlVFoHSoWSSrBfvw73imBYwcHeEL93LVU/KNw/
++evtMDLHhqfS2DqlMaa09cNrKrbBmuBmVMJmhoC92tYKaaQlA5l9BTn0AoeROGIg
+UIYJvcLscKt9dIaHSVmr/GJkV45njDbAc9UdoG2eJWKn8K1pD+/6aTDLLf26aViC
+wOEmF3S9Gx1Y9u4wEdwXZ2NeadrzY4Ckjk7oEMNDGlBgDDQ79orLK74tEiZ7DIE=
+=NEjq
+-----END PGP SIGNATURE-----
