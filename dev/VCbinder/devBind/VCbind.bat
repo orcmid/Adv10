@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.0.18     UTF-8                          2016-11-24 
+rem VCbind.zip\VCbind.bat 0.1.0     UTF-8                           2016-11-25 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -15,7 +15,7 @@ rem <http://nfoWare.com/dev/2016/11/d161101.htm> and check for the latest
 rem version at <http://nfoWare.com/dev/2016/11/d161101b.htm>.
 
 rem Designate this Version 
-SET VCverNum=0.1.0
+SET VCverNum=0.1.1
 rem     semantic versioning candidate
 
 rem SELECT TERSE OR VERBOSE
@@ -317,6 +317,8 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
+rem 0.1.0  2016-11-25-08:21 Set for stepping toward 0.2.0 but able to cut an
+rem        0.1.x at any stage, if necessary.
 rem 0.0.18 2016-11-24-11:19 Add another overlooked VCINSTALLDIR report case
 rem 0.0.17 2016-11-24-10:56 Add one overlooked VCINSTALLDIR reporting
 rem 0.0.16 2016-11-24-10:45 Report VCINSTALLDIR of the set environment

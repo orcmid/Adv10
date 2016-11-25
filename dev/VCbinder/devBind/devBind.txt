@@ -1,4 +1,4 @@
-devBind.txt 0.0.25                    UTF-8                         2016-11-24
+devBind.txt 0.1.1                    UTF-8                          2016-11-25
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -218,9 +218,20 @@ TODO
    navigating to VCbind\ or other place, performing a VCbind.bat operation,
    and use the resulting environment in the session.
    
+ * Improve the :FAIL5 message to compensate for the uninformative "missing"
+   message from configs that cannot be satisfied.
+   
+ * Use VCbind 0.1.1 as stepping toward 0.2.0.  We might want to distribute
+   one of these at any time.  The big difference for declaring 0.2.0 is having
+   the sample and any confirmation/regression tests.
+   
+ * Figure out how to split VCbinder out of the Adv10 source-code tree for 
+   (quasi-)independent development.  Then figure out how to incorporate VCbind
+   into Adv10/dev/WinCon appropriately.  
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+  0.1.1 2016-11-25-09:15 Start stepping toward 0.2.0 with interim 0.1.1.
  0.0.25 2016-11-24-17:36 Digitally Sign 0.1.0 Artifacts
         VCbind-0.1.0.txt is clearsigned and an external signature and SHA256
         hash are produced for VCbind.zip.
