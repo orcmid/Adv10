@@ -1,4 +1,4 @@
-devBind.txt 0.1.1                    UTF-8                          2016-11-25
+devBind.txt 0.1.2                    UTF-8                          2016-11-26
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -24,8 +24,8 @@ devBind.txt 0.1.1                    UTF-8                          2016-11-25
     Extensive details are provided here and in VCbind.zip to support non-expert
     testing and confirmation of VCbind operation.  Someone without the 
     experience to have developed VCbind themselves should still be able to use
-    it to successfully confirm its functioning, and to make successful
-    adaptations/variations as more is learned. 
+    it to confirm its functioning and to make adaptations/variations as more 
+    is learned. 
            
     
 USING VCBIND.ZIP
@@ -125,7 +125,8 @@ DEVBIND EMHANCEMENT AND MAINTENANCE CODE-AND-TEST CYCLE
      VCbind-x.y.z.txt will depend on the purpose of your modifications.
      See <http://semver.org/>.
     
-  4. Wnen done or at a check-point, synchronize VCbind.zip with your work.
+  4. Wnen your work is completed or at an intermediate check-point, synchronize
+     VCbind.zip to have your changes.
   
      4.1 Update VCbind-x.y.z.txt and related documentation and testing material.
   
@@ -168,10 +169,12 @@ MANIFEST
     NOTICE.txt
         Notice file for inclusion in VCbind.zip
          
-    VCbind-0.1.0.txt
+    VCbind-0.1.x.txt
         manifest and description included in VCbind.zip and usable as a
         preview of instructions for extraction and usage.  The x.y.z 
         versioning specifies the VCbind.zip version candidate being worked on.
+        Letters in the semantic version identifier apply to unreleased,
+        in-progress versions.
          
     VCbind.bat
         script included in VCbind.zip that provides the binding operation
@@ -229,9 +232,20 @@ TODO
    (quasi-)independent development.  Then figure out how to incorporate VCbind
    into Adv10/dev/WinCon appropriately.  
    
+ * Tag the VCbind-0.1.0 branch and see if signing it works.
+ 
+ * Does a branch remain available even if it is merged back to master?
+ 
+ * For the nfoWare.com d161101c-dist, there is more to do in identifying where
+   the source code is maintained, more about toolcraft with Git, and also 
+   the use of Git command-line operations in addition to any GitHub reliance.
+   
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
-  0.1.1 2016-11-25-09:15 Start stepping toward 0.2.0 with interim 0.1.1.
+ 0.1.2  2016-11-26-10:17 Touch ups.  Expanded TODOs to reflect more integration
+        work in Git and on nfoWare for released branches, explorations of ways
+        to spin VCbind and VCbinder out of the Adv10 source tree.
+ 0.1.1  2016-11-25-09:15 Start stepping toward 0.2.0 with interim 0.1.1.
  0.0.25 2016-11-24-17:36 Digitally Sign 0.1.0 Artifacts
         VCbind-0.1.0.txt is clearsigned and an external signature and SHA256
         hash are produced for VCbind.zip.
