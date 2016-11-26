@@ -1,4 +1,4 @@
-devBind.txt 0.1.2                    UTF-8                          2016-11-26
+devBind.txt 0.1.3                    UTF-8                          2016-11-26
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -232,8 +232,6 @@ TODO
    (quasi-)independent development.  Then figure out how to incorporate VCbind
    into Adv10/dev/WinCon appropriately.  
    
- * Tag the VCbind-0.1.0 branch and see if signing it works.
- 
  * Does a branch remain available even if it is merged back to master?
  
  * For the nfoWare.com d161101c-dist, there is more to do in identifying where
@@ -242,6 +240,8 @@ TODO
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.1.3  2016-11-26-15:31 Branch VCbind-0.1.0 tagged VCbind-0.1.0-rc with PBP
+        signing of the tag after setting the Global GIT Config appropriately.
  0.1.2  2016-11-26-10:17 Touch ups.  Expanded TODOs to reflect more integration
         work in Git and on nfoWare for released branches, explorations of ways
         to spin VCbind and VCbinder out of the Adv10 source tree.
