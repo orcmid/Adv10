@@ -1,4 +1,4 @@
-devBind.txt 0.1.3                    UTF-8                          2016-11-26
+devBind.txt 0.1.4                    UTF-8                          2016-11-27
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -10,8 +10,8 @@ devBind.txt 0.1.3                    UTF-8                          2016-11-26
     For the latest version considered stable for general use, check the
     parent VCbinder/ folder for how VCbinder/devBind is used and the version
     of VCbind.zip incorporated there.  For further information on VCbind,
-    it's development, and the relationship to (open-)source construction
-    sets, see <http://nfoWare.com/dev/2016/11/d161101.htm>.
+    it's development, latest downloads, and the relationship to (open-)source
+    construction sets, see <http://nfoWare.com/dev/2016/11/d161101.htm>.
  
     The details of VCbind.zip and its usage are in the VCbind-x.y.z.txt file
     for the particular version (e.g., VCbind-0.1.0.txt).  That file is part
@@ -21,8 +21,8 @@ devBind.txt 0.1.3                    UTF-8                          2016-11-26
     itself, can (2) identify the version of VCbind to determine its current
     status, and can verify that the VCbind.zip is of the same version.
        
-    Extensive details are provided here and in VCbind.zip to support non-expert
-    testing and confirmation of VCbind operation.  Someone without the 
+    Extensive details are provided here and in VCbind.zip to support non-
+    expert testing and confirmation of VCbind operation.  Someone without the 
     experience to have developed VCbind themselves should still be able to use
     it to confirm its functioning and to make adaptations/variations as more 
     is learned. 
@@ -145,7 +145,7 @@ DEVBIND EMHANCEMENT AND MAINTENANCE CODE-AND-TEST CYCLE
   6. Check-in the modified/new materials under the source-code management
      you are using.  Depending on the state of completion and project
      requirements for thorough testing, contribute back to any project
-     this work is on behalf of when that is your objective.
+     your work is being contributed to.
 
 
 MANIFEST
@@ -171,10 +171,9 @@ MANIFEST
          
     VCbind-0.1.x.txt
         manifest and description included in VCbind.zip and usable as a
-        preview of instructions for extraction and usage.  The x.y.z 
-        versioning specifies the VCbind.zip version candidate being worked on.
-        Letters in the semantic version identifier apply to unreleased,
-        in-progress versions.
+        preview of instructions for extraction and usage.  The 0.1.x  
+        versioning is for working changes pending choice to cut a new
+        release, whether 0.1.1, 0.2.0, or 1.0.0.
          
     VCbind.bat
         script included in VCbind.zip that provides the binding operation
@@ -224,10 +223,6 @@ TODO
  * Improve the :FAIL5 message to compensate for the uninformative "missing"
    message from configs that cannot be satisfied.
    
- * Use VCbind 0.1.1 as stepping toward 0.2.0.  We might want to distribute
-   one of these at any time.  The big difference for declaring 0.2.0 is having
-   the sample and any confirmation/regression tests.
-   
  * Figure out how to split VCbinder out of the Adv10 source-code tree for 
    (quasi-)independent development.  Then figure out how to incorporate VCbind
    into Adv10/dev/WinCon appropriately.  
@@ -240,6 +235,8 @@ TODO
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.1.4  2016-11-27-10:03 Condition VCbind-0.1.x.txt for in-progress refinements.
+        Also text and TODOs review/updates done.
  0.1.3  2016-11-26-15:31 Branch VCbind-0.1.0 tagged VCbind-0.1.0-rc with PBP
         signing of the tag after setting the Global GIT Config appropriately.
  0.1.2  2016-11-26-10:17 Touch ups.  Expanded TODOs to reflect more integration
