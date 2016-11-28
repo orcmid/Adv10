@@ -1,4 +1,4 @@
-devBinder.txt 0.0.7                   UTF-8                    dh:2016-10-30
+devBinder.txt 0.0.8                   UTF-8                      dh:2016-11-28
 
   <https://github.com/orcmid/Adv10>/dev/VCbinder/devBinder/devBinder.txt>
 
@@ -83,8 +83,16 @@ TODO
  * Speed this up just enought to expedite confirmation and provisional
    use in the progressing of Adv10 WINCON 0.0.* development.
    
+ * Incorporate VCbind 0.1.0 and setup files for VCbinder 0.1.0 that is a simple
+   procedure.
+   
+ * Recover the VCbind 0.1.0 release items from nfoWare.com since they have
+   vanished from devBinder (my bad [;<).
+   
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.8 2016-11-28-09:19 Prepare a reset, switching in VCbind 0.1.0 and also
+       a VCbinder 0.1.0 based on it.
  0.0.7 2016-10-30-10:37 Reflect Consumption of the VC-scraps.txt
  0.0.6 2016-10-29-11:06 Reflect the temporary introduction of VC-scraps.txt
  0.0.5 2016-10-29-10:50 Touch up TODOs and clarify the parts kept here.
