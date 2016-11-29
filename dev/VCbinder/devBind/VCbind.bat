@@ -1,5 +1,5 @@
 @echo off
-rem VCbind.zip\VCbind.bat 0.1.0     UTF-8                           2016-11-25 
+rem VCbind.zip\VCbind.bat 0.1.1     UTF-8                           2016-11-29 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                  SETTING VC++ COMMAND-SHELL ENVIRONMENT
@@ -14,9 +14,11 @@ rem accompanying VCbind-0.1.0.txt file.  For further information, see
 rem <http://nfoWare.com/dev/2016/11/d161101.htm> and check for the latest
 rem version at <http://nfoWare.com/dev/2016/11/d161101b.htm>.
 
-rem Designate this Version 
+rem Designate the distribution version 
 SET VCverNum=0.1.1
-rem     semantic versioning candidate
+rem     0.1.1+ semantic versioning candidate
+rem     the least change past 0.1.0 is always the next candidate until
+rem     an actual distribution candidate is staged.
 
 rem SELECT TERSE OR VERBOSE
 rem     %1 value "*" selects terse operation
@@ -93,7 +95,7 @@ GOTO :TRY%VCasked%
 
 :TRY140
 IF NOT DEFINED VS140COMNTOOLS GOTO :TRY120
-set VisualStudioVersion=14.0
+SET VisualStudioVersion=14.0
 rem    XXX: Because Build Tools case doesn't set it
 CALL :VCTRY "%VS140COMNTOOLS%..\..\VC\" 140
 IF NOT ERRORLEVEL 9 EXIT /B %ERRORLEVEL%
@@ -170,7 +172,7 @@ EXIT /B 0
 
 :FAIL7
 ECHO:          *** UNSUPPORTED VCBIND PARAMETER(S) ***
-ECHO:          Invalid: %*
+ECHO:          Invalid Here: %*
 ECHO:          %VCterse%
 ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                %VCterse%
 GOTO :USAGE
@@ -186,9 +188,10 @@ GOTO :BAIL
 
 :FAIL5
 set VisualStudioVersion=
-rem     in case incorrectly guessed at :TRY140
-ECHO: [VCbind] *** FOUND TOOLSET %VCasked% %VCaskedConfig% CONFIG FAILS ***
-ECHO:          Check preceding message(s) for details.              %VCterse%          
+rem     XXX: in case incorrectly guessed at :TRY140
+ECHO: [VCbind] *** FOUND TOOLSET %VCasked% CONFIG %VCaskedConfig% FAILS ***
+ECHO:          Check preceding message(s) for details.  A missing   %VCterse% 
+ECHO:          config might be unsupported or simply not installed. %VCterse%
 ECHO:          %VCterse%
 ECHO:          NO ENVIRONMENT CHANGES HAVE BEEN MADE                %VCterse%         
 GOTO :BAIL
@@ -317,8 +320,10 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
-rem 0.1.0  2016-11-25-08:21 Set for stepping toward 0.2.0 but able to cut an
-rem        0.1.x at any stage, if necessary.
+rem 0.1.1  2016-11-29-14:33 Small changes to messages and remarks to include
+rem        in whatever the next distribution is.
+rem 0.1.0  2016-11-25-08:21 Set for stepping toward 0.1.1+ next-chosen semantic
+rem        version, as appropriate when distribution candidate selected.
 rem 0.0.18 2016-11-24-11:19 Add another overlooked VCINSTALLDIR report case
 rem 0.0.17 2016-11-24-10:56 Add one overlooked VCINSTALLDIR reporting
 rem 0.0.16 2016-11-24-10:45 Report VCINSTALLDIR of the set environment

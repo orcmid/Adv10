@@ -174,7 +174,7 @@ MANIFEST
          
     VCbind-0.1.1.txt
         manifest and description included in VCbind.zip and usable as a
-        preview of instructions for extraction and usage.  The 0.1.1  
+        preview of instructions for extraction and usage.  The 0.1.1+ styled  
         versioning is for all working changes since 0.1.0 and pending choice 
         to cut the next semantic version, whether 0.1.1, 0.2.0, or 1.0.0.
          
@@ -204,7 +204,7 @@ MANIFEST
 TODO
 
     In addition to these TODO items, the web-facing material on 
-    <http://nfoWare.com> has a Diary and Job Jar of VCbind items maintained
+    <http://nfoWare.com> has a Diary and Job Jar of VCbind items
     at <http://nfoWare.com/dev/2016/11/d161101a.htm>.
   
  * Provide links for resolving the dependencies.
@@ -227,12 +227,10 @@ TODO
    navigating to VCbind\ or other place, performing a VCbind.bat operation,
    and use the resulting environment in the session.
    
- * Improve the :FAIL5 message to compensate for the uninformative "missing"
-   message from configs that cannot be satisfied.
-   
- * Figure out how to split VCbinder out of the Adv10 source-code tree for 
-   (quasi-)independent development.  Then figure out how to incorporate VCbind
-   into Adv10/dev/WinCon appropriately.  
+ * Split VCbinder out of the Adv10 source-code tree for (quasi-)independent 
+   development.  This is worthy of an 0.1.1+ distribution, with new source
+   location.  When that is completed, the Adv10/dev/VCbinder can be branched
+   out after Adv10/dev/WinCon is updated to use that 0.1.1+ code.
    
  * Does a branch remain available even if it is merged back to master?
  
@@ -255,8 +253,14 @@ TODO
  * The source discussion should emphasize that this is Code in the Open, and
    not an organized open-source project, despite the licensing.
    
+ * It should be emphasized that if a terse failure case is unclear, 
+   VCbind should be performed directly without the terse "*" flag.
+   This should probably be in :USAGE and elsewhere.
+   
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.1.7  2016-11-29-14:23 VCbind.bat adjusted to the 0.1.1+ scheme and
+        some touch-ups added for the next release.
  0.1.6  2016-11-29-14:05 Switchover from 0.1.x to 0.1.1 prep.
  0.1.5  2016-11-29-10:05 Cross-reference TODOs and d161101a.htm.  Add TODOs
         including work item to consider using 0.1.1 instead of 0.1.x.
