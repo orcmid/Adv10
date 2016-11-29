@@ -1,4 +1,4 @@
-devBind.txt 0.1.5                    UTF-8                          2016-11-29
+devBind.txt 0.1.6                    UTF-8                          2016-11-29
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -50,6 +50,9 @@ DEPENDENCIES FOR VCBIND
     scripts, source codes, and compiler error logs.
     
     The same dependencies apply to development work on VCbind itself.
+    
+    Providing ways to make use of IDEs, even though building from the command
+    line are the subject of potential future VCbind or related releases.
     
     
 PREREQUISITE CAPABILITIES FOR VCBIND DEVELOPMENT WORK
@@ -169,11 +172,11 @@ MANIFEST
     NOTICE.txt
         Notice file for inclusion in VCbind.zip
          
-    VCbind-0.1.x.txt
+    VCbind-0.1.1.txt
         manifest and description included in VCbind.zip and usable as a
-        preview of instructions for extraction and usage.  The 0.1.x  
-        versioning is for working changes pending choice to cut a new
-        release, whether 0.1.1, 0.2.0, or 1.0.0.
+        preview of instructions for extraction and usage.  The 0.1.1  
+        versioning is for all working changes since 0.1.0 and pending choice 
+        to cut the next semantic version, whether 0.1.1, 0.2.0, or 1.0.0.
          
     VCbind.bat
         script included in VCbind.zip that provides the binding operation
@@ -237,9 +240,6 @@ TODO
    the source code is maintained, more about toolcraft with Git, and also 
    the use of Git command-line operations in addition to any GitHub reliance.
    
- * The use of 0.1.x is foolish.  It should just be a placeholder for 0.1.1
-   and if necessary, it can bump to 0.2.0, 1.0.0, or whatever.  Change that.
-   
  * The VCbind-x.y.z.txt should point to the download folder, not the page 
    for the version.  The idea is that the download folder is all about the
    downloading, verifying the materials, and then maybe the smoke tests.
@@ -257,6 +257,7 @@ TODO
    
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.1.6  2016-11-29-14:05 Switchover from 0.1.x to 0.1.1 prep.
  0.1.5  2016-11-29-10:05 Cross-reference TODOs and d161101a.htm.  Add TODOs
         including work item to consider using 0.1.1 instead of 0.1.x.
  0.1.4  2016-11-27-10:03 Condition VCbind-0.1.x.txt for in-progress refinements.
