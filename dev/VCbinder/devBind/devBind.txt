@@ -1,4 +1,4 @@
-devBind.txt 0.1.4                    UTF-8                          2016-11-27
+devBind.txt 0.1.5                    UTF-8                          2016-11-29
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
     <https://github.com/orcmid/Adv10>/dev/VCbinder/devBind/devBind.txt>
@@ -199,6 +199,10 @@ MANIFEST
     limitations under the License.
 
 TODO
+
+    In addition to these TODO items, the web-facing material on 
+    <http://nfoWare.com> has a Diary and Job Jar of VCbind items maintained
+    at <http://nfoWare.com/dev/2016/11/d161101a.htm>.
   
  * Provide links for resolving the dependencies.
    
@@ -233,8 +237,28 @@ TODO
    the source code is maintained, more about toolcraft with Git, and also 
    the use of Git command-line operations in addition to any GitHub reliance.
    
+ * The use of 0.1.x is foolish.  It should just be a placeholder for 0.1.1
+   and if necessary, it can bump to 0.2.0, 1.0.0, or whatever.  Change that.
+   
+ * The VCbind-x.y.z.txt should point to the download folder, not the page 
+   for the version.  The idea is that the download folder is all about the
+   downloading, verifying the materials, and then maybe the smoke tests.
+   
+ * Fix the VCbind\ folder description in VCbind.txt section one to indicate
+   that restoration as stated impacts only the material from VCbind.zip and
+   not anything the user put there.
+   
+ * Decide whether information about use of the source is best at the release
+   page (e.g., d161101c) or the distribution description (e.g., d161101c-dist)
+   or perhaps divided between the two.
+   
+ * The source discussion should emphasize that this is Code in the Open, and
+   not an organized open-source project, despite the licensing.
+   
 ---------1---------2---------3---------4---------5---------6---------7-------*
 
+ 0.1.5  2016-11-29-10:05 Cross-reference TODOs and d161101a.htm.  Add TODOs
+        including work item to consider using 0.1.1 instead of 0.1.x.
  0.1.4  2016-11-27-10:03 Condition VCbind-0.1.x.txt for in-progress refinements.
         Also text and TODOs review/updates done.
  0.1.3  2016-11-26-15:31 Branch VCbind-0.1.0 tagged VCbind-0.1.0-rc with PBP
