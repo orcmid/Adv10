@@ -1,84 +1,37 @@
-VCbinder.txt 0.0.9                   UTF-8                    dh:2016-10-30
+VCbinder.txt 0.0.10                   UTF-8                    dh:2016-12-01
 
         <https://github.com/orcmid/Adv10>/dev/VCbinder/VCbinder.txt>
 
           CREATE VCBINDER FOR VISUAL C/C++ COMMAND-LINE DEVELOPMENT
           =========================================================
           
-                   PROVISIONAL DEVELOPMENT SOURCE CODE
-                   -----------------------------------
-
-            VCbinder/ is the source tree for development and derivation
-            of VCBinder.zip versions.  VCBinder.zip delivers VCBind.zip and
-            collateral files that are usable as part of construction sets
-            in the source code of software projects.  The VCbinder elements
-            are for development of C/C++ applications on and for Microsoft
-            Windows.
+                      OBSOLETE PROVISIONAL DEVELOPMENT
+                      ********************************
+                      
+    Further development of VCbinder has been moved to the nfoTools project.
+    The work is spun out from Adv10 to provide a shared, general utility
+    for application in other projects.
             
-            VCbinder is not specific to Adv10.  VCbinder does not depend on
-            Adv10 in any manner.  Adv10 is the incubator for what will
-            become an independent VCbinder component.  
-                 
-            VCbinder/ will eventually be relocated to a  separate source-
-            code project for reusable components that are valuabie in a
-            variety of projects using Microsoft command-line development
-            tools and C/C++.
-            
-            While having VCbinder developed in this manner is significant
-            axe sharpening for Adv10, it is a valuable as training wheels
-            and learning curve for more substantial construction-set
-            developments.  
-                  
-          
-    VCbinder.zip is a package from which a development project can install
-    a VCbind.zip and a couple of collateral files.  The extraction is for
-    common elements of construction sets in the source code of software 
-    projects.  The VCbinder elements are useful in using Windows console
-    sessions for building a Windows applications on Microsoft Windows.  It is
-    not necessary to redistribute VCbinder.zip although it may be convenient 
-    to do so, as it is being done here.
+    Work on this subtree of Adv10 is now frozen.  For further development,
+    see <https://github.com/orcmid/nfoTools>/devKits/WinDev/VCbinder/ and
+    also check <http://nfoWare.com/dev/2016/11/d161102.htm> for developing
+    documentation and releases.
     
-    VCbind.zip, extracted from VCbinder.zip, is redistributed in the source
-    code of the construction set.  Extracting VCbind.zip provides a folder
-    and helper script, VCbind.bat.  Running VCbind.bat adjusts a Windows
-    console session for command-line operation of the Microsoft Visual C 
-    compiler and related Microsoft development tools.  
+    RETENTION PRIOR TO FURTHER REMOVAL
     
-    The extracted script allows console session-development without
-    depending on the Visual Studio (or any other) Integrated Development
-    Environment (IDE), even though the tools are commonly installed as
-    part of freely-available versions of Visual Studio.
+    The release of VCbind 0.1.0 was made under this Adv10 VCbinder source
+    tree.  The VCbind-0.1.0 branch and VCbind-0.1.0-src tag will be preserved.
     
-PREREQUISITES
-
-    [TBD]
+    After the first release from nfoTools (likely with a VCbind 0.1.1), this
+    source-tree will be frozen on a final branch, then tombstoned and other-
+    wise removed from the origin master.
     
-DEPENDENCIES
-
-    [TBD]
-
-USING VCBINDER
-
-    [TBD]
-
-DEPLOYING VCBINDER
-
-    [TBD]
     
-WORKING ON THE VCBINDER SOURCE CODE AND PROCEDURES
-
-    [TBD]
-    
-
-MANIFEST
-
-    .gitignore
-        Excluding any temporary VCbinder/ extraction of VCbinder.zip 
-        created when importing VCbinder elements to WinCon/       
+MANIFEST 
 
     VCbinder.txt
-        This description file on VCBinder/ code and the purpose of
-        VCBinder.zip and the VCBind.zip it includes.
+        This description file on VCBinder/ code and its pending replacement
+        on nfoTools.
         
     devBinder/
         The provisonal source code and instructions for construction of
@@ -107,66 +60,24 @@ MANIFEST
 
 TODO
 
- * It would be interesting to have a make process for making VCbinder.zip.
+ * Switch devBinder/ to obsolete.
  
- * Scavenge VC.txt 0.03 from ShowDefs/VC for anything useful here.
- 
- * I need VCbinder/ where I can test it and keep working it along
-   with Adv10/dev/WinCom for now.  It's too bad cross-project sharing went
-   the way of Visual SourceSafe. 
-
- * Adapt the ShowDefs experimental versions to the VCbinder structure as
-   the development source for VCBind.zip redistributables.
-
- * Verify the structure with cmd.exe, PowerShell, TC, and MSYS2 (POSIX)
-   shells and possibly CYGWIN.  It is desirable that these batch scripts work
-   from underneath all of those shells.  Any usability with Linux on Windows
-   needs to be investigated.
-
- * Add prerequisites, with links to more on satisfying the prerequisites.
-
- * There needs to be a location (nfoWare/devtools, likely) where illustrated
-   use is provided, and the latest version can be obtained independent of the
-   project that redistributes a VCbind.zip.
-
- * Create VCbind.zip for use in Adv10.
-
- * Create VCbind.bat in a way that is usable from sibling folders.  This must
-   cope with the absence of a full path for the location of the source tree
-   that contains a VCbind-using construction set.
+ * Identify pending obsolescence of devBind, with removal once there is
+   further release from nfoTools.
    
- * There seems to be no reason to include the development source in the
-   VCbind.zip itself.  Include information on location of the source code.
-    
- * VCbind.zip needs to provide information on how to deploy VCbind.zip for
-   anyone to incorporate it.  This might link to the maintained source, and
-   it should also be complete enough for free-standing redistribution.
-   
- * Companion material that should be redistributable at the level of 
-   VCbind.zip is provided along with VCbind.zip in VCbinder.zip. One thing
-   that must be added by the user is any .gitignore for VCbind/ or the
-   equivalent, depending on the nature of the construction set code 
-   that uses a VCbind.
-   
- * VCbinder.zip and VCbind.zip need to include maintenance instructions ?.
- 
- * Change this page to describe the integration activity and not so much
-   the development activity, which should be under devBinder for now.
-   
- * The VCbinder.txt file within VCbinder.zip is not this file, 
-   VCbinder/VCbinder.txt.  The VCbinder.zip version is not extracted over
-   this one and it does not appear in this folder. 
-   
- * The VCbinder.zip in this folder is the current generally-available 
-   (provisional) version that is available for use and incorporation in
-   construction sets (especially for Adv10/dev/WinCon).
-   
- * Don't worry about polish.  Get WinCon to a point where builds can be
-   started without fussing too much about the narrative and tutorial aspects
-   at this point.  That can all be filled in later.
+ * On the availability of a VCbind from nfoTools, adjust the material at
+   nfoWare d161101c and d161101c-dist to preserve provanance and history
+   while recommending use of the nfoWare distribution at d161101d.
+     
+ * After the Adv10 WinCon construction no longer employs components of
+   this Adv10 VCbinder source tree, replace this source tree with tombstones
+   and freeze it on a final VCbind branch.  The tombstones will locate the
+   nfoTools continuation of the effort and the artifacts will be removed 
+   from master. 
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.10 2016-12-01-08:20 Declare Obsolescence and Anticipate Tombstoning.
  0.0.9 2016-10-30-10:40 Poised for Expedited Provisional Use
        Expand TODOs and conclude approach for getting operation use on the
        main project.
