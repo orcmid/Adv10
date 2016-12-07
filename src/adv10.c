@@ -1,4 +1,4 @@
-/* adv10.c 0.0.4                      UTF-8                     dh:2016-10-08
+/* adv10.c 0.0.5                      UTF-8                     dh:2016-12-07
  *
  *                           ADVENTURE VERSION 1.0
  *                           =====================
@@ -63,7 +63,9 @@
                operation of the program can also be found.
      */
 
-#include <stdio.h>      /* basic input/output routines: fgets, printf */
+#include <stdio.h>      
+     /* basic input/output routines: fgets, fputs, printf 
+        and everything is stdin and stdout */
      /* TODO: Use Unicode Input Output.
         TODO: Eliminate printf wherever possible and isolate input-output
               for internationalization, and accessibility, at some point.
@@ -125,7 +127,7 @@ typedef enum{false, true} boolean;
      ----------------
      */
 
-main()
+int main(void)
 {
   register int j,k;
   register char *p;
@@ -142,6 +144,11 @@ main()
         */
 
   /*  22. ADDITIONAL LOCAL REGISTERS */
+  
+  /*  ADV10: PROLOGUE */
+  
+  fputs("\n[Adv10] 0.0.0 ORIGINAL COLLOSAL CAVE TEXT ADVENTURE\n\n", stdout);
+  fputs("\n        MUCH DARKNESS\n\n", stdout);
 
   /* 200. INITIALIZE ALL TABLES */
 
@@ -171,8 +178,6 @@ main()
      * Make the corrected advent.w base and also provide diffs between that
        and advent.w base and also adventure.w in case those are ever
        required.
-     * Pull out a minimum version to have compile and provide a simple
-       starter for test-driven development.
      * I will need a version that I can "script" as part of testing for
        interactive behavior.  I need to have a replayable output as well.
      * Get this and the file I am gutting under source control so I have
@@ -186,7 +191,8 @@ main()
 
 
 
-/* 0.0.4 2016-10-08-12:50 Adjust the use of titles and add cross=references
+/* 0.0.5 2016-12-07-11:01 Minimum version for demonstration of test compiles.
+   0.0.4 2016-10-08-12:50 Adjust the use of titles and add cross=references
          to the [fg:27] portions that tie to [fg] and advent.w.
    0.0.3 2016-10-04-08:38 Convert to semantic-versioning structure and
          start touching things up some more.  Put more motivation in 
