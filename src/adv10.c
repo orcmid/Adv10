@@ -1,4 +1,4 @@
-/* adv10.c 0.0.5                      UTF-8                     dh:2016-12-07
+/* adv10.c 0.0.6                      UTF-8                     dh:2016-12-08
  *
  *                           ADVENTURE VERSION 1.0
  *                           =====================
@@ -128,9 +128,10 @@ typedef enum{false, true} boolean;
      */
 
 int main(void)
-{
+{ /* UNUSED - ONLY DECLARE (AND ANNOTATE) ONCE ACTUALLY USED
   register int j,k;
   register char *p;
+  */
      /* TODO: The optimization of registers is best left to
               optimizers these days.
         TODO: See if these locally-global dependencies are
@@ -160,7 +161,10 @@ int main(void)
               patterns that work fine in this situation, though there
               might be a larger code footprint.
         */
+        
+  /* UNUSED LABEL.  UNCOMMENT ONCE IT IS USED.
   quit:
+  */
 
   /* FINIS */
   exit(0);
@@ -191,7 +195,9 @@ int main(void)
 
 
 
-/* 0.0.5 2016-12-07-11:01 Minimum version for demonstration of test compiles.
+/* 0.0.6 2016-12-08-09:42 Comment-suppress unused declarations and labels
+         until they are used, keeping the /Wall compiles clean.
+   0.0.5 2016-12-07-11:01 Minimum version for demonstration of test compiles.
    0.0.4 2016-10-08-12:50 Adjust the use of titles and add cross=references
          to the [fg:27] portions that tie to [fg] and advent.w.
    0.0.3 2016-10-04-08:38 Convert to semantic-versioning structure and
