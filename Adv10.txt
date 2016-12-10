@@ -1,4 +1,4 @@
-Adv10.txt 0.0.5                        UTF-8                    dh:2016-10-15
+Adv10.txt 0.0.6                        UTF-8                      2016-12-10
 
                               ADVENTURE VERSION 1.0
                               =====================
@@ -8,37 +8,58 @@ Adv10.txt 0.0.5                        UTF-8                    dh:2016-10-15
                   DEVELOPMENT AND SOURCE CODE VERSION CONTROL
                   -------------------------------------------
 
-    This project is for development of a Standard C version of the
+    This project is for development of a Clean C version of the
     original Colossal Cave Adventure as a portable command-line
     implementation.  Adv10 is the foundation of the Cavern project
     for progressive development of enriched versions, from command-
     line to 3D animated versions.
+    
+    Stable distributions of Adv10 executables are made available at
+    <http://nfoWare.com> once the transposition to clean C language
+    is completed.  There will also be release branches in the source
+    code tree at <https://githug.com/orcmid/adv10>.  
+    
+    To build and run Adv10 from this source code in its current state,
+    you will need to use a desktop PC with Microsoft Windows.  Use
+    Windows explorer and navigate to folder dev\WinCon\ for more
+    information.  
+    
+    For a quick-start, double-click on the Adv10Run.bat file and
+    follow any instructions.  Retry this way until you've satisfied
+    each requirement for continuation.  Upon successful operation,
+    use Adv10Run.bat to run and play Adv10 immediately.
+    
+    For more details about what you need to install to have Adv10
+    build successfully, consult the dev\WinCon\WinCon.txt file.
+      
        
 MANIFEST
 
-    Adv10.txt this manifest and job-jar file
-
-    src/
-        The Clean C source code for Adv10
-        
-    dev/
-        construction sets for building and testing Adv10 developer builds
-               
-    LICENSE.txt
-         The open-source software license that applies to this Adv10
-         work
-         
-    NOTICE.txt
-         Notices that apply to this Adv10 work in company with LICENSE.txt.
-         
     .gitattributes
          A declaration of file attributes for use in Git repositories of
          the Adv10 work
          
     .gitignore
          A declaration of artifacts to be ignored and excluded from Git
-         repositories, applying to working files that are not part of the
-         shared archive materials
+         repositories.  This applies to working files that are produced
+         when using this code locally and excluded from the public source
+         code.  
+         
+    LICENSE.txt 11,527 byte 2016-10-31 copy
+        Apache Licnese Version 2.0 of January 2004        
+         
+    NOTICE.txt 1.00 1,251 byte 2016-12-10 Adv10 version
+        Notices applicable to licensing of Adv10
+
+    Adv10.txt 
+         this top-level manifest and job-jar file
+
+    src/
+        The Clean C source code for Adv10
+        
+    dev/
+        construction sets for building and testing Adv10 developer builds
+                       
          
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -58,10 +79,11 @@ MANIFEST
  
 
 TODO
+  * Add the injunction that one should play the adventure and then take a 
+    look at the code, also with a hat tip to advent.w, etc.
+  * Do we need a doc/ for deployable documentation?
   * Add deployment-oriented organization that will be used in releasing beta
     and later versions of the Adv10 transposition.
-  * Confirm compile VS 2015 Community from the repro without fussing about
-    much.  Will structure later.
   * Provide access to the web folios for Adv10 and the Cavern project.
   * Add GitHub Readme when I am ready.
   * Add further attribution information about derivation of this project's
@@ -83,9 +105,29 @@ TODO
     available software tools and libraries.
   * Explain the licensing approach and handling of open-source code and any
     contributions to it.
+  * Keep an eye on development of Windows 10 on ARM and whether the x86
+    emulation is one way to deploy something like the WinCon version.  (It 
+    is not clear how form-factor would be dealt with, so this might be 
+    be a post 1.0.0 consideration, along with accessibility and localization.
+  * At some point, using fixed lines will not work.  We will need to change
+    to some form of automatic reflow.  It would be interesting if that would
+    just take the current layout as hinting.
+  * Working out reflow ultimately ties into localization and use of non-Roman
+    texts.  Since there may be significant platform/library support for that,
+    this will be an exercise related to the nfoWare Text topic and also the
+    handling of platform and library dependencies that need to be somehow
+    put under build control in a way that preserves the common source and the
+    "reference" implementation.  There is much fodder here for some useful
+    SE4E demonstration/consideration.
+  * Now that it is appealed to here, get cracking on dev/WinCon/Adv10Run.bat
+    and get a dev/WinCon that lets folks get builds and runs to happen from
+    now on as part of continuous iteration.
     
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.6 2016-12-10-09:07 Clean up Manifest and the NOTICE file to be more
+       specific.  Version the NOTICE.txt.  Review TODOs.  Provid an Intro
+       on how to dig in here by getting Adv10 to build and run.
  0.0.5 2016-10-15-12:49 Add dev/ folder for the developer build setup
  0.0.4 2016-10-06-14:01 Add Manifest and license notification
        Clean up TODOs for items already handled.       
