@@ -1,4 +1,4 @@
-WinCon.txt 0.0.11                      UTF-8                    dh:2016-12-07
+WinCon.txt 0.0.12                      UTF-8                       2016-12-11
 
            <https://github.com/orcmid/Adv10>/dev/WinCon/WinCon.txt>
 
@@ -6,13 +6,11 @@ WinCon.txt 0.0.11                      UTF-8                    dh:2016-12-07
                  ==============================================
 
     Adv10 on Windows runs in the Windows Command Shell via command-line 
-    operation.  This form of operation is the closest to the 1977 FORTRAN
-    Collosal Cave Adventure introduced as a computer terminal application
-    years before arrival of the Personal Computer.
-    
-    Using this construction set to produce the Adv10 Windows Console version
-    from the C Language source is also by using the Windows Command Shell
-    and command-line operations.   
+    operation.  This is the closest to the 1977 FORTRAN Collosal Cave 
+    Adventure used over computer terminals years before advent of the 
+    Personal Computer.  It is close to an early MS-DOS program with text-
+    only operation.  The advantage, now, is the use of today's powerful
+    PCs as an on-ramp for derivation of more interesting versions beyond.
     
     The WinCon construction set provides for the following activities.
     
@@ -26,26 +24,28 @@ WinCon.txt 0.0.11                      UTF-8                    dh:2016-12-07
       
       * deployment of Adv10 including installation on other Windows computers
       
-    The construction set consists of a progressive tool chain.  Each step
+    Using this construction set to produce the Adv10 Windows Console version
+    is also by using the Windows Command Shell and command-line operations. 
+      
+    The construction set provides a progressive tool chain.  Each step
     in the chain depends on its predecessors and each step confirms that
     its predecessors are in place and have functioned.   By working through
     the progression one step at a time, you can confirm operation of the
-    construction set and determine what may be required to complete the
-    step. 
-      
-    Details are sufficient for downloading a general release of the Adv10
-    project code, compiling that version of Adv10.exe, and confirming
-    successful operation of the features of that release: Play the available
-    game.  
+    construction set or determine what may be required to complete a given
+    step.  
     
+    You can also start at the end of the tool chain by running Adv10Run.bat.
+    See what needs to be provided to go further and try again (rinse-repeat)
+    until Adv10Run succeeds.
+         
     Testing, trouble-shooting, code maintenance, and adaptation of the 
-    software are more elaborate activities for which additional resources
+    software are more-elaborate activities.  Additional resources
     and expertise are required.  Consult the provided references.
      
     Early work on this construction set is as the laboratory prototype for
-    the WinCon Construction Kit <http://nfoWare.com/dev/2016/11/d161103.htm> 
-    code at <https://github.com/orcmid/nfoTools>/devKits/WinDev/WinConKit
-       
+    the WinCon Construction Kit, <http://nfoWare.com/dev/2016/11/d161103.htm>, 
+    with code at <https://github.com/orcmid/nfoTools>/devKits/WinDev/WinConKit
+    
     
 PREREQUISITES
 
@@ -57,7 +57,8 @@ DEPENDENCIES
     standard C/C++ on a Microsoft Windows PC.
     
     It is sufficient to obtain and install a free version of Microsoft Visual
-    Studio or Microsoft Visual C.  
+    Studio or Microsoft Visual C.  For suggestions of versions that adv10 is
+    tested with, see <http://nfoWare.com/dev/2016/11/d161101b.htm>.
     
 CONFIRMING DEPENDENCIES
     
@@ -86,22 +87,33 @@ MANIFEST
         This description file on organization of the construction set
         and use of its materials.
         
-    Adv10Build.zip
-        Experimental build component to confirm compilation and the intended
-        next link in this construct-set tool chain.
+    Adv10Run.bat
+        Script for running a built Adv10.exe.  If Adv10.exe has not yet been
+        built successfully, building will be attempted.
+        
+    Adv10Built.bat
+        Script for ensuring that Adv10 has been built successfully and, if 
+        not, attempting to build it.
         
     VCensure.bat
         script for confirming that the current session is set up for using
         the Microsoft Visual C++ compiler and other command-line tools.
-        VCensure will provide an initial VCbind if one is needed.
+        VCensure will set up the VC++ command-line environment if it is not
+        already established.      
+        
+    Adv10Build.zip
+        Experimental build component to confirm compilation and the intended
+        next link in this construct-set tool chain.  Extract to Adv10Build\       
+
+    VCbind.zip
+        package which provides the VC++ command-line setup script when 
+        extracted to VCbind\ here.
         
     VCbind-0.2.0.txt
         manifest and instructions from VCbind.zip available for review
-        before extracting VCbind.zip.
-        
-    VCbind.zip
-        package which provides the working VC binding script when extracted
-        to VCbind/ here.
+        before extracting VCbind.zip.  Useful for becoming more involved
+        in details of the construction and command-line configuration
+        options.        
         
 
        
@@ -122,11 +134,6 @@ MANIFEST
     limitations under the License.
 
 TODO
-
- * Obtain a VCenable from DocInterop or elsewhere and customize for use
-   here and then incorporating in VCbinder 0.1.1 at nfoTools.
- 
- * Work up the Visual C++ console compilation case.
  
  * Include prerequisite on configuring a Windows PC for development work.
    The web materials should be part of Toolcraft.  Some of this is also
@@ -135,20 +142,18 @@ TODO
  * Include prerequisites on using the Windows Command Shell.
  
  * Provide information, somewhere, on alternatives to the Windows Command
-   Shell.  One can assume that the users are more knowledgable or at least
-   provide a quick way for an user to collaborate themselves for that case.
+   Shell.  One can assume that those users are more knowledgable and
+   provide a quick way for an user to calibrate their readiness.
  
  * Add VCbind/ and Adv10Build/ for doing it all using the command line.
  
- * Add Adv10Run/ for running the result of a VCbuild (or VS/VC project?)
+ * Add Adv10Run.bat for running the result of a VCbuild (or VS/VC project?)
  
- * Add VSproject/ for doing all of this with Visual Studio.
+ * Add VSAdv10.zip for doing all of this with Visual Studio?
  
  * Consider VScode for using Visual Code if we can get the workspace to
    work the way we need.  It does not appear that Visual Code compiles will
-   work well with the code in a different place than where the build happens.
-   There is also a problem with the code being in a different location than
-   the workspace.  
+   work well with the code in a different place than the VS Code workspace.
  
  * Evaluate whether the CLang front end is an useful alternative.
  
@@ -167,6 +172,8 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.12 2016-12-11-09:46 Smooth the text, give synopsis of how to build and
+        run Adv10 for a first-timer.  Cleanup TODOs.
  0.0.11 2016-12-07-12:16 Add Adv10Build and accomplish quick-n-dirty 
         experimental build confirmation
  0.0.10 2016-12-04-13:02 Adjust as laboratory for the nfoTools WinConKit.

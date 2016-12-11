@@ -1,4 +1,4 @@
-dev.txt 0.0.3                        UTF-8                    dh:2016-10-26
+dev.txt 0.0.4                        UTF-8                    dh:2016-12-11
 
                <https://github.com/orcmid/Adv10>/dev/dev.txt>
 
@@ -10,25 +10,30 @@ dev.txt 0.0.3                        UTF-8                    dh:2016-10-26
     
     In this approach, the code is always compilable and executable as
     we work through the 0.*.* semantic versions.  There should always be
-    tests as well.  When there are version releases, the construction set
-    will build the developer version of that release.
+    tests for confirmation of the results as well.  When there are version
+    releases, the construction set will build the developer version of that 
+    release.
     
-    It is intended that developer versions avoid provide branding of any
-    kind.  That also means deployment does not include the essential steps
-    for branding and delivery via app stores and other means for authenti-
-    cated end-user versions.  
+    For Adv10, the WinConconstruction set is designed to provide an entry-
+    leve exercise for novices who wish to construct the Adv10 program for 
+    themselves as introduction to coding for fun, computer programming for 
+    everyone (CP4E), and a little software-engineering for everyone (SE4E)
+    as well. 
     
-    The purpose of this division is to avoid counterfeiting and creation of
-    imposter versions of software intended for casual users.  Each provider
-    of authenticated and verificable deployments must provide their own
-    secure authentication along with any appropriate branding.
+    The main thrust for the Adv10 project is demonstration development on 
+    and for the Microsoft Windows platform. Other platforms and construction 
+    will be entertained later in the project.  
     
-    The main thrust is development on and for the Microsoft Windows platform.
-    Other platforms and construction cases will be entertained. The primary
-    effort for Windows is addressed to the largest international community
-    of users and (potential) developers.  This is for practical purposes as
-    well as a means of exploiting and demonstrating the rich support for
-    high-functioning applications.
+    Developer versions of Adv10 lack detailed branding for the installed
+    program.  Essential parameters for branding and delivery via app stores
+    and other means are omitted.  Each provider of authenticated and 
+    verificable versions must provide their own secure authentication along 
+    with appropriate branding.  The purpose of this separation is to impede 
+    counterfeiting and to reveal imposter versions of the software targeting
+    innocent end-users. 
+    
+    In all other respects, development of Adv10 provides code in the open 
+    made available under an open-source license.
     
     
 MANIFEST
@@ -42,11 +47,11 @@ MANIFEST
         employs freely-available Microsoft development tools for construction
         on the Microsoft Windows PC platform.
         
-    VCbinder/ (provisional)
-        code for development of the redistributable VCbinder.zip
-        construction-set snippet.  This is provisional development as
-        a companion within Adv10 until a stable VCbinder.zip is
-        available as a separately-available construction-set element. 
+    VCbinder/ (depracated)
+        originally, code for development of the redistributable VCbinder.zip
+        construction-set snippet.  These are now tombstones pending switch
+        of Adv10 to VCbinder and WinConKit dependencies maintained at the
+        nfoTools project.
         
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -68,8 +73,7 @@ TODO
 
  * Work up the Visual C++ console compilation case, WinCon
  
- * Add something about finding how to build particular construction sets.
-   It can be appropriate pointers.
+ * Add something about where devKits for constructions sets are found.
  
  * Add something about developing/maintaining construction sets.
    This can be by appropriate pointers.
@@ -79,6 +83,8 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.4 2016-12-11-09:31 VCbinder now deprecated and aspects of WinCon
+       clarified.  TODO scrubbing.
  0.0.3 2016-10-26-11:25 Move the provisional VCbinder/ development to
        this level, for experimental use within WinCon/
  0.0.2 2016-10-24-08:02 Light editing, motivation for Windows emphasis.
