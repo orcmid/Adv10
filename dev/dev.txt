@@ -1,4 +1,4 @@
-dev.txt 0.0.4                        UTF-8                    dh:2016-12-11
+dev.txt 0.0.5                        UTF-8                    dh:2016-12-**
 
                <https://github.com/orcmid/Adv10>/dev/dev.txt>
 
@@ -14,13 +14,13 @@ dev.txt 0.0.4                        UTF-8                    dh:2016-12-11
     releases, the construction set will build the developer version of that 
     release.
     
-    For Adv10, the WinConconstruction set is designed to provide an entry-
-    leve exercise for novices who wish to construct the Adv10 program for 
+    For Adv10, the WinCon construction set is designed to provide an entry-
+    level exercise for novices who wish to construct the Adv10 program for 
     themselves as introduction to coding for fun, computer programming for 
     everyone (CP4E), and a little software-engineering for everyone (SE4E)
     as well. 
     
-    The main thrust for the Adv10 project is demonstration development on 
+    The main thrust for the Adv10 project is demonstrating development on 
     and for the Microsoft Windows platform. Other platforms and construction 
     will be entertained later in the project.  
     
@@ -47,7 +47,7 @@ MANIFEST
         employs freely-available Microsoft development tools for construction
         on the Microsoft Windows PC platform.
         
-    VCbinder/ (depracated)
+    VCbinder/ (deprecated)
         originally, code for development of the redistributable VCbinder.zip
         construction-set snippet.  These are now tombstones pending switch
         of Adv10 to VCbinder and WinConKit dependencies maintained at the
@@ -83,6 +83,7 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.5 2016-12-**-**:** Text touch-ups
  0.0.4 2016-12-11-09:31 VCbinder now deprecated and aspects of WinCon
        clarified.  TODO scrubbing.
  0.0.3 2016-10-26-11:25 Move the provisional VCbinder/ development to
