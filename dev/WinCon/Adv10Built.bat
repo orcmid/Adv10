@@ -1,5 +1,5 @@
 @echo off
-rem Adv10Built.bat 0.0.0              UTF-8                        2016-12-11
+rem Adv10Built.bat 0.0.1              UTF-8                        2016-12-11
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                    ENSURE ADV10 BUILT FROM SOURCE
@@ -22,99 +22,105 @@ rem      WinCon Construction Kit provided by the nfoTools project.  For
 rem      further information, see <http://nfoWare.com/dev/2016/11/d161103.htm>
 rem      and <https://github.com/orcmid/nfoTools>devKits/WinDev/WinConKit.
 
-rem Designate the distribution version 
-SET Adv10BuiltVer=0.0.0
-rem     semantic versioning candidate
+REM IDENTIFY THE PROGRAM BUILT BY THIS CONSTRUCTION SET
+SET WinCon=Adv10
 
-rem ****** CONTINUE CUSTOMIZATION FROM HERE ***************************
-rem *******************************************************************
+REM * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+REM DO NOT CUSTOMIZE THE SCRIPT BODY FURTHER BELOW HERE.  
+REM    1. Maintain the top-level file name, version, and last-change date
+REM    2. Maintain the version progression at the end if desired.
+REM    3. Put the top-level file name in the final remark.
+
+rem The Construction Kit Version 
+SET WinConBuiltVer=0.0.0
+rem     semantic versioning candidate
 
 rem SELECT SPLICED, TERSE, OR DEFAULT VERBOSE
 rem     %1 value "+" selects smooth non-stop operation for splicing output
-rem        into that of a calling script such as Adv10Run.
+rem        into that of a calling script such as WinConRun or equivalent.
 rem     %2 might then be "*" for terse operation and allow for that.
 rem 
-SET tersed=
-SET VCensureSplice=%1
+SET WinConTersed=
+SET WinConBuiltSplice=%1
 IF NOT "%1" == "+" GOTO :MAYBETERSE
-IF "%2" == "*" SET VCtersed=%2
+IF "%2" == "*" SET WinConTersed=%2
 
 :MAYBETERSE
 rem SELECT TERSE OR VERBOSE
 rem     %1 value "*" here selects terse operation
 rem
-IF "%1" == "*" SET VCtersed=%1
+IF "%1" == "*" SET WinContersed=%1
 rem                used to dump verbose echoes
 
 SET VCterse=
-IF DEFINED VCtersed SET VCterse=^>NUL
+IF DEFINED WinConTersed SET VCterse=^>NUL
 
 rem ANNOUNCE THIS SCRIPT
 IF "%1" == "*" GOTO :WHISPER
 IF "%1" == "+" GOTO :WHISPER
-TITLE ENSURING VC++ COMMAND-LINE ENVIRONMENT ENABLED
+TITLE ENSURING %WinCon% SUCCESSFULLY BUILT
 COLOR 71
 rem   Soft white background with blue text
 
 CLS
 ECHO:
 :WHISPER
-ECHO: [VCensure] %VCensureVer% ENSURE VC++ COMMAND-LINE ENVIRONMENT ENABLED
+ECHO: [%WInCon%Built] %WinConBuiltVer% ENSURE %WinCon% SUCCESSFUL BUILD
 IF NOT CMDEXTVERSION 2 GOTO :FAIL0
-IF "%VCensureSplice%" == "+" GOTO :LOCATE
+IF "%VWinConBuiltSplice%" == "+" GOTO :LOCATE
 ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME%%VCterse%
 ECHO:          %~dp0%VCterse%     
 rem            reporting construction-set folder location
 
 :LOCATE
-rem REQUIRE SCRIPT STORED IN VCBINDER ARTIFACTS OF CONSTRUCTION SET (%~dp0)
-IF NOT EXIST "%~dp0VCensure.bat" GOTO :FAIL1
-IF NOT EXIST "%~dp0VCbind.zip" GOTO :FAIL1
+rem REQUIRE SCRIPT STORED IN ARTIFACTS OF CONSTRUCTION SET (%~dp0)
+IF NOT EXIST "%~dp0%WindCon%Built.bat" GOTO :FAIL1
+IF NOT EXIST "%~dp0%WIndCon%Build.zip" GOTO :FAIL1
+IF NOT "%~f0" == "%~dp0%WindCon%Built.bat" GOTO :FAIL1
 
 rem DETERMINE REQUIRED ACTION
-rem    See :USAGE for the VCbind API contract
+rem    See :USAGE for the %WinCon%Build API contract
 IF "%1" == "+" SHIFT /1  
 rem    XXX: Making invariant %* without any [+] 
 IF "%1" == "?" GOTO :USAGE
 
-rem CONFIRM EXTRACTION OF VCBIND.ZIP
-IF NOT EXIST "%~dp0VCbind\VCbind.bat" GOTO :FAIL2
+rem CONFIRM EXTRACTION OF %WinCon%Build.zip
+IF NOT EXIST "%~dp0%WinCon%Build\%WinCon%Build.bat" GOTO :FAIL2
 
-rem LET VCBIND DO THE REST
-CALL "%~dp0VCbind\VCbind.bat" + %1 %2 %3
-rem    XXX: Always splicing VCbind and passing through the rest
+rem LET %WinCon%Build.bat do the rest.
+CALL "%~dp0%WinCon%Build\%WinCon%Build.bat" + %1 %2 %3 %4 %5 %6 %7 %8 %9
+rem    XXX: Always splicing and passing through any other parameters
 SET VCterse=
-IF DEFINED VCtersed SET VCterse=^>NUL
-rem    XXX: Not counting on %VCterse% preservation by VCBind.bat
+IF DEFINED WinConTersed SET VCterse=^>NUL
+rem    XXX: Not counting on %VCterse% preservation by the called script
 IF ERRORLEVEL 2 GOTO :FAIL3
 
 :SUCCESS
 ECHO:  %VCterse%
-IF "%VCensureSplice%" == "+" EXIT /B 0
+IF "%WinConBuiltSplice%" == "+" EXIT /B 0
 IF "%VCterse%" == "" PAUSE
 EXIT /B 0
 
 :FAIL3
-ECHO: [VCensure] COMMAND-LINE ENVIRONMENT NOT ENSURED
+ECHO: [%WinCon%Built] FAIL: %WinCon% BUILD NOT ENSURED
 GOTO :BAIL
 
 :FAIL2
-ECHO:          **** FAIL: VCBIND.ZIP NOT EXTRACTED WHERE EXPECTED ****
-ECHO:          Extract VCbind.zip to the sub-folder VCbind\ in the  %VCterse%
-ECHO:          construction set where VCensure.bat and VCbind.zip   %VCterse%
-ECHO:          are located.                                         %VCterse%
+ECHO:          **** FAIL: %WinCon%Build.zip NOT EXTRACTED WHERE EXPECTED ****
+ECHO:          Extract %WinCon%Build.zip to sub-folder %WinCon%Build\%VCterse%
+ECHO:          in the %WinCon% WinCon construction set where script  %VCterse%
+ECHO:          %WinCon%Built.bat is located.%VCterse%
 GOTO :NOJOY
 
 :FAIL1
 ECHO:          **** FAIL: SCRIPT IS NOT IN THE REQUIRED LOCATION ****
-ECHO:          VCensure.bat must be in the construction-set folder  %VCterse%
-ECHO:          having VCbind.zip.  VCensure.bat is not designed to  %VCterse%
-ECHO:          be separated from VCbind.zip in the construciton set.%VCterse%
+ECHO:          %WinCon%Built must be in the construction-set folder  %VCterse%
+ECHO:          having %WinCon%Build.zip.%VCterse%
 :NOJOY
 ECHO:          %VCterse%
-ECHO:          COMMAND-LINE ENVIRONMENT ADJUSTMENTS WERE NOT MADE   %VCterse%
+ECHO:          NO BUILDING OF %WinCon% HAS BEEN PERFORMED   %VCterse%
 ECHO:          Follow instructions for the construction set. Also   %VCterse%
-ECHO:          see ^<http://nfoWare.com/dev/2016/11/d161102.htm^>.  %VCterse%
+ECHO:          see ^<http://nfoWare.com/dev/2016/11/d161103.htm^>.  %VCterse%
 GOTO :BAIL
 
 :FAIL0
@@ -122,7 +128,7 @@ ECHO:          **** FAIL: COMMAND SHELL EXTENSIONS REQUIRED ****
 ECHO:          This construction set requires CMDEXTVERSION >= 2.    %VCterse%
 ECHO:          This is available on all platforms the set supports.  %VCterse%
 ECHO:          %VCterse%
-ECHO:          COMMAND-LINE ENVIRONMENT ADJUSTMENTS ARE NOT MADE     %VCterse%
+ECHO:          %WinCon%Built.bat SCRIPT OPERATIONS NOT BEEN PERFORMED %VCterse%
 ECHO:          To enable Command Extensions, arrange to initiate     %VCterse%
 ECHO:          the command shell with /E:ON command-line option      %VCterse%
 ECHO:          before using the current construction set.            %VCterse%
@@ -130,19 +136,19 @@ GOTO :BAIL
 
 :USAGE
 rem    PROVIDE USAGE INFORMATION
-ECHO:   USAGE: VCensure [+] ?
-ECHO:          VCensure [+] [*] [config [toolset]]
-ECHO:          where the parameters are the same as for VCbind
-ECHO:          the exit conditins are the same as for VCbind
-IF EXIST "%~dp0VCbind\VCbind.bat" GOTO :BINDUSAGE
-ECHO:   VCensure requires VCbind.zip to be extracted first.
+ECHO:   USAGE: %WinCon%Built [+] ?
+ECHO:          %WinCon%Built [+] [*] [clean] [config [toolset]]
+ECHO:          where the parameters are the same as for %WinCon%Build
+ECHO:          and the exit conditions are the same as for %WinCon%Build
+IF EXIST "%~dp0%WinCon%Build\%WinCon%Build.bat" GOTO :BUILDUSAGE
+ECHO:   %WinCon%Built requires %WinCon%Build.zip to be extracted first.
 GOTO :SUCCESS
 
-:BINDUSAGE
-CALL "%~dp0VCbind\VCbind.bat" + ?
+:BUILDUSAGE
+CALL "%~dp0%WinCon%Build\%WinCon%Build.bat" + ?
 SET VCterse=
-IF DEFINED VCtersed SET VCterse=^>NUL
-rem    XXX: Not counting on %VCterse% preservation by VCBind.bat
+IF DEFINED WinConTersed SET VCterse=^>NUL
+rem    XXX: Not counting on %VCterse% preservation by %WinCon%Build.bat
 IF NOT ERRORLEVEL 2 GOTO :SUCCESS
 GOTO :BAIL
 
@@ -150,7 +156,7 @@ GOTO :BAIL
 ECHO:
 IF NOT ERRORLEVEL 2 SET ERRORLEVEL=2
 IF NOT "%VCterse%" == "" EXIT /B %ERRORLEVEL%
-IF "%VCensureSplice%" == "+" EXIT /B %ERRORLEVEL%
+IF "%WinConBuiltSplice%" == "+" EXIT /B %ERRORLEVEL%
 COLOR 74
 rem   Soft White background and Red text
 ECHO:
@@ -176,30 +182,13 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
-rem TODO
-rem
-rem   * Determine how much to retain as WinCon-named and what gets changed
-rem     to Adv10Mumble.  The idea is to be able to set a couple of environment
-rem     variables at the top of the script, rename the script, and be done,
-rem     as if customization of a WinConKit had been done.
-rem   * We do want renaming of the files to avoid confusion about the version
-rem     control and what version we are looking at.  This does mean that 
-rem     updating to a new WinConKit is more laborious.  This sets the stage
-rem     for how one might automate some of that and how higher-level make and
-rem     build systems might or might not be helpful.
-rem   * We want to add a [clean] option so that a clean build can be requested.
-rem   * It is unclear whether [+][*][clean][config [toolset]] is the way
-rem     to go.  We'll probably try it.  It does mean that an adv10.* deletion
-rem     should always be safe and not remove anything of importance that 
-rem     won't be recreated automatically by a successful build.
-rem   * Use %~n0 as much as possible to automatically determine the names of
-rem     construction-set-specific places and files.
-rem   * It still seems important to make project-specific WinCon component
-rem     namings in order to differentiate from the WinConKit origin versus
-rem     the project customizations.
-rem   * It would be interesting to see if patching could be a means to
-rem     upgrading to a new kit without losing an user's customization effort.
+TODO
 
+ * Test
+ 
+ * Move the customization SET rules and recast the introductory prose.
+
+rem 0.0.1 2016-12-11-21:57 Complete Trial Kit Customization for Adv10Built.bat 
 rem 0.0.0 2016-12-11-13:22 Clone from VCensure 0.0.3 as the placeholder and
 rem       model for the Adv10Built script.
 
