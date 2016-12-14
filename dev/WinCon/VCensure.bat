@@ -1,5 +1,5 @@
 @echo off
-rem VCensure.bat 0.0.4               UTF-8                       dh:2016-12-**
+rem VCensure.bat 0.0.4               UTF-8                       dh:2016-12-13
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem              ENSURING VC++ COMMAND-LINE OPERATION ENABLED
@@ -172,7 +172,7 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
-rem 0.0.4 2016-12-**-**:** Harmonize with WinConKit %WinCon%Built.bat
+rem 0.0.4 2016-12-13-19:48 Harmonize with WinConKit %WinCon%Built.bat
 rem       Avoid extraneous success spacing when spliced.
 rem 0.0.3 2016-12-06-20:26 Harmonize with VCbind 0.2.0 via joint testing
 rem 0.0.2 2016-12-06-16:03 Working candidate for VCbinder 0.1.0 
