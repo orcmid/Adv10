@@ -1,4 +1,4 @@
-Adv10.txt 0.0.6                        UTF-8                      2016-12-10
+Adv10.txt 0.0.7                       UTF-8                        2016-12-14
 
                               ADVENTURE VERSION 1.0
                               =====================
@@ -20,11 +20,12 @@ Adv10.txt 0.0.6                        UTF-8                      2016-12-10
     code tree at <https://githug.com/orcmid/adv10>.  
     
     To build and run Adv10 from this source code in its current state,
-    you will need to use a desktop PC with Microsoft Windows.  Use
+    you will need to use a desktop PC with Microsoft Windows.  After
+    installing this source-code tree on your computer, Use
     Windows explorer and navigate to folder dev\WinCon\ for more
     information.  
     
-    For a quick-start, double-click on the Adv10Run.bat file and
+    For a quick-start, double-click on the WinCon\Adv10Run.bat file and
     follow any instructions.  Retry this way until you've satisfied
     each requirement for continuation.  Upon successful operation,
     use Adv10Run.bat to run and play Adv10 immediately.
@@ -79,39 +80,70 @@ MANIFEST
  
 
 TODO
+  * In the source-code notices, and here, add statement about English being
+    preserved as the authoritative content, with supplemental translations,
+    rather than replacement translations.
+    
+  * In the use of Adv10 at some level of release, when there is support for
+    additional languages, it will always be possible to have dual-language
+    presentation to aid in trouble-shooting and verification of operation.
+  * Devise a scheme where the player's map location and the identification
+    of the displayed tet is provided in a consistent form in every output, 
+    although barely noticeable and not generally useful in the player's own
+    mapmaking.  It is relevant in captured output and will be usable by
+    game-exercising test fixtures.
+    
+  * Seek out and/or develop a console library that provides something perhaps
+    like ncurses and at least ANSI mode operation, but more abstracted.  This
+    is just for output formatting and not so elevated as a CUA level (though
+    that is desirable at some point too).
+    
   * Add the injunction that one should play the adventure and then take a 
     look at the code, also with a hat tip to advent.w, etc.
+    
   * Do we need a doc/ for deployable documentation?
+  
   * Add deployment-oriented organization that will be used in releasing beta
     and later versions of the Adv10 transposition.
+    
   * Provide access to the web folios for Adv10 and the Cavern project.
+  
   * Add GitHub Readme when I am ready.
+  
   * Add further attribution information about derivation of this project's
     code from advent.w, explaining the value of that for study and also
     how this code relates to but is no substitute for advent.w.
-  * Produce a null implementation that basically provides a startup and exit,
-    and initial deployment structure.
+    
   * Report the opening, and the various notifications, to Don Knuth and Don
     Woods for their review and confirmation that their reservations are
     satisfied.
+    
   * Set up command-line options for the adv10 executable too.  At least the
     unknown parameters, which is what "-?" will also always produce.
-  * Tuck the permission mails and other hard copy materials into a paper
+    
+  * Tuck the permission mails and other hard copy materials into an off-line
     file folder.
+    
   * Create a sequestered web-site folder for preserving copies of the source
     materials that I am basing this project on.
+    
   * Deal with dependencies and the intermediate use of libraries under Adv10.
+  
   * Cover toolcraft and the intention of relying exclusively on freely-
     available software tools and libraries.
+    
   * Explain the licensing approach and handling of open-source code and any
     contributions to it.
+    
   * Keep an eye on development of Windows 10 on ARM and whether the x86
     emulation is one way to deploy something like the WinCon version.  (It 
     is not clear how form-factor would be dealt with, so this might be 
     be a post 1.0.0 consideration, along with accessibility and localization.
+    
   * At some point, using fixed lines will not work.  We will need to change
     to some form of automatic reflow.  It would be interesting if that would
     just take the current layout as hinting.
+    
   * Working out reflow ultimately ties into localization and use of non-Roman
     texts.  Since there may be significant platform/library support for that,
     this will be an exercise related to the nfoWare Text topic and also the
@@ -119,12 +151,16 @@ TODO
     put under build control in a way that preserves the common source and the
     "reference" implementation.  There is much fodder here for some useful
     SE4E demonstration/consideration.
+    
   * Now that it is appealed to here, get cracking on dev/WinCon/Adv10Run.bat
     and get a dev/WinCon that lets folks get builds and runs to happen from
     now on as part of continuous iteration.
     
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.7 2016-12-14-16:22 TODO placeholders for future structuring of the game
+       architecture to include automated game-testing and multiple developer/
+       user languages.
  0.0.6 2016-12-10-09:07 Clean up Manifest and the NOTICE file to be more
        specific.  Version the NOTICE.txt.  Review TODOs.  Provid an Intro
        on how to dig in here by getting Adv10 to build and run.

@@ -1,0 +1,186 @@
+devAdv10WinCon.txt 0.0.1              UTF-8                       2016-12-14
+
+              <https://github.com/orcmid/Adv10>
+                     /dev/WinCon/devAdv10WinCon/devAdv10WinCon.txt
+
+                        ADV10 WINCON DERIVATION STAGING
+                        ===============================
+
+    The Adv10/dev/WinCon Construction Set is a customization of an nfoTools
+    WinConKit.  Customizations are made here and then promoted to the WinCon
+    folder for stable use until an update is required.
+    
+    An update can be because of a need to change something in the Adv10Build
+    procedure.  It could also be for incorporating updates to the WinConKit
+    that the Adv10/dev/WinCon Construction Set is based on.
+    
+    The WinCon components customized here can be operated for testing and
+    confirmation.  The one difference is adjustment for the relative 
+    path to the Adv10/src files being longer than from the Adv10/dev/WinCon 
+    folder.
+    
+    Having customization separated out into this subordinate folder serves
+    three objectives.
+    
+      1. Having testing and confirmation of a new customization without
+         disturbing the current working WinCon procedure.
+         
+      2. Having the customizations in the open and under source-code management
+         even for files that are delivered to the WinCon construction set only
+         as part of Zip packages.
+         
+      3. Serving as a laboratory for piloting of nfoTools WinConKit provisions
+         that are incorporated in WinConKits and then brought back as if
+         new, confirming that too.
+
+   
+    
+PREREQUISITES
+
+    
+    
+DEPENDENCIES
+
+  * Visual C command-line compiler, cl.exe, and its libraries for building
+    standard C/C++ on a Microsoft Windows PC.
+    
+    It is sufficient to obtain and install a free version of Microsoft Visual
+    Studio or Microsoft Visual C.  For suggestions of versions that adv10 is
+    tested with, see <http://nfoWare.com/dev/2016/11/d161101b.htm>.
+      
+   
+MANIFEST
+
+    .gitignore (customized from WinConKit .gitignore)
+        Ignoring folders that are created only for construction activity
+        and not intended as part of the distributed source codes.  This
+        prevents local customizations of working material from infecting
+        the shared public source-code tree on GitHub.
+
+    devAdv10WinCon.txt
+        This description file on organization of the customization area
+        and use of its materials.
+        
+    Adv10Run.bat (customized from WinConRun.bat)
+        Script for running a built Adv10.exe.  If Adv10.exe has not yet been
+        built successfully, building will be attempted.
+        
+    Adv10Built.bat (customized from WinConBuilt.bat)
+        Script for ensuring that Adv10 has been built successfully and, if 
+        not, attempting to build it.
+                      
+    VCensure.bat (via WinConKit)
+        script for confirming that the current session is set up for using
+        the Microsoft Visual C++ compiler and other command-line tools.
+        VCensure will set up the VC++ command-line environment if it is not
+        already established.      
+        
+    Adv10Build.zip (created from customized components)
+        Experimental build component to confirm compilation and the intended
+        next link in this construct-set tool chain.  Extract to Adv10Build\  
+        
+    Adv10Build.txt (customized from the WinConKit WinConBuild.txt)
+        part of Adv10Build.zip
+    
+    Adv10Build.bat (customized from the WinConKit WinConBuilt.bat)
+        part of Adv10Build.zip
+        
+    Adv10Build.opt (customized from WinConBuild.opt)
+        Command-line options for the compilation of Adv10 source code.
+        part of Adv10Build.zip used by Adv10Build.bat
+        
+    Adv10Sources.opt (customized from WinConSources.opt)
+        Command-line option specifying the relative path to the sources
+        part of Adv10Build.zip used by Adv10Build.bat
+ 
+    VCbind.zip (via WinConKit)
+        package which provides the VC++ command-line setup script when 
+        extracted to VCbind\ here.
+        
+    VCbind-0.2.0.txt (via WinConKit)
+        manifest and instructions from VCbind.zip available for review
+        before extracting VCbind.zip.  Useful for becoming more involved
+        in details of the construction and command-line configuration
+        options.        
+               
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                       Copyright 2016 Dennis E. Hamilton
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+TODO
+
+ * Get the :USAGE working properly in Adv10Build.bat
+ 
+ * Get the :USAGE working properly in Adv10Built.bat
+ 
+ * Introduce Adv10Run.bat
+ 
+ * The deployed Adv10.exe will also be run from an Adv10.bat file that
+   brings up a standalone session for running Adv10.exe.  To keep it 
+   from being deleted on a clean, it needs a different name if included
+   in Adv10Build.bat.  Maybe Adv10Con.bat.  Some experimentation is 
+   called for.  
+
+ * Note that the .gitignore makes it unnecessary to exclude the individual
+   types of artifacts.  We exclude everything that is extracted into one of
+   the ignored folders.
+   
+ * There needs to be a special note about how the Adv10Sources.opt is changed
+   in a WinCon\devWinConKit\Adv10Build\ extraction of Adv10Build.zip.  That
+   extraction is one directory deeper than it is when extracted at WinCon.
+   In devAdv10WinCon and Adv10Build.zip, the .opt file is correct for 
+   WinCon\Adv10Build.zip
+
+ * Develop a pilot customized Adv10 WinCon here and back-port it to the
+   nfoTools/devKits/WinConKit/devWinConKit.  Then we confirm by bringing the 
+   WinConKit back and customizing it.  
+   
+ * Piloting can happen a second time, and used to prime a new devWinConKit
+   activity.  Then we get to see how updating an existing WinCon will work
+   out.
+
+ * This is part of the Adv10 source tree and is not designed to be spun out
+   or made distributable.  This does serve as a worked example of a 
+   customization though.  
+   
+ * There may be some interesting challenges in how the transformations arise
+   after expanding a WinConKit here, and also what happens with regard to
+   upgrading to a later WinConKit, if necessary.
+
+ * Expand the manifest for what will appear in this folder.  
+
+ * The Adv10Build.zip needs an Adv10Build.txt.  Maybe.  If so, it is created
+   here.
+ 
+ * Working on this is more-advanced than simply using Adv10/dev/WinCon and
+   doing any local customizations of the WinCon/VCbind and WinCon/Adv10Build
+   folders, so we maybe don't have to be quite so tutorial about all of it.
+   Not at first in any case.
+ 
+ * The prerequisites and dependencies are the same as for the Adv10/dev/WinCon,
+   so they don't have to be repeated here.
+ 
+ * Add something about customizing and verifying a new/updated WinCon
+   and then using the result to build Adv10 until a change is needed.
+ 
+ * Add information about how the customizations occur here, can be confirmed,
+   and are then elevated to Adv10/dev/WinCon/ for stable use.
+      
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ 0.0.1 2016-12-14-16:05 Initial Placeholder for devAdv10WinCon, the coding in
+       the open of customizations of WinConKits to Adv10/dev/WinCon.
+
+                       *** end of devAdv10WinCon.txt ***        

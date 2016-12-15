@@ -1,6 +1,6 @@
-WinCon.txt 0.0.12                      UTF-8                       2016-12-11
+WinCon.txt 0.0.13                      UTF-8                       2016-12-14
 
-           <https://github.com/orcmid/Adv10>/dev/WinCon/WinCon.txt>
+           <https://github.com/orcmid/Adv10>/dev/WinCon/WinCon.txt
 
                  ADV10 WINDOWS CONSOLE VERSION CONSTRUCTION SET
                  ==============================================
@@ -82,6 +82,11 @@ MANIFEST
         and not intended as part of the distributed source codes.  This
         prevents local customizations of working material from infecting
         the shared public source-code tree on GitHub.
+        
+    devAdv10WinCon/
+        subfolder where customization of WinConKits is accomplished in the
+        open and then transposed here as the next stable Adv10/dev/WinCon
+        construction set after confirmation testing.
 
     WinCon.txt
         This description file on organization of the construction set
@@ -134,7 +139,7 @@ MANIFEST
     limitations under the License.
 
 TODO
- 
+
  * Include prerequisite on configuring a Windows PC for development work.
    The web materials should be part of Toolcraft.  Some of this is also
    relevant for power users and for confident use of third-party software.
@@ -163,7 +168,7 @@ TODO
    a build, and simply using the result to play the game.
  
  * Add anything about developing/maintaining the WinCon set.
-   This can be by appropriate pointers.
+   This can be by appropriate pointers.  devAdv10WinCon can provide more.
       
  * It is not clear whether and how Micosoft Visual Studio Team Services
    online is helpful here, especially for WinCon builds.  However, figuring
@@ -172,6 +177,9 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.13 2016-12-14-16:13 More TODOs, Successful Pilot of Some, Adv10Build bits
+        spawning subfolder devAdv10WinCon to code that in the open apart from
+        WinCon, the construction set intended for use.
  0.0.12 2016-12-11-09:46 Smooth the text, give synopsis of how to build and
         run Adv10 for a first-timer.  Cleanup TODOs.
  0.0.11 2016-12-07-12:16 Add Adv10Build and accomplish quick-n-dirty 

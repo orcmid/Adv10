@@ -1,18 +1,18 @@
-dev.txt 0.0.5                        UTF-8                    dh:2016-12-**
+dev.txt 0.0.5                        UTF-8                    dh:2016-12-14
 
                <https://github.com/orcmid/Adv10>/dev/dev.txt>
 
                       ADV10 DEVELOPER CONSTRUCTION SETS
                       =================================
 
-    Developer construction sets are platform-specific structures for 
+    The developer construction sets are platform-specific structures for 
     compiling and exercising the Adv10 software.  
     
     In this approach, the code is always compilable and executable as
-    we work through the 0.*.* semantic versions.  There should always be
+    we work through the x.y.z semantic versions.  There should always be
     tests for confirmation of the results as well.  When there are version
-    releases, the construction set will build the developer version of that 
-    release.
+    releases, the construction set will build the developer version of  
+    release that contains it.
     
     For Adv10, the WinCon construction set is designed to provide an entry-
     level exercise for novices who wish to construct the Adv10 program for 
@@ -33,7 +33,7 @@ dev.txt 0.0.5                        UTF-8                    dh:2016-12-**
     innocent end-users. 
     
     In all other respects, development of Adv10 provides code in the open 
-    made available under an open-source license.
+    made completely available under an open-source license.
     
     
 MANIFEST
@@ -83,7 +83,7 @@ TODO
    
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
- 0.0.5 2016-12-**-**:** Text touch-ups
+ 0.0.5 2016-12-14-16:17 Text touch-ups
  0.0.4 2016-12-11-09:31 VCbinder now deprecated and aspects of WinCon
        clarified.  TODO scrubbing.
  0.0.3 2016-10-26-11:25 Move the provisional VCbinder/ development to
