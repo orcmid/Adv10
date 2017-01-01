@@ -1,4 +1,4 @@
-devAdv10WinCon.txt 0.0.2              UTF-8                       2016-12-15
+devAdv10WinCon.txt 0.0.3              UTF-8                       2017-01-01
 
               <https://github.com/orcmid/Adv10>
                      /dev/WinCon/devAdv10WinCon/devAdv10WinCon.txt
@@ -8,29 +8,13 @@ devAdv10WinCon.txt 0.0.2              UTF-8                       2016-12-15
                         
         NOTE: It is not necessary to pay attention to this section in
         order to use the Adv10/dev/WinCon set and to work on the Adv10
-        source code.  The devAdv10Wincon/ directory is for source-code
-        management and testing of possible updates to WinCon without
-        disturbing the current working code.  Separation in this manner
-        is to preserve the continuous-integration of Adv10 work without
-        disruption when updated "plumbing" is being tested and confirmed.
-        
+        source code.  The devAdv10Wincon/ directory is a sandbox for 
+        source-code management and testing of possible updates to WinCon 
+        without disturbing the current Adv10/dev/WinCon code.  
 
     The Adv10/dev/WinCon Construction Set is a customization of an nfoTools
-    WinConKit.  Customizations are made here and then promoted to the WinCon
-    folder for stable use until the next customization is confirmed ready
-    for elevation to the WinCon folder.
-    
-    An update can be because of a need to change something in the Adv10Build
-    procedure.  It could also be for incorporating updates to the WinConKit
-    that the Adv10/dev/WinCon Construction Set is based on.
-    
-    The customized WinCon components here, after suitable renaming for Adv10,
-    can be operated here for testing and confirmation prior to updating the
-    parent dev/WinCon/ content.  The one difference is the relative 
-    path to the Adv10/src files from dev/WinCon/devAdv10WinCon/Adv10Build/ 
-    being longer from the dev/WinCon/Adv10Build/ folder.  That difference 
-    is confined to dev/WinCon/devAdv10WinCon/Adv10Build/ and does not arise
-    in the code under source-code management.
+    WinConKit.  Customizations are first made in the devAdv10WinCon sandbox
+    and then promoted to the WinCon when confirmed for stable use.
     
     Having customization separated out into this subordinate folder serves
     three objectives.
@@ -38,21 +22,24 @@ devAdv10WinCon.txt 0.0.2              UTF-8                       2016-12-15
       1. Having testing and confirmation of a new customization without
          disturbing the current working WinCon procedure.
          
-      2. Having the customizations in the open and under source-code management
-         even for files that are delivered to the Adv10/dev/WinCon construction
-         set only as part of Zip packages.
+      2. Having the customizations in the open and under source-code 
+         management even for files that are delivered to the Adv10/dev/WinCon
+         construction set only as part of Zip packages.
          
-      3. Serving as a laboratory for piloting of nfoTools WinConKit provisions
+      3. Providing a laboratory for piloting of nfoTools WinConKit provisions
          that are under development at devWinConKits in the nfoTools project.
-         The pilots are then replaced by customizing the new distributed 
-         WinConKit, preserving continuity of dependency of Adv10 on distributed
-         WinConKits.
-
-   
+       
+    The customized WinCon components can be operated here in the sandbox
+    dev/WinCon/devAdv10WinCon/Adv10Build/ extraction.  The difference in
+    the relative path to the Adv10/src files from the sandbox is longer than
+    from the dev/WinCon/Adv10Build/ extraction folder.  That difference is 
+    adjusted for in the sandbox folder and never appears in code under source-
+    code managment and in source-code distributions.
     
+
 PREREQUISITES
 
-    
+  * [TBD]    
     
 DEPENDENCIES
 
@@ -105,12 +92,12 @@ MANIFEST
         part of Adv10Build.zip used by Adv10Build.bat
         
     Adv10Sources.opt (customized from WinConSources.opt)
-        Command-line option specifying the relative path to the sources
-        part of Adv10Build.zip used by Adv10Build.bat
+        Command-line option specifying the relative path to sources in
+        adv/src/ needed when compiling in adv/dev/WinCon/Adv10Build/
  
     VCbind.zip (via WinConKit)
         package which provides the VC++ command-line setup script when 
-        extracted to VCbind\ here.
+        extracted to VCbind\ here or at Adv10/dev/WinCon/.
         
     VCbind-0.2.0.txt (via WinConKit)
         manifest and instructions from VCbind.zip available for review
@@ -138,15 +125,16 @@ TODO
 
  * Get the :USAGE working properly in Adv10Build.bat
  
- * Get the :USAGE working properly in Adv10Built.bat
- 
  * Introduce Adv10Run.bat
+ 
+ * Use "sandbox" with respect to the use of this folder.
  
  * The deployed Adv10.exe will also be run from an Adv10.bat file that
    brings up a standalone session for running Adv10.exe.  To keep it 
    from being deleted on a clean, it needs a different name if included
    in Adv10Build.bat.  Maybe Adv10Con.bat.  Some experimentation is 
-   called for.  
+   called for.  [dh:2017-01-01 Adv10Run.bat could fix this by making
+   a copy when needed?]
 
  * Note that the .gitignore makes it unnecessary to exclude the individual
    types of artifacts.  We exclude everything that is extracted into one of
@@ -185,7 +173,7 @@ TODO
    Not at first in any case.
  
  * The prerequisites and dependencies are the same as for the Adv10/dev/WinCon,
-   so they don't have to be repeated here.
+   so they don't have to be repeated here?
  
  * Add something about customizing and verifying a new/updated WinCon
    and then using the result to build Adv10 until a change is needed.
@@ -195,6 +183,7 @@ TODO
       
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.3 2017-01-01-14:18 Wordsmithing and review looking for next steps.
  0.0.2 2016-12-15-14:45 Further explanation of how this directory is used.
  0.0.1 2016-12-14-16:05 Initial Placeholder for devAdv10WinCon, the coding in
        the open of customizations of WinConKits to Adv10/dev/WinCon.
