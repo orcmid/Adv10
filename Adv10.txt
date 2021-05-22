@@ -1,7 +1,8 @@
-Adv10.txt 0.0.7                       UTF-8                        2016-12-14
+Adv10.txt 0.0.8                       UTF-8                        2021-05-22
 
                               ADVENTURE VERSION 1.0
                               =====================
+             <https://github.com/orcmid/Adv10/blob/master/Adv10.txt>
 
                    THE ORIGINAL COLOSSAL CAVE TEXT ADVENTURE
 
@@ -13,58 +14,58 @@ Adv10.txt 0.0.7                       UTF-8                        2016-12-14
     implementation.  Adv10 is the foundation of the Cavern project
     for progressive development of enriched versions, from command-
     line to 3D animated versions.
-    
+
     Stable distributions of Adv10 executables are made available at
     <http://nfoWare.com> once the transposition to clean C language
     is completed.  There will also be release branches in the source
-    code tree at <https://githug.com/orcmid/adv10>.  
-    
+    code tree at <https://githug.com/orcmid/adv10>.
+
     To build and run Adv10 from this source code in its current state,
     you will need to use a desktop PC with Microsoft Windows.  After
     installing this source-code tree on your computer, Use
     Windows explorer and navigate to folder dev\WinCon\ for more
-    information.  
-    
+    information.
+
     For a quick-start, double-click on the WinCon\Adv10Run.bat file and
     follow any instructions.  Retry this way until you've satisfied
     each requirement for continuation.  Upon successful operation,
     use Adv10Run.bat to run and play Adv10 immediately.
-    
+
     For more details about what you need to install to have Adv10
     build successfully, consult the dev\WinCon\WinCon.txt file.
-      
-       
+
+
 MANIFEST
 
     .gitattributes
          A declaration of file attributes for use in Git repositories of
          the Adv10 work
-         
+
     .gitignore
          A declaration of artifacts to be ignored and excluded from Git
          repositories.  This applies to working files that are produced
          when using this code locally and excluded from the public source
-         code.  
-         
+         code.
+
     LICENSE.txt 11,527 byte 2016-10-31 copy
-        Apache Licnese Version 2.0 of January 2004        
-         
+        Apache Licnese Version 2.0 of January 2004
+
     NOTICE.txt 1.00 1,251 byte 2016-12-10 Adv10 version
         Notices applicable to licensing of Adv10
 
-    Adv10.txt 
+    Adv10.txt
          this top-level manifest and job-jar file
 
     src/
         The Clean C source code for Adv10
-        
+
     dev/
         construction sets for building and testing Adv10 developer builds
-                       
-         
+
+
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                       Copyright 2014 Dennis E. Hamilton
+                Copyright 2014, 2021 Dennis E. Hamilton
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -77,73 +78,87 @@ MANIFEST
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
- 
+
 
 TODO
   * In the source-code notices, and here, add statement about English being
     preserved as the authoritative content, with supplemental translations,
-    rather than replacement translations.
-    
+    rather than replacement translations. This is because development is in
+    English and trouble-shooting is generally by English-fluent contributors.
+    See below.
+
   * In the use of Adv10 at some level of release, when there is support for
     additional languages, it will always be possible to have dual-language
     presentation to aid in trouble-shooting and verification of operation.
+
   * Devise a scheme where the player's map location and the identification
-    of the displayed tet is provided in a consistent form in every output, 
+    of the displayed text is provided in a consistent form in every output,
     although barely noticeable and not generally useful in the player's own
     mapmaking.  It is relevant in captured output and will be usable by
-    game-exercising test fixtures.
-    
+    game-exercising test fixtures.  Uses will probably figure it out.
+
+  * When there is audio, the background of each room should be distinctive,
+    and there can be thematic nuances as well.
+
   * Seek out and/or develop a console library that provides something perhaps
     like ncurses and at least ANSI mode operation, but more abstracted.  This
-    is just for output formatting and not so elevated as a CUA level (though
-    that is desirable at some point too).
-    
-  * Add the injunction that one should play the adventure and then take a 
+    is just for output formatting and not so elevated as a CUA level (at
+    least for 1.0.0, though a CUA version is ddesirable at some point too).
+
+  * There needs to be a better roadmap with regard to progressions thrugh to
+    CUA and all the supports for internationalization and accessibility.
+    Being able to save and restore games is also important, as will be the
+    ability to trace and script.  The prospect of animation is considered
+    later. So long as it is the same game, we will have 1.x.y versions.  There
+    might need to be reconsideration of that, and the adv10 name.
+
+  * Add the injunction that one should play the adventure and then take a
     look at the code, also with a hat tip to advent.w, etc.
-    
+
   * Do we need a doc/ for deployable documentation?
-  
+
   * Add deployment-oriented organization that will be used in releasing beta
     and later versions of the Adv10 transposition.
-    
+
   * Provide access to the web folios for Adv10 and the Cavern project.
-  
-  * Add GitHub Readme when I am ready.
-  
+
+  * Keep the README at a consistent high level, with details in supporting
+    pages.
+
   * Add further attribution information about derivation of this project's
     code from advent.w, explaining the value of that for study and also
     how this code relates to but is no substitute for advent.w.
-    
+
   * Report the opening, and the various notifications, to Don Knuth and Don
     Woods for their review and confirmation that their reservations are
     satisfied.
-    
+
   * Set up command-line options for the adv10 executable too.  At least the
     unknown parameters, which is what "-?" will also always produce.
-    
+
   * Tuck the permission mails and other hard copy materials into an off-line
     file folder.
-    
+
   * Create a sequestered web-site folder for preserving copies of the source
     materials that I am basing this project on.
-    
+
   * Deal with dependencies and the intermediate use of libraries under Adv10.
-  
+
   * Cover toolcraft and the intention of relying exclusively on freely-
     available software tools and libraries.
-    
+
   * Explain the licensing approach and handling of open-source code and any
     contributions to it.
-    
+
   * Keep an eye on development of Windows 10 on ARM and whether the x86
-    emulation is one way to deploy something like the WinCon version.  (It 
-    is not clear how form-factor would be dealt with, so this might be 
+    emulation is one way to deploy something like the WinCon version.  (It
+    is not clear how form-factor would be dealt with, so this might be
     be a post 1.0.0 consideration, along with accessibility and localization.
-    
+
   * At some point, using fixed lines will not work.  We will need to change
     to some form of automatic reflow.  It would be interesting if that would
     just take the current layout as hinting.
-    
+
   * Working out reflow ultimately ties into localization and use of non-Roman
     texts.  Since there may be significant platform/library support for that,
     this will be an exercise related to the nfoWare Text topic and also the
@@ -151,13 +166,16 @@ TODO
     put under build control in a way that preserves the common source and the
     "reference" implementation.  There is much fodder here for some useful
     SE4E demonstration/consideration.
-    
+
   * Now that it is appealed to here, get cracking on dev/WinCon/Adv10Run.bat
     and get a dev/WinCon that lets folks get builds and runs to happen from
     now on as part of continuous iteration.
-    
+
+  * Embed versioning information in the README.md file.
+
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.8 2021-05-22T18:18Z Manage TODOs, reflect updating of the README.md
  0.0.7 2016-12-14-16:22 TODO placeholders for future structuring of the game
        architecture to include automated game-testing and multiple developer/
        user languages.
@@ -166,7 +184,7 @@ TODO
        on how to dig in here by getting Adv10 to build and run.
  0.0.5 2016-10-15-12:49 Add dev/ folder for the developer build setup
  0.0.4 2016-10-06-14:01 Add Manifest and license notification
-       Clean up TODOs for items already handled.       
+       Clean up TODOs for items already handled.
  0.0.3 2016-10-04-11:14 Revive on GitHub as orcmid/Adv10
       Switching to semantic versioning along with revival of this project
       on GitHub.  Touch up to reflect the new location.
