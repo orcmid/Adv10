@@ -1,5 +1,5 @@
 @echo off
-rem Adv10Build.bat 0.0.5              UTF-8                         2021-05-10
+rem Adv10Build.bat 0.0.5              UTF-8                         2017-01-**
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
 rem                    BUILD ADV10 FROM SOURCE AS NEEDED
@@ -7,7 +7,7 @@ rem                    =================================
 
 rem                      PROOF-OF-CONCEPT PILOT CODE
 
-rem      This script is part of the Adv10 WinCon Construction Set for
+rem      This script is part of the Adv10 WinCon Construction Set for 
 rem      ensuring that a successful build has occured.  If Adv10Build has
 rem      not previously succeeded, it will be attempted automatically.
 rem      To require a build, the "clean" parameter can be used.  It will
@@ -28,11 +28,11 @@ SET WinConSetVer=0.0.5
 rem      The construction set version, not the WinConKit version
 
 REM * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-REM DO NOT CUSTOMIZE THE SCRIPT BODY FURTHER BELOW HERE.
+REM DO NOT CUSTOMIZE THE SCRIPT BODY FURTHER BELOW HERE.  
 REM    1. Maintain the top-level file name, version, and last-change date
 REM    2. Maintain the version progression at the end if desired.
 REM    3. Put the top-level file name in the final remark.
-REM
+REM    
 REM THIS IS A SINGLE-COMPILATION SCRIPT
 REM    There is a single call on CL.exe with all parameters of that call
 REM    provided by @.opt files.  Those files are edited further to provide
@@ -46,7 +46,7 @@ rem SELECT SPLICED, TERSE, OR DEFAULT VERBOSE
 rem     %1 value "+" selects smooth non-stop operation for splicing output
 rem        into that of a calling script such as WinConRun or equivalent.
 rem     %2 might then be "*" for terse operation and allow for that.
-rem
+rem 
 SET WinConBuildTersed=
 SET WinConBuildSplice=%1
 IF NOT "%1" == "+" GOTO :MAYBETERSE
@@ -65,7 +65,7 @@ IF DEFINED WinConBuildTersed SET VCterse=^>NUL
 rem ANNOUNCE THIS SCRIPT
 IF "%1" == "*" GOTO :WHISPER
 IF "%1" == "+" GOTO :WHISPER
-TITLE %WinConSetVer% %WinCon% BUILDING FROM SOURCE CODE
+TITLE %WinConSetVer% %WinCon% BUILDING FROM SOURCE CODE 
 COLOR 71
 rem   Soft white background with blue text
 
@@ -77,7 +77,7 @@ ECHO:          Based on %WinConKitVer% WinConBuild.bat Procedure %VCterse%
 IF NOT CMDEXTVERSION 2 GOTO :FAIL0
 IF "%WinConBuildSplice%" == "+" GOTO :LOCATE
 ECHO:          %TIME% %DATE% on %USERNAME%'s %COMPUTERNAME%%VCterse%
-ECHO:          %~dp0%VCterse%
+ECHO:          %~dp0%VCterse%     
 rem            reporting construction-set folder location
 
 :LOCATE
@@ -91,8 +91,8 @@ IF NOT EXIST "%~dp0..\VCensure.bat" GOTO :FAIL2
 
 rem DETERMINE REQUIRED ACTION
 rem    See :USAGE for the %WinCon%Build API contract
-IF "%1" == "+" SHIFT /1
-rem    XXX: Making invariant %* without any [+]
+IF "%1" == "+" SHIFT /1  
+rem    XXX: Making invariant %* without any [+] 
 IF "%1" == "?" GOTO :USAGE
 
 IF DEFINED WinConBuildTersed SHIFT /1
@@ -148,13 +148,13 @@ GOTO :BAIL
 :FAIL3
 ECHO: [%WinCon%Build] FAIL: COMMAND-LINE ENVIRONMENT SETUP PROBLEM/CONFLICT
 ECHO:          After resolving the reported difficulties, retry with %VCterse%
-ECHO:          a request for a "clean" built %WinCon%.exe            %VCterse%
+ECHO:          a request for a "clean" built %WinCon%.exe            %VCterse%       
 GOTO :BAIL
 
 :FAIL2
 ECHO:     **** FAIL: VCensure.bat NOT LOCATED WHERE EXPECTED ****
 ECHO:          %WinCon%Build.bat requires VCensure.bat available    %VCterse%
-ECHO:          at the %WinCon% WinCon construction set level.       %VCterse%
+ECHO:          at the %WinCon% WinCon construction set level.       %VCterse%               
 GOTO :NOJOY
 
 :FAIL1
@@ -201,7 +201,7 @@ rem    XXX: Ignoring deeper-level settings of VCterse
 IF NOT ERRORLEVEL 2 GOTO :SUCCESS
 GOTO :BAIL
 
-:BAIL
+:BAIL 
 IF NOT ERRORLEVEL 2 SET ERRORLEVEL=2
 IF NOT "%VCterse%" == "" EXIT /B %ERRORLEVEL%
 IF "%WinConBuildSplice%" == "+" EXIT /B %ERRORLEVEL%
@@ -230,10 +230,10 @@ rem limitations under the License.
 
 rem -----1---------2---------3---------4---------5---------6---------7-------*
 
-rem 0.0.5 2017-05-10T06:07Z Complete Usage Information.  Touch-ups.
+rem 0.0.5 2017-01-**-**:** Complete Usage Information.  Touch-ups.
 rem 0.0.4 2016-12-13-18:38 Update to work smoothly with Adv10Built,
 rem       completing pilot customization as if from WinConKit.
-rem 0.0.3 2016-12-07-11:55 Transposed to Adv10Build for quick experimental
+rem 0.0.3 2016-12-07-11:55 Transposed to Adv10Build for quick experimental 
 rem       confirmation of directory, relative-path, and CL.exe @option files.
 rem       Earlier effort was in the ShowDef project.
 rem 0.02 2014-12-27-16:30 Restore Full Filter
