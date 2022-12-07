@@ -1,4 +1,4 @@
-WinCon.txt 0.0.14                      UTF-8                       2021-05-22
+WinCon.txt 0.0.14                      UTF-8                       2022-12-07
 
      <https://github.com/orcmid/Adv10/blob/master/dev/WinCon/WinCon.txt>
 
@@ -109,7 +109,7 @@ MANIFEST
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                       Copyright 2016 Dennis E. Hamilton
+                Copyright 2016, 2021-2022 Dennis E. Hamilton
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -124,6 +124,11 @@ MANIFEST
     limitations under the License.
 
 TODO
+
+ * REDO ALL OF THIS - Switch to contemporary requirements for use of the
+   Visual Studio Build Tools and VS Code in development now.  See nfoTools
+   for the replacements used for raylib and create similar refactorings for
+   VCbind, etc.
 
  * Include prerequisite on configuring a Windows PC for development work.
    The web materials should be part of Toolcraft.  Some of this is also
@@ -157,8 +162,11 @@ TODO
 
  * Find Adv10Run.bat.  This seems to have gone lost.
 
+  * Add Attribution statement.
+
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+ 0.0.14 2022-12-07T19:48Z MARK FOR REPLACEMENT TO USE DIFFERENT VCBIND, etc.
  0.0.13 2021-05-23T04:40Z Cleanup, simplify narrative, remove devAdv10WinCon.
  0.0.13 2016-12-14-16:13 More TODOs, Successful Pilot of Some, Adv10Build bits
         spawning subfolder devAdv10WinCon to code that in the open apart from
