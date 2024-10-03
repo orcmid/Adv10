@@ -1,9 +1,9 @@
-docs.txt 0.0.0                      UTF-8                      dh:2022-03-19
-----|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+docs.txt 0.0.1                      UTF-8                      dh:2024-10-03
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
                              ADVENTURE VERSION 1.0
                               =====================
-          <https://github.com/orcmid/Adv10/blob/master/docs/docs.txt>
+                   <https://orcmid.githug.io/Adv10/docs.txt>
 
                    THE ORIGINAL COLOSSAL CAVE TEXT ADVENTURE
 
@@ -11,32 +11,25 @@ docs.txt 0.0.0                      UTF-8                      dh:2022-03-19
                             -------------------------
 
     Documentation of Adv10, the game and the transposition of the Don Knuth
-    version to an open-source formatted version in Clean C, as preparation
-    for demonstration of progressive gaming technologies from command-line
-    operation to CUA to graphical, with provisions for internationalization
-    (i18n), accessibility (a11y), and animations.
+    Literate Programming version to an open-source-styleversion in Clean C.A
+    Adv10 is the first stage in demonstration of progressive gaming techniques
+    from command-line operation to CUA to graphical, with provisions for
+    internationalization (i18n), accessibility (a11y), and animations.
 
-    This file, doc.txt, is the entry to the project web-site publishing
-    materials, including the authoring form and the published text. This is
-    accomplished using web-site creation frameworks with the authored material
-     preserved on GitHub, along with the generated published form.
+    This file, doc.txt, is the manifest and TODOs for the GitHub orcmid/Adv10
+    repositories docs/ folder.
 
+    This folder contains the authored and/or generated documentation pages
+    that are published as GitHub Pages to <https://orcmid.github.io/Adv10>.
 
 MANIFEST
 
     docs.txt
         this manifest and job-jar file
 
-     src/
-        the folder of site-authoring materials
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
-     pub/
-        the folder in which the generated site is produced as static web
-        pages published by GitHub at <https://orcmid.github.io/Adv10>.
-
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-                       Copyright 2022 Dennis E. Hamilton
+                     Copyright 2022, 2024 Dennis E. Hamilton
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -50,13 +43,13 @@ MANIFEST
     See the License for the specific language governing permissions and
     limitations under the License.
 
-----|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
  ATTRIBUTION
 
    Hamilton, Dennis E. Adv10: Web Documentation Project, version 0.0.1 dated
-   2022-03-19, available on the Internet as a version of
-   <https://github.com/orcmid/Adv10/blob/master/docs/docs.txt>
+   2024-10-03, available on the Internet as a version of
+   <https://orcmid.github.io/Adv10/docs.txt>
 
 TODO
 
@@ -69,7 +62,7 @@ TODO
   * The challenge is to cover the authoring system, including template fuss,
     along with creation of the published pages.
 
-  * Use Hugo to produce the initial site.  Learn how to work the open-source
+  * Use Hugo to produce the initial site?  Learn how to work the open-source
     control of the authoring materials, the template and other customization,
     and of the published materials.  This should be similar to a site-server
     creation process except the authoring system is by a forked process.
@@ -99,8 +92,14 @@ TODO
   * Maybe source should be Hugo?  We have a sub-project problem here.  Check
     on nfoCentrale and Hexo use first.
 
-----|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+  * Or Use Hybrid Forms, since they work using HTML segments in markdown,
+    and I can use FrontPage in the construction structure if not for other
+    parts.
 
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+ 0.0.1 2024-10-03T16:53Z Update to reflect GitHub Pages usage and preparation
+       for identifying on <https://orcmid.github.io>.
  0.0.0 2022-03-19T20:22Z Supply minimal boilerplate for the docs/ folder and
        figuring out an appropriate configuration of the tool chain.
 
