@@ -1,0 +1,70 @@
+images.txt 0.0.0                    UTF-8                       dh:2024-10-03
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+                              ADVENTURE VERSION 1.0
+                              =====================
+                <https://orcmid.githug.io/Adv10/images/images.txt>
+
+                   THE ORIGINAL COLOSSAL CAVE TEXT ADVENTURE
+
+                            WEB DOCUMENTATION IMAGES
+                            ========================
+
+    This folder is for images that are used generally on the Adv10 web site.
+    Images and screen captures on specific topics tend to be carried in the
+    subfolders for those topics.
+
+    The nfoWorks are chosen as more suggestive of nfoTools (and nfoWare)
+    with the streaming-of-bits nfoWare image better reserved for docInterop.
+
+    Note: This folder has no viewable index.md/.html page.  That is by intent.
+
+MANIFEST
+
+    images.txt
+        this manifest and job-jar file
+
+    hardhatarea.gif         large hard hat image useful for a full warning
+    hardhat-button.gif      tiny button-size image
+    hardhat-logo.gif        medium-small for in a folio title strip
+    hardhat-thumb.gif       correct size construction-structure footer link
+
+    F56xx02-ChessPlayerDrawing.vsdx     preserved source
+    F56xx02=ChessPlayer-logo.png        the ChessKing player of games
+
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+                       Copyright 2024 Dennis E. Hamilton
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+ ATTRIBUTION
+
+   Hamilton, Dennis E. Adv10 Adventure Version 1.0 Common Images.
+   Adv10 project text file images.txt version 0.0.0 dated 2024-10-03,
+   available on the Internet as a version of
+   <https://orcmid.github.io/Adv10/images/images.txt>
+
+TODO
+
+ * Find better front page and title bar images appropriate to the Collosal
+   Cave adventure.  Use the chess-player drawings temporarily.
+
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+ 0.0.0 2024-10-03T18:45Z Initial minimum images collection derived from the
+       0.0.4 nfoTools/images/images.txt
+
+                      ***** end of images.txt *****

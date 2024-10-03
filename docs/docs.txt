@@ -2,7 +2,7 @@ docs.txt 0.0.1                      UTF-8                      dh:2024-10-03
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
                              ADVENTURE VERSION 1.0
-                              =====================
+                             =====================
                    <https://orcmid.githug.io/Adv10/docs.txt>
 
                    THE ORIGINAL COLOSSAL CAVE TEXT ADVENTURE
@@ -24,8 +24,12 @@ docs.txt 0.0.1                      UTF-8                      dh:2024-10-03
 
 MANIFEST
 
-    docs.txt
-        this manifest and job-jar file
+         docs.txt  this manifest and job-jar file
+
+        index.htm  Construction Structure front-porch
+       images/     Common images for the Adv10 GitHub Pages
+
+        index.html home web page (from index.md)
 
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
@@ -52,6 +56,9 @@ MANIFEST
    <https://orcmid.github.io/Adv10/docs.txt>
 
 TODO
+
+  * Introduce Construction Structure and Construction Zone for hybridForm
+    GitHub Pages production.
 
   * Explain how this folder is used to generate the GitHub pages, possibly
     with additional folders that are about the scaffolding and construction
@@ -98,8 +105,8 @@ TODO
 
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
- 0.0.1 2024-10-03T16:53Z Update to reflect GitHub Pages usage and preparation
-       for identifying on <https://orcmid.github.io>.
+ 0.0.1 2024-10-03T19:09Z Update to reflect GitHub Pages usage and preparation
+       for publishing at <https://orcmid.github.io/Adv10>.
  0.0.0 2022-03-19T20:22Z Supply minimal boilerplate for the docs/ folder and
        figuring out an appropriate configuration of the tool chain.
 
