@@ -1,4 +1,4 @@
-<!-- index.md 0.0.1                UTF-8                         2024-10-04
+<!-- index.md 0.0.2                UTF-8                         2024-10-05
      ----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
      source <https://github.com/orcmid/Adv10/blob/master/docs/index.md>
      construction structure, manifest, and job jar at
@@ -25,7 +25,7 @@
          <a href="index.html" target="_top">index.html</a>&gt;</code></b>
       <br />
       <small><small>
-        0.0.1 2024-10-05T23:03Z<!-- MAINTAIN THIS MANUALLY -->
+        0.0.1 2024-10-05T23:39Z<!-- MAINTAIN THIS MANUALLY -->
       </small></small>
       </td>
   </tr>
@@ -49,8 +49,8 @@ Adapted with permission.
  Programming source code file, `advent.w.gz`, available at
  \[[Knuth's "advent"](http://www-cs-faculty.stanford.edu/~knuth/programs.html#advent)\].
 
-This version incorporates all applicable errate published through November
-2013 in Knuth's "Selected Papers on Fun and Games
+This version incorporates all applicable errate published through February
+2020 in Knuth's "Selected Papers on Fun and Games
 \[[fg](http://www-cs-faculty.stanford.edu/~knuth/fg.html)\].
 
 ## The Orcmid on GitHub Project
@@ -112,6 +112,7 @@ from time to time.
   </tr>
 </table>
 <!--
+      0.0.2  2024-10-05T23:39Z [fg] correction through February 2020
       0.0.1  2024-10-05T23:03Z Corrected links and image
       0.0.0  2024-10-05T21:51Z Initial placeholder, adapted from nfoTools
              hybridForm 0.0.13.

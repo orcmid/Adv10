@@ -3,7 +3,7 @@
 % Copyright 1998 by Donald R Woods and Donald E Knuth
 % Don't change this file without the author's permission!
 
-%* Production of Adv10 by derivation from advent.w by permission of the 
+%* Production of Adv10 by derivation from advent.w by permission of the
 %* authors.  This is not an useable advent.w substitute.  It's being used to
 $* to scavenge, cross-check, and verify the extraction of the C Language code.
 
@@ -33,11 +33,11 @@ $*    reflected anywhere in the Adv10 artifacts is deleted.
 %*    object text adventure was chosen.  That involves evolution of the
 %*    program into different versions, on different software technologies
 %*    and platforms that go far beyond the simple alphanumeric terminal
-%*    form of the original, while remaining the same game.  
+%*    form of the original, while remaining the same game.
 %*
-%*    To accomplish that, the Literate Programming approach has been 
-%*    sacrificed.  One aspect of that is to consider what alternatives 
-%*    in contemporary open-source development practice can make amends 
+%*    To accomplish that, the Literate Programming approach has been
+%*    sacrificed.  One aspect of that is to consider what alternatives
+%*    in contemporary open-source development practice can make amends
 %*    for that ruthless act.
 %*
 %* NOTATIONS
@@ -51,7 +51,7 @@ $*         activity.
 
 %* The 2016 transposition to adv10.c will change to use of the Clean C
 %* version of Standard C.  The use of enum types in advent.w is quite
-$* wonderful and we'll put a lot of attention on that. 
+$* wonderful and we'll put a lot of attention on that.
 
 % See http://www.rickadams.org/adventure/ for related info.
 
@@ -134,8 +134,8 @@ naturally quite different from the {\mc FORTRAN} version that I began~with.
 
 %* </REPLACE> ***
 
-%* *** <REPLACE> with statement of fidelity.  
-%*     The comment about goto may not survive or it may end up being 
+%* *** <REPLACE> with statement of fidelity.
+%*     The comment about goto may not survive or it may end up being
 %*     seriously reduced.  I don't know when guards and related structures
 %*     will be introduced instead.  We are in a situation where performanc
 %*     is not such an issue but code footprint does still matter.
@@ -181,7 +181,7 @@ type and meaning. Four types of words are distinguished: |motion_type|,
 %*     CLUSTERS OF SUBROUTINES (C LANGUAGE FUNCTIONS).  THERE WOULD BE
 %*     SOME ENCAPSULATION LATER.  ALSO, THE USE OF GLOBAL VARIABLES WOULD
 %*     BE REDUCED.  SO SEPARATION INTO THE THREE CATEGORIES MIGHT NOT
-%*     WORK SO WELL.  
+%*     WORK SO WELL.
 
 %* ****************** STOPPING HERE 2016-10-08-12:33 *********************
 %* ***********************************************************************
@@ -4117,6 +4117,8 @@ smoke). . . .    Then your eyes refocus; you look around and find...\n");
   move(ROD2,swend);@+prop[ROD2]=-1;
   move(PILLOW,swend);@+prop[PILLOW]=-1;
   move(MIRROR_,swend);
+  place[WATER]=limbo;
+  place[OIL]=limbo;
   for (j=1;j<=max_obj;j++) if (toting(j)) destroy(j);
   closed=true;
   bonus=10;
@@ -4482,11 +4484,9 @@ nothingness.
 %*       the vocabulary types and functions are introduced.  Markup and
 %*       comment format are introduced for cross-referencing between [fg],
 %*       advent.w, and adv10.c
-%* 0.0.2 2014-02-05 Make initial, experimental transpositions to have a 
+%* 0.0.2 2014-02-05 Make initial, experimental transpositions to have a
 %*       minimal compilable unit.
 %* 0.0.1 2014-02-05 Apply 2013 Errata to advent.w
 %* 0.0.0 2010-01-26 Advent.w original as downloaded from Knuth site.
-%* 
+%*
 %*            ***  end of advent-w-to-adv10c.txt ***
-
-
