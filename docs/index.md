@@ -1,4 +1,4 @@
-<!-- index.md 0.0.2                UTF-8                         2024-10-05
+<!-- index.md 0.0.3                UTF-8                         2024-10-06
      ----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
      source <https://github.com/orcmid/Adv10/blob/master/docs/index.md>
      construction structure, manifest, and job jar at
@@ -25,7 +25,7 @@
          <a href="index.html" target="_top">index.html</a>&gt;</code></b>
       <br />
       <small><small>
-        0.0.1 2024-10-05T23:39Z<!-- MAINTAIN THIS MANUALLY -->
+        0.0.3 2024-10-06T15:47Z<!-- MAINTAIN THIS MANUALLY -->
       </small></small>
       </td>
   </tr>
@@ -38,7 +38,7 @@ Crowther in 1975 or 1976 and significantly extended by Don Woods in 1977.
 I have taken Wood's original FORTRAN program for Adventure Version 1.0 and
 recast it in th CWEB idiom so that those pioneering ideas will be accessible
 to a broader audience.
->> Donald E. Knuth [Knuth2011: p.235]
+>> Donald E. Knuth \[[Knuth2011: p.235](../bib/authors.htm#Knuth2011)\]
 
 ## Open-Source Adaptation
 
@@ -49,16 +49,18 @@ Adapted with permission.
  Programming source code file, `advent.w.gz`, available at
  \[[Knuth's "advent"](http://www-cs-faculty.stanford.edu/~knuth/programs.html#advent)\].
 
-This version incorporates all applicable errate published through February
-2020 in Knuth's "Selected Papers on Fun and Games
+This derivative reflects all applicable errate published through February
+2020 for Knuth's "Selected Papers on Fun and Games
 \[[fg](http://www-cs-faculty.stanford.edu/~knuth/fg.html)\].
 
-## The Orcmid on GitHub Project
+## The Orcmid on GitHub Adv10 Project
 
-Adv10 releases are a personal homage to this amazing and inspiring game.
+Adv10 releases are a personal homage to this amazing and inspiring game and
+to Donald Knuth's literate account.
 
-The Adv10 project produces a Clean C version of the
-original Colossal Cave Text Adventure as a portable command-line
+The Adv10 project produces a
+[Clean C](https://orcmid.github.io/bib/progsys.htm#Harbison2002) version of
+the original Colossal Cave Text Adventure as a portable command-line
 implementation built on Microsoft Windows.  The game is playable.  The
 open-source implementation of the game is meant to be instructive.
 
@@ -70,7 +72,7 @@ as a Literate Program \[[Knuth1992](../bib/authors.htm#Knuth1992)\].
 
 ## Adv10 Table of Content
 
-The nfoTools web is organized in topical sections.
+The Adv10 web is organized in topical sections.
 
 | **Section** |  **General Topic** |
 |   --:       |  ---               |
@@ -112,6 +114,7 @@ from time to time.
   </tr>
 </table>
 <!--
+      0.0.3  2024-10-06T15:47T Corrected links and smoothing text
       0.0.2  2024-10-05T23:39Z [fg] correction through February 2020
       0.0.1  2024-10-05T23:03Z Corrected links and image
       0.0.0  2024-10-05T21:51Z Initial placeholder, adapted from nfoTools
