@@ -1,4 +1,4 @@
-<!-- index.md 0.0.3                UTF-8                         2024-10-06
+<!-- index.md 0.0.4                 UTF-8                         2024-10-09
      ----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
      source <https://github.com/orcmid/Adv10/blob/master/docs/index.md>
      construction structure, manifest, and job jar at
@@ -25,7 +25,7 @@
          <a href="index.html" target="_top">index.html</a>&gt;</code></b>
       <br />
       <small><small>
-        0.0.3 2024-10-06T15:47Z<!-- MAINTAIN THIS MANUALLY -->
+        0.0.4 2024-10-09T18:44Z<!-- MAINTAIN THIS MANUALLY -->
       </small></small>
       </td>
   </tr>
@@ -94,7 +94,7 @@ I invite discussion about Adv10 topics in the
 Improvements and removal of defects in this particular documentation can be
 reported and addressed in the
 [Issues section](https://github.com/orcmid/Adv10/issues).  There are also
-relevant [projects](https://github.com/orcmid/Adv10/projects?type=classic)
+relevant [projects](https://github.com/orcmid/Adv10/projects?query=is%3Aopen)
 from time to time.
 
 <table border="0" cellspacing="3" width="100%">
@@ -114,6 +114,7 @@ from time to time.
   </tr>
 </table>
 <!--
+      0.0.4  2024-10-09T18:44Z Correct projects link
       0.0.3  2024-10-06T15:47T Corrected links and smoothing text
       0.0.2  2024-10-05T23:39Z [fg] correction through February 2020
       0.0.1  2024-10-05T23:03Z Corrected links and image
