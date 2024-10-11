@@ -1,4 +1,4 @@
-Adv10.txt 0.0.10                    UTF-8                        2024-10-10
+Adv10.txt 0.1.0                    UTF-8                        2024-10-11
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
                               ADVENTURE VERSION 1.0
@@ -17,26 +17,22 @@ Adv10.txt 0.0.10                    UTF-8                        2024-10-10
     line to 3D animated versions.
 
     Stable distributions of Adv10 executables are made available at
-    <http://nfoWare.com> once the transposition to clean C language
+    <https://orcmid.github.io/Adv10/dev> when transposition to Clean C
     is completed.  There will also be release branches in the source
-    code tree at <https://githug.com/orcmid/adv10>.
+    code repository at <https://github.com/orcmid/adv10>.
 
     To build and run Adv10 from this source code in its current state,
-    you will need to use a desktop PC with Microsoft Windows.  After
-    installing this source-code tree on your computer, Use
-    Windows explorer and navigate to folder dev\WinCon\ for more
-    information.
-
-    For a quick-start, double-click on the WinCon\Adv10Run.bat file and
-    follow any instructions.  Retry this way until you've satisfied
-    each requirement for continuation.  Upon successful operation,
-    use Adv10Run.bat to run and play Adv10 immediately.
+    you will need to use a desktop PC with Microsoft Windows with Visual
+    Studio Build Tools.
 
     For more details about what you need to install to have Adv10
-    build successfully, consult the dev\WinCon\WinCon.txt file.
+    build successfully, consult https://orcmid.github.io/Adv10
 
 
 MANIFEST
+
+    Adv10.txt
+         this top-level manifest and job-jar file
 
     .gitattributes
          A declaration of file attributes for use in Git repositories of
@@ -49,23 +45,34 @@ MANIFEST
          code.
 
     LICENSE.txt 11,527 byte 2016-10-31 copy
-        Apache Licnese Version 2.0 of January 2004
+        Apache License Version 2.0 of January 2004
 
     NOTICE.txt 1.00 1,251 byte 2016-12-10 Adv10 version
         Notices applicable to licensing of Adv10
 
-    Adv10.txt
-         this top-level manifest and job-jar file
+    README.md
+        README file presented at <https://github.com/orcmid/Adv10>.
 
-    /Advent/
+    SECURITY.md
+        Security Policy statement presented on the Security tab on the
+        <https://github.com/orcmid/Adv10> page.
+
+    Advent/
         Materials from the original game and how the Clean C source version
         is extracted in a coordinated manner.
+
+    dev/
+        construction sets for building and testing Adv10 developer builds
+
+    docs/
+        folder for the authored form of GitHub Pages published at
+        <https://orcmid.github.io/Adv10>
 
     src/
         The Clean C source code for Adv10
 
-    dev/
-        construction sets for building and testing Adv10 developer builds
+    WinDev/
+        development of ADV10 for Windows
 
 
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
@@ -131,19 +138,11 @@ TODO
   * Add the injunction that one should play the adventure and then take a
     look at the code, also with a hat tip to advent.w, etc.
 
-  * Do we need a doc/ for deployable documentation?
-
   * Add deployment-oriented organization that will be used in releasing beta
     and later versions of the Adv10 transposition.
 
-  * Provide access to the web folios for Adv10 and the Cavern project.
-
   * Keep the README at a consistent high level, with details in supporting
     pages.
-
-  * Add further attribution information about derivation of this project's
-    code from advent.w, explaining the value of that for study and also
-    how this code relates to but is no substitute for advent.w.
 
   * Report the opening, and the various notifications, to Don Knuth and Don
     Woods for their review and confirmation that their reservations are
@@ -163,14 +162,6 @@ TODO
   * Cover toolcraft and the intention of relying exclusively on freely-
     available software tools and libraries.
 
-  * Explain the licensing approach and handling of open-source code and any
-    contributions to it.
-
-  * Keep an eye on development of Windows 10 on ARM and whether the x86
-    emulation is one way to deploy something like the WinCon version.  (It
-    is not clear how form-factor would be dealt with, so this might be
-    be a post 1.0.0 consideration, along with accessibility and localization.
-
   * At some point, using fixed lines will not work.  We will need to change
     to some form of automatic reflow.  It would be interesting if that would
     just take the current layout as hinting.
@@ -187,15 +178,14 @@ TODO
     and get a dev/WinCon that lets folks get builds and runs to happen from
     now on as part of continuous iteration.
 
-  * Embed versioning information in the README.md file.
-
-  * For audio, look into environmental sounds.  For thoughts, see
+   * For audio, look into environmental sounds.  For thoughts, see
     <https://www.ableton.com/en/blog/sugai-ken-the-shibui-of-field-recording-and-electronics/>
 
   * Replace nfoWare references to ones about GitHub orcmid/Adv10
 
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
+ 0.1.0  2024-10-11T19:55Z Updated manifest and reorganized TODOs
  0.0.10 2024-10-10T20:18Z Prepare for re-organization activities,
         bringing to current manifest/TODO format
  0.0.9 2022-07-14T16:49Z Touch Ups, Manage TODOs
