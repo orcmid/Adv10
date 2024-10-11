@@ -1,0 +1,61 @@
+Advent.txt 0.0.0                    UTF-8                       dh:2024-10-11
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+                              ADVENTURE VERSION 1.0
+                              =====================
+       <https://github.com/orcmid/Adv10/blob/master/Advent/Advent.txt>
+
+                   THE ORIGINAL COLOSSAL CAVE TEXT ADVENTURE
+
+                      PRISTINE LITERATE PROGRAMMING VERSION
+                      =====================================
+
+    This folder carries the original source materials from which the Adv10
+    adaptation is derived.  The material is for preservation and also usage
+    in confirmation of adaptation completeness and correctness.
+
+    Please note and honor the Copyright Notice at the beginning of the
+    advent.w file.
+
+
+MANIFEST
+
+    Advent.txt  This synopsis, manifest, and TODOs.
+
+    advent.w.gz The 2024-10-07T21:16Z download from Donald Knuth's Advent
+                folder
+
+    advent.w    The 2022-01-21 Literate Programming source version from the
+                above download, having all errata adjustments made by Donald
+                Knuth up to that time.
+
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+                       Copyright 2024 Dennis E. Hamilton
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+TODO
+
+ * Figure out what to do if there are further updates to this file. Since the
+   source mapping will be tied to a particular version.
+
+ * Connect this to the in-progress salvaging from an advent.w copy at the
+   Adv10/src folder (and wherever that moves to).
+
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+
+ 0.0.0 2024-10-11T20:31Z Initial Placeholder as part of folder setup.
+
+                          *** end of Advent.txt ***
