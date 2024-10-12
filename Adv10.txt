@@ -1,4 +1,4 @@
-Adv10.txt 0.1.0                    UTF-8                        2024-10-11
+Adv10.txt 0.2.0                     UTF-8                        2024-10-12
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
                               ADVENTURE VERSION 1.0
@@ -19,10 +19,10 @@ Adv10.txt 0.1.0                    UTF-8                        2024-10-11
     Stable distributions of Adv10 executables are made available at
     <https://orcmid.github.io/Adv10/dev> when transposition to Clean C
     is completed.  There will also be release branches in the source
-    code repository at <https://github.com/orcmid/adv10>.
+    code repository at <https://github.com/orcmid/Adv10>.
 
     To build and run Adv10 from this source code in its current state,
-    you will need to use a desktop PC with Microsoft Windows with Visual
+    you will need to use a desktop PC with Microsoft Windows and Visual
     Studio Build Tools.
 
     For more details about what you need to install to have Adv10
@@ -68,8 +68,8 @@ MANIFEST
         folder for the authored form of GitHub Pages published at
         <https://orcmid.github.io/Adv10>
 
-    src/
-        The Clean C source code for Adv10
+    Transpose/
+        The spiral transposition of advent.w to Adv10 Clean C sources and text
 
     WinDev/
         development of ADV10 for Windows
@@ -185,6 +185,7 @@ TODO
 
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
+ 0.2.0  2024-10-12T18:29Z Touch-up and reflect change from src/ to Transpose/
  0.1.0  2024-10-11T19:55Z Updated manifest and reorganized TODOs
  0.0.10 2024-10-10T20:18Z Prepare for re-organization activities,
         bringing to current manifest/TODO format
