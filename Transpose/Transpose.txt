@@ -1,0 +1,84 @@
+Transpose.txt 0.0.3                 UTF-8                    dh:2016-10-12
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+                 <https://github.com/orcmid/Adv10>/src/src.txt
+
+                      ADV10: LITERATE TO C TRANSPOSITION
+                      ==================================
+
+    This is the place for the careful transposition of advent.w to Clean C
+    and text files.
+
+MANIFEST
+
+    Transpose.txt
+        This description file on the construction and organization of
+        the material.
+
+    adv10.c
+        The main source-code file for Adv10, initially a single C Language
+        program derived by manually tangling advent.w with annotations.
+
+    advent.w-to-adv10.c.txt
+        This is a version of advent.w that is progressively scavenged to
+        make expanded versions of adv10.c until there is a full working,
+        compilable Clean C version.  As scavenging occurs, this file
+        shrinks accordingly.
+
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+                    Copyright 2016, 2024 Dennis E. Hamilton
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+ ATTRIBUTION
+
+   Hamilton, Dennis E. Adv10: Literate to C Transposition.  Adv10 project
+   text file Transpose.txt version 0.0.3 dated 2024-10-11, available on the
+   Internet as a version of
+   <https://github.com/orcmid/Adv10/blob/master/Transpose/Transpose.txt>
+
+TODO
+
+ * Move the adv10.c and advent.w-to-adv10c.txt to here.
+
+ * Close Adv10/src as part of the development structure refactoring.
+
+ * Provide more history and tie into the nfoTools materials.
+
+ * Move material that does not have to be in adv10.c here instead of
+   in-line in the adv10.c source.  Include general TDDO materials and
+   other narratives.  There will still be considerable narrative in
+   the source code.
+
+ * Get to the first level of clean compilation for an executable null
+   implementation.
+
+ * Start clustering code in sections where types, functions, and definitions
+   for key data structures are adjacent, so that there can be extractions
+   and encapsulation at some point.
+
+ * Tie adv10.c and advent.w (the transposition) to their GitHub/repo
+   locations.
+
+*---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
+
+ 0.0.3 2024-10-12T17:14Z Transpose src.txt to Transpose.txt
+ 0.0.2 2016-10-08-13:07 Annotation cross-referencing structure introduced
+       between [fg:27], advent.w, and adv10.c.
+ 0.0.1 2016-10-06-13:43 Reflect introduction of advent.w-to-adv10.c.txt
+ 0.0.0 2016-10-04-13:35 Initial Placeholder as part of folder setup.
+
+                        *** end of Transpose.txt ***
