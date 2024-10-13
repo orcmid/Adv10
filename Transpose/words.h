@@ -1,4 +1,4 @@
-/* words.h 0.0.0                      UTF-8                     dh:2024-10-11
+/* words.h 0.0.1                      UTF-8                     dh:2024-10-13
  *
  *                           ADVENTURE VERSION 1.0
  *                           =====================
@@ -16,12 +16,14 @@
  *    words are fixed and the vocabulary is not extensible.
  *
  *    The vocabulary is in English language and the words consist of ASCII
- *    characters.  Case is ignored. Traditionally, words longer than 5 letters
- *    are reduced to the first 5 letters in the database.
+ *    characters.  Case is ignored. Wwords longer than 5 letters are reduced
+ *    to the first 5 letters in the database.
  */
 
 
-/*  0.0.0 2024-10-11T21:02Z Start the vocabulary database API.
+/*
+   0.0.1  2024-10-13T16:32Z Add synopsis
+   0.0.0  2024-10-11T21:02Z Start the vocabulary database API.
    */
 
 /*                        ***** end of words.h *****                      */

@@ -183,9 +183,11 @@ type and meaning. Four types of words are distinguished: |motion_type|,
 %*     BE REDUCED.  SO SEPARATION INTO THE THREE CATEGORIES MIGHT NOT
 %*     WORK SO WELL.
 
-%* ****************** STOPPING HERE 2016-10-08-12:33 *********************
-%* ***********************************************************************
-
+%* <TRANSPOSE> I don't think we need a global wordtype value.  It is used
+%*             to not have to pass it in during initialization.  I also
+%*             don't like identifying the words database by the type of
+%*             data structure it is.  Now that we can return structures,
+%*             maybe there is a better way to deal with this.
 @s wordtype int
 
 @<Type...@>=

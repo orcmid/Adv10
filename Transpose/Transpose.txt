@@ -1,4 +1,4 @@
-Transpose.txt 0.0.3                 UTF-8                    dh:2016-10-12
+Transpose.txt 0.0.4                 UTF-8                    dh:2016-10-13
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
                  <https://github.com/orcmid/Adv10>/src/src.txt
@@ -25,6 +25,13 @@ MANIFEST
         compilable Clean C version.  As scavenging occurs, this file
         shrinks accordingly.
 
+    words.c
+        The vocabulary database and the procedures used to populate it
+        on start-up
+    words.h
+        The header file for the word dictionary entries and the visible
+        operations for accessing word definitions
+
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
                     Copyright 2016, 2024 Dennis E. Hamilton
@@ -46,13 +53,11 @@ MANIFEST
  ATTRIBUTION
 
    Hamilton, Dennis E. Adv10: Literate to C Transposition.  Adv10 project
-   text file Transpose.txt version 0.0.3 dated 2024-10-11, available on the
+   text file Transpose.txt version 0.0.4 dated 2024-10-13, available on the
    Internet as a version of
    <https://github.com/orcmid/Adv10/blob/master/Transpose/Transpose.txt>
 
 TODO
-
- * Move the adv10.c and advent.w-to-adv10c.txt to here.
 
  * Close Adv10/src as part of the development structure refactoring.
 
@@ -75,6 +80,7 @@ TODO
 
 *---|----1----|----2----|----3----|----4----|----5----|----6----|----7----|--*
 
+ 0.0.4 2024-10-13T16:00Z Manifest words.c and words.h
  0.0.3 2024-10-12T17:14Z Transpose src.txt to Transpose.txt
  0.0.2 2016-10-08-13:07 Annotation cross-referencing structure introduced
        between [fg:27], advent.w, and adv10.c.
