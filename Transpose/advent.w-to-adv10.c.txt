@@ -78,6 +78,9 @@ $* wonderful and we'll put a lot of attention on that.
 
 %* *** <RESEARCH> I suspect these are typedefs or #DEFINEs.  Figure it out
 %*     from the code as we work through all of this.
+%*     2024-10-13: These are global variables for certain common variables.
+%*        I want to eliminate these cases, and us them as locally and as
+%*        encapsulated as possible.
 @s motion int
 @s action int
 @s object int
@@ -188,17 +191,10 @@ type and meaning. Four types of words are distinguished: |motion_type|,
 %*             don't like identifying the words database by the type of
 %*             data structure it is.  Now that we can return structures,
 %*             maybe there is a better way to deal with this.
-@s wordtype int
+%* a wordtype variable is used in words.c as a convenience.
 
-@<Type...@>=
-typedef enum@+{@!no_type,@!motion_type,@!object_type,
-   @!action_type,@!message_type}@!wordtype;
-typedef struct {
-  char text[6]; /* string of length at most 5 */
-  char word_type; /* a |wordtype| */
-  char meaning;
-} hash_entry;
 
+<TRANSPOSED words.c>
 @ Here is the subroutine that puts words into our vocabulary, when the
 program is getting ready to run.
 
@@ -220,6 +216,7 @@ void new_word(w,m)
   hash_table[h].word_type=current_type;
   hash_table[h].meaning=m;
 }
+
 
 @ @<Glob...@>=
 hash_entry hash_table[hash_prime]; /* the table of words we know */
