@@ -1,4 +1,4 @@
-/* words.c 0.0.2                      UTF-8                     dh:2024-10-14
+/* words.c 0.0.4                      UTF-8                     dh:2024-10-14
  *
  *                           ADVENTURE VERSION 1.0
  *                           =====================
@@ -20,6 +20,10 @@
  *    [fg] below.
  */
 
+#include <ctype.h>  /* for tolower */
+
+#include <string.h> /* for strncpy */
+
 #include "words.h"
 
 #define hash_prime 1009
@@ -29,7 +33,7 @@
          Success in avoiding collisions will be verified as the
          database is populated.
 
-         XXX: The value must fit in an int used as an index.
+         XXX: The value must fit in an int used as an index over words[].
          */
 
 wordentry noword = { {0, 0, 0, 0, 0, 0}, no_type, 0 };
@@ -47,36 +51,70 @@ wordentry words[hash_prime];
               this static array being initialized to bytes of 0.
         */
 
+static wordentry word_prep(  char *w /* a string of characters to prep */
+                             )
 
-int lookup(  char * w  /* a string of characters for which the vocabulary
-                          entry is desired */
+   {  /* [Adv10] Construct a no_type wordentry with the text[] value
+         being the w[] string transformed to not more than five lower-case
+         characters.
+         */
+
+      wordentry model = noword;
+
+      strncpy(model.text,w,5);
+
+      int i = -1;
+      while (model.text[++i])
+            model.text[i] = tolower(model.text[i]);
+
+      return model;
+
+      } /* word_prep */
+
+static unsigned int word_hash(  char *w /* a string of characters to hash */
+                                )
+
+   {  /* [Adv10] Compute a hash value from the w[] string of characters.
+         This common calculation is factored out of [fg: 27.6 and 28.8] to
+         ensure consistency in the hash calculation.
+         */
+
+      unsigned int h = 0; unsigned char *p = w;
+      while (*p)
+            h = *p++ + h + h;
+
+      return h %= hash_prime;
+
+      } /* word_hash */
+
+
+wordentry lookup(  char *w /* a string of characters to look up */
              )
 
    {  /* [fg:27.8] Look up the word in the vocabulary database and return the
-         index of the entry if found.  If not found, return -1.
+         the entry if found.  If not found, return a noword entry.
          */
 
-      register int h; register char *p; register char t;
-      t=w[5]; w[5]='\0'; /* truncate the word */
-      for (h=0,p=w;*p;p++) h=*p+h+h;
-      h%=hash_prime; /* compute starting address */
-      w[5]=t; /* restore original word */
-      if (h<0) return -1; /* a negative character might screw us up */
-      while (hash_table[h].word_type)
-            {  if (streq(w,hash_table[h].text)) return h;
+      wordentry pending = word_prep(w);
+
+      unsigned int h = word_hash(pending.text);
+           /* where we start looking in words[] */
+
+      while (words[h].word_type)
+            {  if (!strcmp(pending.text,words[h].text))
+                    return words[h];
                h++;
-               if (h==hash_prime) h=0;
+               if (h == hash_prime) h = 0;
                }
-      return -1;
 
-      /* TODO: 1. I want to return a wordentry, not an index or pointer.
-               2. I will retnrn a noword entry wordentry if the requested word
-                  is not found.
-               3. I want to do the oonversion to lower case truncated to 5
-                  characters here.  I want to do the same for new_word
-                  so that the treatment is encapsulated in the words module.
-               4. The message(s) about this need to be supplied here.
+      return pending;
+            /* it will have the not-found text[] although the original,
+               argument to word_prep might work better */
+
+      /* TODO: 4. The message(s) about this need to be supplied in words.c
+                  if that makes any sense..
          */
+
       } /* lookup */
 
 
@@ -86,47 +124,48 @@ wordtype current_type = no_type;
             */
 
 
-void new_word(  char *w,  /* text[ ] value to be set,
-                             a string of length 5 or less */
-                int m     /* its "meaning" value */
+static void new_word(  char *w,  /* string that the wordentry.text[ ] will be
+                                    be prepared from */
+                        int m    /* its "meaning" value */
                 )
 
    {  /* [fg: 27.6] Create a vocabulary entry with the specified-word text[]
          and meaning.  The wordtype used is the value set in current_type.
          */
 
-      register int h,k; register char *p;
+      wordentry pending = word_prep(w);
+      pending.word_type = current_type;
+      pending.meaning = m;
+            /* the wordentry to be added to the database */
 
-      for (h=0,p=w;*p;p++)
-           h=*p+h+h;
+      unsigned int h = word_hash(pending.text);
+           /* where we start looking to put this in the database,
+              the same place where lookup will start searching. */
 
-      h%=hash_prime;
-
+      /* Find the first empty slot at or beyond the hash determined index */
       while (words[h].word_type)
             {  h++;
                if (h==hash_prime) h=0;
                }
 
-       strcpy(words[h].text,w);
-       words[h].word_type = current_type;
-       hash_table[h].meaning = m;
+       words[h] = pending;
+
+       return;
 
        /* XXX: This code assumes that words[] will always have room.
-               */
-       /* TODO: I would like for full words to be allowed, with them
-                truncated to 5 lower-case characters and have the lookup
-                provide that transformation and re-use that part here,
-                maybe even checking for a word already present.
-                */
-       /* TODO: Instrument this to let us know how many collisions happen
-                before finding a slot. This will also detect a full
-                dictionary.
+          XXX: I don't know if anything special needs to be done so there
+               is consistently in the use of (unsigned) char.
+          TODO: I'd like to count the number of collisions that occur
+                before finding an empty slot.  This would also detect
+                a full dictionary.
                 */
 
        } /* new_word */
 
 
 /*
+   0.0.4  2024-10-14T23:23Z Add shared word_hash function
+   0.0.3  2024-10-14T22:49Z Complete lookup and new_word functions
    0.0.2  2024-10-14T20:25Z Touch up the comments and add some TODOs
    0.0.1  2024-10-14T19:50Z Backup before some cleanups
    0.0.0  2024-10-11T20:36Z Start the vocabulary database module.
