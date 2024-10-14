@@ -61,6 +61,12 @@ typedef struct {    unsigned char text[6];   // sz string of up to 5 letters
         currently-unlikely case that any of the values exceeds 127.
         */
 
+wordentry lookup(char *w);  // [fg:27.8] [Adv10]
+       /* Find the vocabulary database wordentry for the given string.
+          If there is no such wordentry, one with word_type no_type is
+          returned.
+          */
+
 /* MOTION_TYPE TERMS */
 
 typedef enum { N, S, E, W, NE, SE, NW, SW, U, D, L, R, IN, OUT, FORWARD, BACK,
