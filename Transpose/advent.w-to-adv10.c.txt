@@ -194,79 +194,10 @@ type and meaning. Four types of words are distinguished: |motion_type|,
 %* a wordtype variable is used in words.c as a convenience.
 
 
-<TRANSPOSED words.c>
-@ Here is the subroutine that puts words into our vocabulary, when the
-program is getting ready to run.
-
-@d hash_prime 1009 /* the size of the hash table */
-
-@<Sub...@>=
-void new_word @,@,@[ARGS((char*,int))@];
-void new_word(w,m)
-  char *w; /* a string of length 5 or less */
-  int m; /* its meaning */
-{
-  register int h,k; register char *p;
-  for (h=0,p=w;*p;p++) h=*p+h+h;
-  h%=hash_prime;
-  while (hash_table[h].word_type) {
-    h++;@+if (h==hash_prime) h=0;
-  }
-  strcpy(hash_table[h].text,w);
-  hash_table[h].word_type=current_type;
-  hash_table[h].meaning=m;
-}
+<TRANSPOSED words.c />
 
 
-@ @<Glob...@>=
-hash_entry hash_table[hash_prime]; /* the table of words we know */
-wordtype current_type; /* the kind of word we are dealing with */
-
-@ While we're at it, let's write the program that will look up a word.
-It returns the location of the word in the hash table, or $-1$ if
-you've given a word like `\.{tickle}' or `\.{terse}' that is unknown.
-
-@d streq(a,b) (strncmp(a,b,5)==0) /* strings agree up to five letters */
-
-@<Sub...@>=
-int lookup @,@,@[ARGS((char*))@];
-int lookup(w)
-  char *w; /* a string that you typed */
-{
-  register int h; register char *p; register char t;
-  t=w[5]; w[5]='\0'; /* truncate the word */
-  for (h=0,p=w;*p;p++) h=*p+h+h;
-  h%=hash_prime; /* compute starting address */
-  w[5]=t; /* restore original word */
-  if (h<0) return -1; /* a negative character might screw us up */
-  while (hash_table[h].word_type) {
-    if (streq(w,hash_table[h].text)) return h;
-    h++;@+if (h==hash_prime) h=0;
-  }
-  return -1;
-}
-
-@ The |motion| words specify either a direction or a simple action or a place.
-Motion words take you from one location to another, when the motion is
-permitted. Here is a list of their possible meanings.
-
-@<Type...@>=
-typedef enum {
-  @!N,@!S,@!E,@!W,@!NE,@!SE,@!NW,@!SW,
-      @!U,@!D,@!L,@!R,@!IN,@!OUT,@!FORWARD,@!BACK,@/
-  @!OVER,@!ACROSS,@!UPSTREAM,@!DOWNSTREAM,@/
-  @!ENTER,@!CRAWL,@!JUMP,@!CLIMB,@!LOOK,@!CROSS,@/
-  @!ROAD,@!WOODS,@!VALLEY,@!HOUSE,
-    @!GULLY,@!STREAM,@!DEPRESSION,@!ENTRANCE,@!CAVE,@/
-  @!ROCK,@!SLAB,@!BED,@!PASSAGE,@!CAVERN,
-    @!CANYON,@!AWKWARD,@!SECRET,@!BEDQUILT,@!RESERVOIR,@/
-  @!GIANT,@!ORIENTAL,@!SHELL,@!BARREN,@!BROKEN,@!DEBRIS,@!VIEW,@!FORK,@/
-  @!PIT,@!SLIT,@!CRACK,@!DOME,@!HOLE,@!WALL,@!HALL,@!ROOM,@!FLOOR,@/
-  @!STAIRS,@!STEPS,@!COBBLES,@!SURFACE,@!DARK,@!LOW,@!OUTDOORS,@/
-  @!Y2,@!XYZZY,@!PLUGH,@!PLOVER,@!OFFICE,@!NOWHERE} motion;
-
-@ And here is how they enter our vocabulary.
-
+<TRANSPOSED words.h />
 If I were writing this program,
 I~would allow the word \.{woods}, but Don apparently didn't want to.
 @^Woods, Donald Roy@>
