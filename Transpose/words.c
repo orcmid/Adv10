@@ -1,4 +1,4 @@
-/* words.c 0.0.4                      UTF-8                     dh:2024-10-14
+/* words.c 0.0.5                      UTF-8                     dh:2024-10-15
  *
  *                           ADVENTURE VERSION 1.0
  *                           =====================
@@ -36,10 +36,13 @@
          XXX: The value must fit in an int used as an index over words[].
          */
 
-wordentry noword = { {0, 0, 0, 0, 0, 0}, no_type, 0 };
+const wordentry noword = { {'\0'}, no_type, 0 };
       /* [Adv10] A wordentry that is used to indicate that a word is not
          in the vocabulary.  It is also used to indicate that a
          slot in the vocabulary database is empty.
+
+         XXX: The use of {'\0'} for the text[] initializer needs to be
+              confirmed.
          */
 
 wordentry words[hash_prime];
@@ -55,17 +58,26 @@ static wordentry word_prep(  char *w /* a string of characters to prep */
                              )
 
    {  /* [Adv10] Construct a no_type wordentry with the text[] value
-         being the w[] string transformed to not more than five lower-case
-         characters.
+         being the w[] string transformed to not more than max_word_length
+         lower-case characters.
+
+         What we are doing here is encapsulating the way that words are
+         transformed into the form used for hashing and comparison.
+
+         Using word_prep here in words.c relieves the parsing of input from
+         implementing a vocabulary database constraint.  It also allows for
+         future changes to the way that words are prepared without
+         affecting the rest of the program.
          */
 
       wordentry model = noword;
 
-      strncpy(model.text,w,5);
+      strncpy(model.text, w, max_word_length);
 
       int i = -1;
       while (model.text[++i])
             model.text[i] = tolower(model.text[i]);
+            /* XXX: Better with do ... until? */
 
       return model;
 
@@ -75,7 +87,7 @@ static unsigned int word_hash(  char *w /* a string of characters to hash */
                                 )
 
    {  /* [Adv10] Compute a hash value from the w[] string of characters.
-         This common calculation is factored out of [fg: 27.6 and 28.8] to
+         This common calculation is factored out of [fg: 27.6, 28.8] to
          ensure consistency in the hash calculation.
          */
 
@@ -103,8 +115,7 @@ wordentry lookup(  char *w /* a string of characters to look up */
       while (words[h].word_type)
             {  if (!strcmp(pending.text,words[h].text))
                     return words[h];
-               h++;
-               if (h == hash_prime) h = 0;
+               if (++h == hash_prime) h = 0;
                }
 
       return pending;
@@ -164,6 +175,7 @@ static void new_word(  char *w,  /* string that the wordentry.text[ ] will be
 
 
 /*
+   0.0.5  2024-10-15T23:39Z Adjust to 0.0.4 words.h
    0.0.4  2024-10-14T23:23Z Add shared word_hash function
    0.0.3  2024-10-14T22:49Z Complete lookup and new_word functions
    0.0.2  2024-10-14T20:25Z Touch up the comments and add some TODOs
