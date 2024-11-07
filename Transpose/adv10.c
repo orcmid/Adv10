@@ -1,4 +1,4 @@
-/* adv10.c 0.0.6                      UTF-8                     dh:2016-12-08
+/* adv10.c 0.0.7                      UTF-8                     dh:2024-11-07
  *
  *                           ADVENTURE VERSION 1.0
  *                           =====================
@@ -21,7 +21,7 @@
  *    structure of this program and its behavior, I urge consultation
  *    of the literate (woven) version in a print ("final-form") version.
  *
- *    Whether or not a good idea, the purpose of this raw C version is to 
+ *    Whether or not a good idea, the purpose of this raw C version is to
  *    have a form, with embedded narration, that is closer to the style of
  *    contemporary C/C++ Language open-source development practice.  The
  *    idea is to use that as a spring-board toward modularization and
@@ -31,13 +31,14 @@
  *    interesting challenges.
  *
  *    The version having code the closest to adv10.c is in the third printing
- *    of [fg].  For other sources as well as variations on the original,
- *    consult <http://nfoWare.com/giocchi/cavern/adv>.
+ *    of [fg].  For other sources, history and variations on the original,
+ *    consult <https://en.wikipedia.org/wiki/Colossal_Cave_Adventure>.
  *
  *    To provide some correspondence with the literate version for those who
  *    start by examining this code, the section numberss of [fg] Chapter 27
  *    are used to identify the place where a given code fragment appears
- *    in the literate form.
+ *    in the literate form.  [Adv10] is used for places where modifications
+ *    have been made as part of refactoring the code.
  */
 
 /*   INTRODUCTION [fg:27.1]
@@ -46,10 +47,6 @@
      as devised by Will Crowther and extended by Don Woods in 1977.  The
      FORTRAN version was converted to C Language and recast as a Literate
      Program (using CWEB) by Don Knuth and made available online in 1998.
-       TODO:
-         * Say more about organization and connection to the WEB version.
-         * Explain the identification of sections and cross-references.
-         * Include abbreviated connection with [fg:27.1] text.
      */
 
 /*   THE PROGRAM [fg:27.2]
@@ -63,63 +60,66 @@
                operation of the program can also be found.
      */
 
-#include <stdio.h>      
-     /* basic input/output routines: fgets, fputs, printf 
-        and everything is stdin and stdout */
+#include <stdio.h>
+     /* basic input/output routines: fgets, fputs, and printf via stdin and
+        stdout */
      /* TODO: Use Unicode Input Output.
         TODO: Eliminate printf wherever possible and isolate input-output
-              for internationalization, and accessibility, at some point.
+              for internationalization and accessibility, at some point.
         */
 #include <ctype.h>      /* isspace, tolower, and toupper routines */
-#include <string.h>     /* strncmp and strcpy to compare and copy strings */
-     /* TODO: Use safe string operations wherever possible.
-        */
+#include <string.h>     /* strcmp and strcpy variations to compare and copy
+                           strings, using safe string operations wherever
+                           possible
+                           */
+
 #include <time.h>       /* current time, used as random number seed */
 #include <stdlib.h>     /* exit */
 
+#include <stdbool.h>    /* bool, true, false */
+
 /*   MACROS FOR SUBROUTINE PROTOTYPES [fg:27.3]
-     ==========================================
-     In the code, subroutines are declared first with a prototype,
-     and then with an old-style C function definition.  This is used
-     to compile properly with STD C compilers and with older compilers.
+     ------------------------------------------
+     [Adv10] In the code, subroutines are declared first with Clean C
+     prototypes.  We presume modern compilers and will be doing x64
+     compilations. Compiling specifies C11 and the C Standard Library.
+
+     There is no need to accomodate the K&R style of function declaration.
      */
 
-#ifdef __STDC__
-#define ARGS(list) list
-#else
-#define ARGS(list) ()
-#endif
-
-     /* TODO: We will only use STD C and there will always be prototypes.
-              It is desirable to remove the above definitions altogether.
-              There can still be prototypes up front to allow for
-              forward referencing issues and to maintain strong typing.
-              */
-
-
-     /* @^prototypes for functions@>
-        XXX: I am not clear why this is present in the web file ahead of
-             the conditional ARGS() definition.  It remains to be seen
-             what's up and whether this is a gathering point.  I may
-             have simply misplaced it in my initial transpositions.
-        */
-
-
-/*   5. TYPE DEFINITIONS
-     -------------------
+/*   TYPE DEFINITIONS [fg: 27.2]
+     ---------------------------
+     [Adv10] Type definitions associated with particular aspects of the
+     program are declared in *.h files on behalf of an API.  Others are
+     confined to API-suppporting *.c modules.  There might not be any
+     type definitions in this main program, Adv10.c.
      */
 
 typedef enum{false, true} boolean;
-     /* TODO: This may be built-in.  Have to resolve it.  If not, boolean
-              is a pre-reserved word in STD C.
+     /* TODO: Use of bool is preferable.
+        TODO: I intend to use <stdbool.h> and bool instead.  It will depend
+              where and how often I see boolean used.
               */
 
-/*   7. GLOBAL VARIABLES
-     -------------------
-     */
+/*   GLOBAL VARIABLES [fg:27.2 and .22]
+     ---------------------------------
+     [Adv10] We are moving groups of functions and their closely-held data
+     into modules of *.h and corresponding *.c files.  Global variables
+     are established in the *.c files and accessed via *.h-defined interfaces.
 
-/*   6. SUBROUTINES
-     --------------
+     There is no *.c use of register variables and "local registers" in Adv10.
+     We introduce automatic variables as needed in the individual functions
+     letting the compilers and linkers optimize.
+
+     TODO: Reconcile the use of q and qq in the handling of instructions
+           in [fg: 27.22].  I suspect that is going to be very tricky.
+           */
+
+/*   6. SUBROUTINES [fg: 27.6]
+     -------------------------
+     [Adv10] The vocabulary subroutines [fg: 27.4-27.17 and all of the
+     initializations are moved into words.c.  A few of them are reachable
+     via the words.h-defined API.
      */
 
 
@@ -131,25 +131,25 @@ int main(void)
 { /* UNUSED - ONLY DECLARE (AND ANNOTATE) ONCE ACTUALLY USED
   register int j,k;
   register char *p;
-  */
-     /* TODO: The optimization of registers is best left to
-              optimizers these days.
-        TODO: See if these locally-global dependencies are
-              necessary.
+
         TODO: At some point, the main() function will have args
               and they will be used, at least for trouble-shooting
               and perhaps for important adjustments for users.
         TODO: Arrange for the program to identify itself so it is
               always known which version is being operated in
               terminal captures and logs.
-        */
+              */
 
   /*  22. ADDITIONAL LOCAL REGISTERS */
-  
-  /*  ADV10: PROLOGUE */
-  
+
+  /*  ADV10: PROLOGUE (PLACE-HOLDER)*/
+
   fputs("\n[Adv10] 0.0.0 ORIGINAL COLLOSAL CAVE TEXT ADVENTURE\n\n", stdout);
   fputs("\n        MUCH DARKNESS\n\n", stdout);
+      /* TODO: Put the initial "you are standing" message and want help?
+               Message here.  Probably after initializations and the start
+               of simulation.
+               */
 
   /* 200. INITIALIZE ALL TABLES */
 
@@ -160,8 +160,8 @@ int main(void)
               of GOTO statements.  There should be other control
               patterns that work fine in this situation, though there
               might be a larger code footprint.
-        */
-        
+              */
+
   /* UNUSED LABEL.  UNCOMMENT ONCE IT IS USED.
   quit:
   */
@@ -172,16 +172,7 @@ int main(void)
 
 
 
-
-
-
-
-
-
 /* TODO:
-     * Make the corrected advent.w base and also provide diffs between that
-       and advent.w base and also adventure.w in case those are ever
-       required.
      * I will need a version that I can "script" as part of testing for
        interactive behavior.  I need to have a replayable output as well.
      * Get this and the file I am gutting under source control so I have
@@ -195,13 +186,15 @@ int main(void)
 
 
 
-/* 0.0.6 2016-12-08-09:42 Comment-suppress unused declarations and labels
+/*
+   0.0.7 2024-11-07T16:28Z Tidying up based on current direction
+   0.0.6 2016-12-08-09:42 Comment-suppress unused declarations and labels
          until they are used, keeping the /Wall compiles clean.
    0.0.5 2016-12-07-11:01 Minimum version for demonstration of test compiles.
    0.0.4 2016-10-08-12:50 Adjust the use of titles and add cross=references
          to the [fg:27] portions that tie to [fg] and advent.w.
    0.0.3 2016-10-04-08:38 Convert to semantic-versioning structure and
-         start touching things up some more.  Put more motivation in 
+         start touching things up some more.  Put more motivation in
          here or somewhere.  Also, figure out where development is
          actually happening so I don't mess up version control.
    0.02 2014-02-05-21:46 Create null implementation
