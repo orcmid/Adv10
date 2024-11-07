@@ -1,4 +1,4 @@
-%* advent.w-to-adv10.c.txt 0.0.3     UTF-8                     dh:2016-10-08
+%* advent.w-to-adv10.c.txt 0.0.4     UTF-8                     dh:2024-11-07
 
 % Copyright 1998 by Donald R Woods and Donald E Knuth
 % Don't change this file without the author's permission!
@@ -81,6 +81,9 @@ $* wonderful and we'll put a lot of attention on that.
 %*     2024-10-13: These are global variables for certain common variables.
 %*        I want to eliminate these cases, and us them as locally and as
 %*        encapsulated as possible.
+%*     2024-10-15: These are extracted values from a table of actions, in
+%*        a kinds of special codes.  This will be addressed when the that
+%*        part of operation arises in the transposition.
 @s motion int
 @s action int
 @s object int
@@ -192,11 +195,7 @@ type and meaning. Four types of words are distinguished: |motion_type|,
 %*             data structure it is.  Now that we can return structures,
 %*             maybe there is a better way to deal with this.
 %* a wordtype variable is used in words.c as a convenience.
-
-
 <TRANSPOSED words.c />
-
-
 <TRANSPOSED words.h />
 If I were writing this program,
 I~would allow the word \.{woods}, but Don apparently didn't want to.
@@ -4409,6 +4408,7 @@ nothingness.
 
 %*  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+%* 0.0.4 2024-11-07T16:33Z Intermediate refactoring into words.h/.c
 %* 0.0.3 2016-10-08-12:46 Match up down to [fg 27.4 Vocabulary]
 %*       There is cross-structuring and annotation down to the point where
 %*       the vocabulary types and functions are introduced.  Markup and
